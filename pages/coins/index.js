@@ -5,14 +5,12 @@ export default function Coins() {
     <div>
       <Head>
         <title>Coins Table</title>
-        <meta name="description" content="Coins table" />
+        <meta name='description' content='Coins table' />
       </Head>
 
       <main>
-        <p>Coins table</p>
+        <p>Coins table </p>
       </main>
-
-
     </div>
-  )
+  );
 }

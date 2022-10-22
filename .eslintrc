@@ -1,0 +1,41 @@
+{
+  "env": {
+    "node": false,
+    "browser": true,
+    "es2021": true,
+    "jest": false
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "import", "simple-import-sort", "jsx-a11y"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/first": "error",
+    "prettier/prettier": "error",
+    "import/no-unresolved": "off",
+    "import/named": "off",
+    "react/react-in-jsx-scope": "off", // в файлах jsx не  требовать импортировать react
+    "sort-imports": "off",
+    "import/order": "off",
+    "react/prop-types": "off"
+  }
+}
