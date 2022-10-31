@@ -2,19 +2,19 @@ import Head from 'next/head';
 
 import { Container, Navigation } from '../../components/UI';
 
-export default function Coins() {
-  const breadcrumbs = [{ title: 'Coins' }];
+export default function Profile() {
+  const breadcrumbs = [{ title: 'Profile' }];
 
   return (
     <>
       <Head>
-        <title>Coins</title>
-        <meta name='description' content='Coins' />
+        <title>Profile</title>
+        <meta name='description' content='Profile' />
       </Head>
 
       <Container>
         <Navigation crumbs={breadcrumbs} />
-        <p>Coins table </p>
+        <p>Prodile </p>
       </Container>
     </>
   );

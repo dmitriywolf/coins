@@ -1,0 +1,32 @@
+
+:root {
+  --blue: #3772FF;
+
+  --main-bg: #F4F5F6;
+
+  --bg-footer-color: #FCFCFD;
+
+  --border-color: #E6E8EC;
+
+  --shadow: 0px 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 16px;
+}

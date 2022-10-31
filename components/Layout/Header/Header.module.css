@@ -1,0 +1,10 @@
+.headerWrap {
+  background-color: var(--bg-footer-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 15px 0;
+}
