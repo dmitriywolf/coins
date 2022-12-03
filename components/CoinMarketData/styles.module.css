@@ -1,0 +1,35 @@
+.card {
+  border-radius: 16px;
+  height: 100%;
+}
+
+.divider {
+  height: 100%;
+}
+
+.price {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.changePrice {
+  display: flex;
+  margin-top: 8px;
+  margin-left: -6px;
+}
+
+.changePrice span {
+  padding-right: 6px;
+  padding-left: 6px;
+  white-space: nowrap;
+}
+
+.supply {
+  margin-top: 8px;
+}
+
+.supplySection {
+  display: flex;
+  justify-content: space-between;
+}

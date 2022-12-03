@@ -1,0 +1,8 @@
+.tooltip span, 
+.tooltip strong {
+  font-size: 14px;
+}
+
+.axisLabel {
+  fill: var(--secondary);
+}

@@ -1,0 +1,9 @@
+.categoryCard {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.content {
+  color: var(--secondary);
+  text-align: justify;
+}

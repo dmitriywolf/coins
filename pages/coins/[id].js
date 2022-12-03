@@ -1,26 +1,147 @@
+import { Card, Col, Row, Space, Tabs, Typography } from 'antd';
+import parse from 'html-react-parser';
 import Head from 'next/head';
-import React from 'react';
+import { useRouter } from 'next/router';
 
-import { Container, Navigation } from '../../components/UI';
+import {
+  CoinCharts,
+  CoinIntro,
+  CoinMarketData,
+  Container,
+  Navigation,
+  Tickers,
+} from '../../components';
+import { useCurrencyContext } from '../../context';
+import {
+  useGetCoinByIdQuery,
+  useGetCoinChartQuery,
+  useGetCoinTickersQuery,
+} from '../../hooks';
+import classes from '../../styles/CoinPage.module.css';
+import { capitelizeFirstLetter } from '../../utils';
+
+const { Title, Text } = Typography;
 
 export default function CoinPage() {
+  const router = useRouter();
+  const { currency } = useCurrencyContext();
+
+  const { data } = useGetCoinByIdQuery({
+    variables: {
+      id: router.query.id,
+    },
+    enabled: !!router.query.id,
+  });
+
+  const { data: tickers } = useGetCoinTickersQuery({
+    variables: {
+      id: router.query.id,
+    },
+    enabled: !!router.query.id,
+  });
+
+  const { data: charts } = useGetCoinChartQuery({
+    variables: {
+      id: router.query.id,
+      vs_currency: currency.value,
+    },
+    enabled: !!router.query.id,
+  });
+
+  const coinIntroData = {
+    name: data?.name,
+    categories: data?.categories,
+    algorith: data?.hashing_algorithm,
+    genesis: data?.genesis_date,
+    image: data?.image.small,
+    rank: data?.market_cap_rank,
+    symbol: data?.symbol,
+    community: {
+      facebook: data?.community_data?.facebook_likes,
+      reddit_posts: data?.community_data?.reddit_average_posts_48h,
+      twitter: data?.community_data?.twitter_followers,
+    },
+  };
+
+  const coinMarketData = {
+    name: data?.name,
+    symbol: data?.symbol,
+    high24h: data?.market_data.high_24h,
+    low24h: data?.market_data.low_24h,
+    marketCap: data?.market_data.market_cap,
+    marketCapChangePercentage24hInCurrency:
+      data?.market_data.market_cap_change_percentage_24h_in_currency,
+    currentPrice: data?.market_data.current_price,
+    priceChangePercentage24hInCurrency:
+      data?.market_data.price_change_percentage_24h_in_currency,
+    circulatingSupply: data?.market_data.circulating_supply,
+    maxSupply: data?.market_data.max_supply,
+  };
+
+  const items = [
+    {
+      label: 'Overviev',
+      key: '1',
+      children: (
+        <>
+          {data?.description.en ? (
+            <Row>
+              <Card className={classes.description}>
+                <div>
+                  <Space>
+                    <Title>What is</Title>
+                    <Title type='secondary'>{data?.name} ?</Title>
+                  </Space>
+                </div>
+
+                <Text type='secondary'>
+                  {data?.description.en ? parse(data?.description.en) : ''}
+                </Text>
+              </Card>
+            </Row>
+          ) : null}
+          <CoinCharts charts={charts} />
+        </>
+      ),
+    },
+
+    {
+      label: 'Tickers',
+      key: '2',
+      children: <Tickers list={tickers?.tickers} />,
+    },
+  ];
+
   const breadcrumbs = [
     { path: '/coins', title: 'Coins' },
-    { title: 'Coin Page' },
+    { title: `${capitelizeFirstLetter(router.query.id)}` },
   ];
 
   return (
     <>
       <Head>
-        <title>Coins Table</title>
-        <meta name='description' content='Coins table' />
+        <title>{capitelizeFirstLetter(router.query.id) ?? 'Coin Page'}</title>
+        <meta name='description' content='Coin page' />
       </Head>
+      <div className={`${classes.coinPage} page`}>
+        <Container>
+          <Navigation crumbs={breadcrumbs} />
 
-      <Container>
-        <Navigation crumbs={breadcrumbs} />
+          <Row gutter={16}>
+            <Col span={10}>
+              <CoinIntro intro={coinIntroData} />
+            </Col>
 
-        <h1>CoinPage</h1>
-      </Container>
+            <Col span={14}>
+              <CoinMarketData market={coinMarketData} />
+            </Col>
+          </Row>
+
+          <div className={classes.tabs}>
+            <Tabs defaultActiveKey='1' items={items} />
+          </div>
+        </Container>
+      </div>
     </>
   );
 }

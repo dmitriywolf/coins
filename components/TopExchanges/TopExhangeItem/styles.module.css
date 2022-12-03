@@ -1,0 +1,27 @@
+.card {
+  border-radius: 8px;
+}
+
+.titleWrap {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: var(--clearBlue);
+}
+
+.logoWrap {
+  min-width: 50px;
+}
+
+.description {
+  margin: 0;
+  color: var(--secondary);
+  text-align: justify;
+}

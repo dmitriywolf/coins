@@ -1,0 +1,15 @@
+.navigationWrap {
+  padding: 25px 0;
+}
+
+.homeIcon svg{
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.item {
+  font-size: 16px;
+  font-weight: 500;
+}

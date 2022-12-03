@@ -1,0 +1,12 @@
+.coinPage {
+  background: var(--whiteSmoke);
+}
+
+.tabs {
+  margin-top: 60px;
+}
+
+.description {
+  width: 100%;
+  border-radius: 8px;
+}

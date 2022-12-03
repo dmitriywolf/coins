@@ -1,0 +1,20 @@
+.coinsPage {
+  background: var(--whiteSmoke);
+}
+
+.filterWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+.filterTitle {
+  margin: 0 20px 0 0;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.tableRow {
+  cursor: pointer;
+}

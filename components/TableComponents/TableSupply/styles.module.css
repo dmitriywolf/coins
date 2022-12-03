@@ -1,0 +1,5 @@
+.popoverLine {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+}
