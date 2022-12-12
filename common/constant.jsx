@@ -5,8 +5,6 @@ import TopListIcon from '../public/images/TopList.svg';
 export const API_URL_CRYPTO = 'https://api.coingecko.com/api/v3/';
 export const API_URL_COMPARE = 'https://min-api.cryptocompare.com/data';
 export const COMPARE_LINK = 'https://www.cryptocompare.com';
-export const API_COMPARE_KEY =
-  '2d3a10f9bbe4ef6a3130394f6ee8c926c226f0dc31e96a4f9792c5e2e245fa3b';
 
 export const BREAKPOINTS_CRYPTO = {
   coins: '/coins',

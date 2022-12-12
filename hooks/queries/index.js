@@ -5,7 +5,6 @@ export * from './useGetCoinsChartsQueries';
 export * from './useGetCoinsListQuery';
 export * from './useGetCoinsMarketsQuery';
 export * from './useGetCoinTickersQuery';
-export * from './useGetGategoriesListQuery';
 export * from './useGetGlobalInfoQuery';
 export * from './useGetMultiPriceQuery';
 export * from './useGetTopCoinsQuery';

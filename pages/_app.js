@@ -7,6 +7,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Head from 'next/head';
 import { useState } from 'react';
 
 import { Layout } from '../components';
@@ -21,6 +22,9 @@ export default function MyApp({ Component, pageProps }) {
       <Hydrate state={pageProps.dehydratedState}>
         <CurrencyProvider>
           <CompareProvider>
+            <Head>
+              <title>Crypto Coins Compare App</title>
+            </Head>
             <Layout>
               <Component {...pageProps} />
             </Layout>

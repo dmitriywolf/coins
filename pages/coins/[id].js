@@ -108,8 +108,8 @@ export default function CoinPage() {
   return (
     <>
       <Head>
-        <title>{capitelizeFirstLetter(id) ?? 'Coin Page'}</title>
-        <meta name='description' content='Coin page' />
+        <title>Coin: {data?.name}</title>
+        <meta name='description' content={`Coin page: ${data?.name}`} />
       </Head>
       <div className={`${classes.coinPage} page`}>
         <Container>

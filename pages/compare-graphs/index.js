@@ -66,7 +66,11 @@ export default function CompareGraphsPage() {
   return (
     <>
       <Head>
-        <title>Compare in Graphs</title>
+        <title>Compare coins in graphs</title>
+        <meta
+          name='description'
+          content='Page for comparing cryptocurrencies by market in graph, price and total values'
+        />
       </Head>
       <div className={`${classes.compareGraphsPage} page`}>
         <Container>

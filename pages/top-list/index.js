@@ -23,8 +23,8 @@ export default function TopListPage() {
 
   const { data: coinsList, isLoading } = useGetTopListQuery({
     variables: {
-      tsym: currencyValue,
       page,
+      tsym: currencyValue,
     },
   });
 
@@ -127,6 +127,10 @@ export default function TopListPage() {
     <>
       <Head>
         <title>Top List</title>
+        <meta
+          name='description'
+          content='Top Coin List according to https://min-api.cryptocompare.com/'
+        />
       </Head>
       <div className={`${classes.topListPage} page`}>
         <Container>
@@ -154,7 +158,9 @@ export default function TopListPage() {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['topList', 'USD'], () => getTopList());
+  await queryClient.prefetchQuery(['topList', [0, 10, 'USD']], () =>
+    getTopList({ page: 0, limit: 10, tsym: 'USD' }),
+  );
 
   return {
     props: {

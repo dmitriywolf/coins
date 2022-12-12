@@ -46,6 +46,10 @@ export default function ComparePage() {
     <>
       <Head>
         <title>Compare Coins</title>
+        <meta
+          name='description'
+          content='Page for comparing cryptocurrencies by market'
+        />
       </Head>
       <div className={`${classes.comparePage} page`}>
         <Container>

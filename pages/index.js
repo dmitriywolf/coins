@@ -28,7 +28,11 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Coins Compare</title>
+        <title>Crypto Coins Compare</title>
+        <meta
+          name='description'
+          content='An app for viewing information about all cryptocurrencies with the ability to compare them.'
+        />
       </Head>
       <div className={`${classes.homePage} page`}>
         <Container>

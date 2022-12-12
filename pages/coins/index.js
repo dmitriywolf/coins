@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { getCoinsList, getCoinsMarkets } from '../../api';
+import { getCoinsMarkets } from '../../api';
 import { CompareAction, Container, Loader, Navigation } from '../../components';
 import {
   Change,
@@ -144,7 +144,10 @@ export default function Coins() {
     <>
       <Head>
         <title>Coins</title>
-        <meta name='description' content='Coins' />
+        <meta
+          name='description'
+          content='List of all cryptocurrencies that are available on the market'
+        />
       </Head>
       <div className={`${classes.coinsPage} page`}>
         <Container>
@@ -180,7 +183,6 @@ export default function Coins() {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['coinsList'], () => getCoinsList());
   await queryClient.prefetchQuery(['coinsMarkets', 'USD', 1], () =>
     getCoinsMarkets({
       vs_currency: 'USD',

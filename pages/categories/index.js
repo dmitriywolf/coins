@@ -51,6 +51,10 @@ export default function CategoriesPage() {
     <>
       <Head>
         <title>Categories</title>
+        <meta
+          name='description'
+          content='List of all available crypto coin categories'
+        />
       </Head>
       <div className={`${classes.categoriesPage} page`}>
         <Container>
