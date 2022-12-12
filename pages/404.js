@@ -16,7 +16,9 @@ export default function NotFound() {
           imageStyle={{
             height: 300,
           }}
-          description={<p className={classes.text}>404: Not Found</p>}
+          description={
+            <p className={classes.text}>404: This page could not be found</p>
+          }
         >
           <div className={classes.btn}>
             <Button type='primary' size='large' shape='round' href='/'>

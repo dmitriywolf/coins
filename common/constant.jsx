@@ -2,9 +2,9 @@ import CategoriesIcon from '../public/images/Categories.svg';
 import CoinIcon from '../public/images/Coins.svg';
 import TopListIcon from '../public/images/TopList.svg';
 
-export const API_URL_CRYPTO = 'https://api.coingecko.com/api/v3/';
-export const API_URL_COMPARE = 'https://min-api.cryptocompare.com/data';
-export const COMPARE_LINK = 'https://www.cryptocompare.com';
+export const API_URL_CRYPTO = process.env.API_URL_CRYPTO;
+export const API_URL_COMPARE = process.env.API_URL_COMPARE;
+export const COMPARE_LINK = process.env.COMPARE_LINK;
 
 export const BREAKPOINTS_CRYPTO = {
   coins: '/coins',
