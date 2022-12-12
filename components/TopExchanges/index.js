@@ -8,7 +8,7 @@ export function TopExchanges({ exchages }) {
   return (
     <>
       <Title level={3} align='center'>
-        Top 20 Exchanges by Trust
+        Top 10 Exchanges by Trust
       </Title>
       <Row gutter={[16, 16]}>
         {exchages?.map((item) => (

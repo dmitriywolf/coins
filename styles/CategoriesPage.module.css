@@ -3,7 +3,7 @@
 }
 
 .sortWrap {
-  position: relative
+  position: relative;
 }
 
 .sortInner {
@@ -20,4 +20,11 @@
   margin: 0 20px 0 0;
   font-weight: 500;
   color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .sortInner {
+    position: static;
+    justify-content: flex-end;
+  }
 }

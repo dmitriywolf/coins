@@ -25,6 +25,16 @@
   --cardShadow: 0 0 40px rgba(216, 216, 216, 0.8);
 }
 
+
+/* media queries
+  xxs: 360px;
+  xs: 480px;
+  sm: 576px;
+  md: 768px;
+  lg: 992px;
+  xl: 1200px;
+  xxl: 1600px; */
+
 *,
 *:before,
 *:after {
@@ -214,4 +224,28 @@ body {
 
 .ant-segmented-item-selected span {
   color: var(--pastelBlue)
+}
+
+@media (max-width: 992px) {
+
+  .page h1 {
+    font-size: 34px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .page h1 {
+    font-size: 28px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .page h1 {
+    font-size: 24px;
+  }
+
 }

@@ -13,7 +13,7 @@ export function CompareIcon({ isGraph }) {
     <div className={classes.wrap}>
       <Badge
         count={isGraph ? countGraph : count}
-        offset={[1, 8]}
+        offset={[2, 4]}
         color={isGraph ? '#18B04D' : '#F43F3F'}
       >
         <Link href={isGraph ? '/compare-graphs' : '/compare'}>

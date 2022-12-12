@@ -20,10 +20,11 @@ export function ListItem({ id, name, priceBTC, symbol, image, rank }) {
                 <span className={classes.symbol}>{symbol}</span>
               </p>
             </div>
-            <Space>
+
+            <p className={classes.priceWrap}>
               <Text strong>Price: </Text>
-              <Text type='secondary'>{priceBTC} BTC</Text>
-            </Space>
+              <Text type='secondary'>{` ${priceBTC} BTC`}</Text>
+            </p>
           </Space>
         </Space>
       </div>

@@ -9,15 +9,7 @@ export function Header() {
       <Container>
         <div className={classes.header}>
           <Logo />
-          <Divider
-            type='vertical'
-            style={{
-              height: '100%',
-              width: '2px',
-              margin: '0 20px',
-              background: '#B1B5C4',
-            }}
-          />
+          <Divider type='vertical' />
           <Menu />
           <div className={classes.actions}>
             <CompareIcon />

@@ -8,12 +8,14 @@
 .logo svg {
   width: 40px;
   height: 40px;
+  min-width: 40px;
 }
 
 .logo span {
   padding-left: 5px;
   font-size: 18px;
   font-weight: bold;
+  line-height: 1.25;
 }
 
 .logo:hover {
@@ -29,5 +31,21 @@
   font-weight: 400;
   border-radius: 4px;
   color: var(--white);
-  background-color: var(--cadetBlue);
+  background-color: var(--secondary);
+}
+
+@media (max-width: 992px) {
+  .logo span {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-weight: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo span {
+    display: none;
+  }
 }
