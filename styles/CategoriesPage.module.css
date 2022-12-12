@@ -1,12 +1,19 @@
 .categoriesPage {
-  background: var(--gradient);
+  background: var(--lightGray);
 }
 
 .sortWrap {
+  position: relative
+}
+
+.sortInner {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 16px;
+  z-index: 5;
 }
 
 .sortTitle {

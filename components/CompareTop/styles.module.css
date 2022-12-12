@@ -1,0 +1,6 @@
+.row {
+  position: sticky;
+  top: 70px;
+  background-color: var(--whiteSmoke);
+  z-index: 5;
+}

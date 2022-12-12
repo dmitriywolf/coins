@@ -1,6 +1,6 @@
 import { Divider } from 'antd';
 
-import { Container, CurrencySelect, Logo, Menu } from '../../';
+import { CompareIcon, Container, CurrencySelect, Logo, Menu } from '../../';
 import classes from './styles.module.css';
 
 export function Header() {
@@ -11,10 +11,17 @@ export function Header() {
           <Logo />
           <Divider
             type='vertical'
-            style={{ height: '100%', margin: '0 20px' }}
+            style={{
+              height: '100%',
+              width: '2px',
+              margin: '0 20px',
+              background: '#B1B5C4',
+            }}
           />
           <Menu />
           <div className={classes.actions}>
+            <CompareIcon />
+            <CompareIcon isGraph={true} />
             <CurrencySelect />
           </div>
         </div>

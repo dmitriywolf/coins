@@ -52,21 +52,22 @@ export function TopExchangeItem({
   url,
   year_established,
 }) {
+  function navToExchange() {
+    window.open(url, '_blank');
+  }
+
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={navToExchange}>
       <Space align='start'>
         <div className={classes.logoWrap}>
-          <Image src={image} alt={name} />
+          <Image src={image} alt={name} preview={false} />
         </div>
         <Space direction='vertical'>
           <div className={classes.titleWrap}>
             <ScoreTagRank text='#' rank={trust_score_rank} />
             <TrustTag score={trust_score} />
-            <a href={url} target='_blank' rel='noreferrer'>
-              <h3 className={classes.title}>{name}</h3>
-            </a>
+            <h3 className={classes.title}>{name}</h3>
           </div>
-
           {country || year_established ? (
             <Space>
               {country && (

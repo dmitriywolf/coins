@@ -90,7 +90,7 @@ export function Tickers({ list = [] }) {
 
   return (
     <div className={classes.tickers}>
-      <Title>Last 100 Tickers by Volume</Title>
+      <Title>Last Tickers by Volume</Title>
       <Table
         columns={columns}
         dataSource={tickersData}
@@ -98,7 +98,7 @@ export function Tickers({ list = [] }) {
         pagination={{
           showSizeChanger: false,
           pageSize: 20,
-          position: ['bottomCenter'],
+          position: ['topRight'],
         }}
         onRow={({ tradeUrl }) => {
           return {

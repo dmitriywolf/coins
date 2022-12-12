@@ -1,0 +1,9 @@
+.text {
+  font-size: 18px;
+  color: var(--secondary);
+}
+
+.btn button {
+  background: var(--sand);
+  border-color: var(--sand);
+}

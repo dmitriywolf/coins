@@ -1,0 +1,25 @@
+.comparePage {
+  background: var(--whiteSmoke);
+}
+
+.filterWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+}
+
+.filterTitle {
+  margin: 0 20px 0 0;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.actions{
+  margin-left: 12px;
+}
+
+.actions button {
+  background-color: var(--sand);
+  border-color: var(--sand);
+}

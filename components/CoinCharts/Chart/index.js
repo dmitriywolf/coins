@@ -5,16 +5,13 @@ import {
   Tooltip,
   XYChart,
 } from '@visx/xychart';
-import { Space, Typography } from 'antd';
 import { timeFormat } from 'd3-time-format';
 
 import { useCurrencyContext } from '../../../context';
 import { formatNumber } from '../../../utils';
 import classes from './styles.module.css';
 
-const { Text } = Typography;
-
-export function Chart({ data, title }) {
+export function Chart({ data, title, type }) {
   const { currency } = useCurrencyContext();
   const accessors = {
     xAccessor: (d) => {
@@ -24,7 +21,7 @@ export function Chart({ data, title }) {
     yAccessor: (d) => d.y,
   };
 
-  const format = timeFormat('%Y %b %d');
+  const format = timeFormat('%b %d');
   const formatDate = (date) => format(date);
 
   const getFullDate = (date) => {
@@ -32,29 +29,55 @@ export function Chart({ data, title }) {
     return newDate.toLocaleString();
   };
 
+  function getColorLine(type) {
+    switch (type) {
+      case 'price':
+        return '#F43F3F';
+      case 'marketCap':
+        return '#18B04D';
+      case 'volume':
+        return '#3772FF';
+      default:
+        return '#777E91';
+    }
+  }
+
+  const formatBigSum = (data) => data / 1000000;
+
+  const isPriceGraph = type === 'price';
+
   return (
-    <>
+    <div className={classes.chart}>
       {data?.length > 0 ? (
         <XYChart
-          height={600}
+          height={500}
           xScale={{ type: 'band' }}
           yScale={{ type: 'linear' }}
         >
           <AnimatedAxis
             orientation='bottom'
             label='Date'
-            stroke='#777E91'
+            strokeWidth='1'
             tickFormat={formatDate}
             labelClassName={classes.axisLabel}
           />
           <AnimatedAxis
             orientation='left'
-            label={`${title}, ${currency.value.toUpperCase()}`}
-            stroke='#777E91'
+            label={`${title}, ${
+              isPriceGraph ? '' : 'M'
+            } ${currency.value.toUpperCase()}`}
             labelClassName={classes.axisLabel}
+            labelOffset={20}
+            tickFormat={!isPriceGraph ? formatBigSum : undefined}
+            hideZero={true}
           />
-          <AnimatedGrid columns={false} numTicks={6} />
-          <AnimatedLineSeries dataKey={title} data={data} {...accessors} />
+          <AnimatedGrid columns={false} numTicks={10} />
+          <AnimatedLineSeries
+            dataKey={title}
+            data={data}
+            {...accessors}
+            colorAccessor={() => getColorLine(type)}
+          />
           <Tooltip
             snapTooltipToDatumX
             snapTooltipToDatumY
@@ -62,29 +85,34 @@ export function Chart({ data, title }) {
             showSeriesGlyphs
             renderTooltip={({ tooltipData }) => (
               <div className={classes.tooltip}>
-                <Space direction='vertical'>
-                  <Space>
-                    <Text>Time:</Text>
-                    <Text type='secondary'>
-                      {getFullDate(
-                        accessors.xAccessor(tooltipData.nearestDatum.datum),
-                      )}
-                    </Text>
-                  </Space>
-                  <Space>
-                    <Text>{title}:</Text>
-                    <Text type='secondary'>
-                      {`${formatNumber(
+                <p className={classes.tooltipDate}>
+                  {getFullDate(
+                    accessors.xAccessor(tooltipData.nearestDatum.datum),
+                  )}
+                </p>
+                <p className={classes.tooltipData}>
+                  {isPriceGraph ? (
+                    <>
+                      {formatNumber(
                         accessors.yAccessor(tooltipData.nearestDatum.datum),
-                      )} ${currency.value.toUpperCase()}`}
-                    </Text>
-                  </Space>
-                </Space>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {formatNumber(
+                        Math.round(
+                          accessors.yAccessor(tooltipData.nearestDatum.datum),
+                        ),
+                      )}
+                    </>
+                  )}
+                  {` ${currency.symbol}`}
+                </p>
               </div>
             )}
           />
         </XYChart>
       ) : null}
-    </>
+    </div>
   );
 }

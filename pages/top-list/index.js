@@ -1,12 +1,14 @@
+import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
 import Head from 'next/head';
 import React, { useState } from 'react';
 
+import { getTopList } from '../../api';
 import { COMPARE_LINK } from '../../common/constant';
-import { Container, Navigation } from '../../components';
+import { CompareAction, Container, Loader, Navigation } from '../../components';
 import { CoinName } from '../../components/TableComponents';
 import { useCurrencyContext } from '../../context';
-import { useGetTopListCoinsCompareQuery } from '../../hooks';
+import { useGetTopListQuery } from '../../hooks';
 import classes from '../../styles/TopListPage.module.css';
 
 export { COMPARE_LINK } from '../../common/constant';
@@ -14,29 +16,25 @@ export { COMPARE_LINK } from '../../common/constant';
 const { Title, Text } = Typography;
 
 export default function TopListPage() {
-  const [totalItems, setTotalItems] = useState(100);
   const [page, setPage] = useState(0);
 
   const { currency } = useCurrencyContext();
   const { value: currencyValue } = currency;
 
-  const { data: coinsList } = useGetTopListCoinsCompareQuery({
+  const { data: coinsList, isLoading } = useGetTopListQuery({
     variables: {
       tsym: currencyValue,
       page,
     },
-    onSuccess: (data) => {
-      setTotalItems(data.MetaData.Count);
-    },
   });
-  const breadcrumbs = [{ title: 'Top-List' }];
 
   const coinsData = coinsList?.Data?.map((item) => {
-    const currencyKey = Object.keys(item?.DISPLAY)[0];
+    const currencyKey = item.DISPLAY ? Object.keys(item.DISPLAY)[0] : '';
 
     return {
       key: item.CoinInfo.Id,
       id: item.CoinInfo.Id,
+      internal: item.CoinInfo.Internal,
       algorithm: item.CoinInfo.Algorithm,
       blockTime: item.CoinInfo.BlockTime,
       blockNumber: item.CoinInfo.BlockNumber,
@@ -45,10 +43,9 @@ export default function TopListPage() {
       symbol: item.CoinInfo.Name,
       proofType: item.CoinInfo.ProofType,
       image: `${COMPARE_LINK}${item.CoinInfo.ImageUrl}`,
-      highPrice24h: item.DISPLAY[currencyKey].HIGH24HOUR,
-      lowPrice24h: item.DISPLAY[currencyKey].LOW24HOUR,
-      price: item.DISPLAY[currencyKey].PRICE,
-      volume24: item.DISPLAY[currencyKey].VOLUME24HOURTO,
+      price: item.DISPLAY?.[currencyKey]?.PRICE || '-',
+      highPrice24h: item.DISPLAY?.[currencyKey]?.HIGH24HOUR || '-',
+      lowPrice24h: item.DISPLAY?.[currencyKey]?.LOW24HOUR || '-',
     };
   });
 
@@ -89,7 +86,6 @@ export default function TopListPage() {
         );
       },
     },
-
     {
       title: 'Algorithm/Proof Type',
       dataIndex: 'algorithm_proof_type',
@@ -117,37 +113,52 @@ export default function TopListPage() {
         </div>
       ),
     },
-
     {
-      title: 'Volume 24h',
-      dataIndex: 'volume_24h',
-      key: 'volume_24h',
-      render: (_, { volume24 }) => <Text>{volume24}</Text>,
+      title: 'Compare',
+      dataIndex: 'compare',
+      key: 'compare',
+      render: (_, row) => <CompareAction row={row} />,
     },
   ];
+
+  const breadcrumbs = [{ title: 'Top-List' }];
 
   return (
     <>
       <Head>
-        <title>Compare</title>
+        <title>Top List</title>
       </Head>
       <div className={`${classes.topListPage} page`}>
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Top List</Title>
-          <Table
-            columns={columns}
-            dataSource={coinsData}
-            pagination={{
-              total: totalItems,
-              showSizeChanger: false,
-              pageSize: 20,
-              onChange: (page) => setPage(page),
-              position: ['bottomCenter'],
-            }}
-          />
+          <Loader active={isLoading} size='large' bg='#F4F5F6'>
+            <Table
+              columns={columns}
+              dataSource={coinsData}
+              pagination={{
+                total: coinsList?.MetaData?.Count || 100,
+                showSizeChanger: false,
+                pageSize: 10,
+                onChange: (page) => setPage(page - 1),
+                position: ['topRight'],
+              }}
+            />
+          </Loader>
         </Container>
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(['topList', 'USD'], () => getTopList());
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }

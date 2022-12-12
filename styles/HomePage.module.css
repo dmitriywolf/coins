@@ -3,10 +3,18 @@
   background: var(--gradient);
 }
 
+.subtitle {
+  padding: 0 5px;
+  border-radius: 8px;
+  color: var(--pastelBlue);
+  background-color: var(--white);
+}
+
 .mainBanner {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .mainBanner h1 {

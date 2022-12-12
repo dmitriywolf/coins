@@ -1,0 +1,31 @@
+.wrap {
+  margin-right: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--lightGray);
+}
+
+.wrap:hover {
+  cursor: pointer;
+  box-shadow: var(--cardShadow);
+  
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--pastelBlue);
+}
+
+
+.icon:hover svg {
+  fill: var(--sunshade);
+}

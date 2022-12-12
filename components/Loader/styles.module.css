@@ -1,0 +1,28 @@
+.wrap {
+  width: 100%;
+  position: relative;
+  min-height: 200px;
+  
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  border-radius: 8px;
+}

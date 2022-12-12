@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getCoinChart } from '../../api/instance-crypto';
+import { getCoinChart } from '../../api';
 
-export const useGetCoinChartQuery = ({ variables, ...options }) => {
+export const useGetCoinChartQuery = ({ id, currency }) => {
   return useQuery({
-    queryKey: ['coinChart', ...Object.values(variables)],
-    queryFn: () => getCoinChart(variables),
-    ...options,
+    queryKey: ['coinChart', { id, currency }],
+    queryFn: () => getCoinChart({ id, currency }),
   });
 };

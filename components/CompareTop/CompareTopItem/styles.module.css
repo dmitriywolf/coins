@@ -1,0 +1,39 @@
+.card {
+  height: 100%;
+  padding: 12px;
+  justify-content: space-around;
+  background-color: transparent;
+  border-right: 1px solid var(--cadetBlue);
+  border-bottom: 1px solid var(--cadetBlue);
+  display: flex;
+  align-items: center;
+}
+
+.card img {
+  width: 50px;
+  min-width: 50px;
+  margin-right: 6px;
+}
+
+.titleWrap {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 18px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.removeBtnWrap {
+  min-width: 42px;
+  display: flex;
+  padding-left: 10px;
+}
+
+.removeBtnWrap button{
+  background-color: var(--sunshade);
+  border-color: var(--sunshade);
+}

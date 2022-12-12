@@ -1,0 +1,9 @@
+.add button {
+  background-color: var(--sand);
+  border-color: var(--sand);
+}
+
+.remove button {
+  background-color: var(--pastelBlue);
+  border-color: var(--pastelBlue);
+}

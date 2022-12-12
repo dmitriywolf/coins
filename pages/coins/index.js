@@ -1,9 +1,11 @@
+import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { Container, Navigation } from '../../components';
+import { getCoinsList, getCoinsMarkets } from '../../api';
+import { CompareAction, Container, Loader, Navigation } from '../../components';
 import {
   Change,
   CoinName,
@@ -17,21 +19,16 @@ import { formatNumber } from '../../utils';
 const { Text, Title } = Typography;
 
 export default function Coins() {
-  const [totalItems, setTotalItems] = useState(100);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const { currency } = useCurrencyContext();
   const { value: currencyValue, symbol: currencySymbol } = currency;
 
   const router = useRouter();
 
-  useGetCoinsListQuery({
-    onSuccess: (data) => {
-      setTotalItems(data.length);
-    },
-  });
+  const { data: coinsList } = useGetCoinsListQuery();
 
-  const { data } = useGetCoinsMarketsQuery({
+  const { data, isLoading } = useGetCoinsMarketsQuery({
     variables: {
       vs_currency: currencyValue,
       page,
@@ -129,10 +126,16 @@ export default function Coins() {
         />
       ),
     },
+    {
+      title: 'Compare',
+      dataIndex: 'compare',
+      key: 'compare',
+      render: (_, row) => <CompareAction row={row} isGraph={true} />,
+    },
   ];
 
   function navToCoin(id) {
-    router.push(`/coins/${id}`);
+    router.push(`/coins/${id}`, undefined, { shallow: true });
   }
 
   const breadcrumbs = [{ title: 'Coins' }];
@@ -147,27 +150,47 @@ export default function Coins() {
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Coins</Title>
-          <Table
-            columns={columns}
-            dataSource={coinsData}
-            rowClassName={classes.tableRow}
-            pagination={{
-              total: totalItems,
-              showSizeChanger: false,
-              pageSize: 20,
-              onChange: (page) => setPage(page),
-              position: ['bottomCenter'],
-            }}
-            onRow={({ id }) => {
-              return {
-                onClick: () => {
-                  navToCoin(id);
-                },
-              };
-            }}
-          />
+          <Loader active={isLoading} size='large' bg='#F4F5F6'>
+            <Table
+              columns={columns}
+              dataSource={coinsData}
+              rowClassName={classes.tableRow}
+              pagination={{
+                total: coinsList?.length || 100,
+                showSizeChanger: false,
+                pageSize: 10,
+                onChange: (page) => setPage(page),
+                position: ['topRight'],
+              }}
+              onRow={({ id }) => {
+                return {
+                  onClick: () => {
+                    navToCoin(id);
+                  },
+                };
+              }}
+            />
+          </Loader>
         </Container>
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(['coinsList'], () => getCoinsList());
+  await queryClient.prefetchQuery(['coinsMarkets', 'USD', 1], () =>
+    getCoinsMarkets({
+      vs_currency: 'USD',
+      page: 1,
+    }),
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }

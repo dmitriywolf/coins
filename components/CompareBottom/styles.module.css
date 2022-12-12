@@ -1,0 +1,23 @@
+.wrap{
+  margin-top: 40px;
+}
+
+.wrapTop {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.wrapBottom {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.value {
+  margin: 0;
+  text-align: center;
+  color: var(--secondary);
+  font-weight: 500;
+}

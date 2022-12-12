@@ -11,7 +11,9 @@ export function Logo() {
     <Link href='/'>
       <div className={classes.logo}>
         <LogoImg />
-        <Text type='secondary'>COINS MARKET</Text>
+        <Text type='secondary'>
+          CRYPTO <span className={classes.subtitle}>COMPARE</span>
+        </Text>
       </div>
     </Link>
   );

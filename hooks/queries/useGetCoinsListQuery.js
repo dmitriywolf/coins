@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getCoinsList } from '../../api/instance-crypto';
+import { getCoinsList } from '../../api';
 
-export const useGetCoinsListQuery = (options) => {
+export const useGetCoinsListQuery = () => {
   return useQuery({
     queryKey: ['coinsList'],
     queryFn: getCoinsList,
-    ...options,
   });
 };

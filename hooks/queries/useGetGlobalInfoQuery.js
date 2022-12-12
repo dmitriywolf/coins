@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getGlobalInfo } from '../../api/instance-crypto';
+import { getGlobalInfo } from '../../api';
 
 export const useGetGlobalInfoQuery = () => {
   return useQuery({

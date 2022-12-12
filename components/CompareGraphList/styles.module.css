@@ -1,0 +1,34 @@
+.compareCoins {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.compareCoin {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 16px;
+}
+
+.compareCoin img {
+  width: 40px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.title h4 {
+  font-size: 18px;
+  margin: 0
+}
+
+.removeBtnWrap button{
+  background-color: var(--sunshade);
+  border-color: var(--sunshade);
+}

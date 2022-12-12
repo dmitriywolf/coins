@@ -1,0 +1,18 @@
+.compareGraphsPage {
+  background: var(--gradient);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.actions button {
+  background-color: var(--sand);
+  border-color: var(--sand);
+}
+
+.graphWrap {
+  padding: 20px 0;
+}

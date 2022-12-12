@@ -1,8 +1,10 @@
+import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Card, Col, Row, Space, Tabs, Typography } from 'antd';
 import parse from 'html-react-parser';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { getCoinById, getCoinChart, getCoinTickers } from '../../api';
 import {
   CoinCharts,
   CoinIntro,
@@ -23,29 +25,16 @@ import { capitelizeFirstLetter } from '../../utils';
 const { Title, Text } = Typography;
 
 export default function CoinPage() {
-  const router = useRouter();
+  const {
+    query: { id },
+  } = useRouter();
+
   const { currency } = useCurrencyContext();
-
-  const { data } = useGetCoinByIdQuery({
-    variables: {
-      id: router.query.id,
-    },
-    enabled: !!router.query.id,
-  });
-
-  const { data: tickers } = useGetCoinTickersQuery({
-    variables: {
-      id: router.query.id,
-    },
-    enabled: !!router.query.id,
-  });
-
-  const { data: charts } = useGetCoinChartQuery({
-    variables: {
-      id: router.query.id,
-      vs_currency: currency.value,
-    },
-    enabled: !!router.query.id,
+  const { data } = useGetCoinByIdQuery({ id });
+  const { data: tickers } = useGetCoinTickersQuery({ id });
+  const { data: charts, isLoading } = useGetCoinChartQuery({
+    id,
+    currency: currency.value,
   });
 
   const coinIntroData = {
@@ -100,11 +89,10 @@ export default function CoinPage() {
               </Card>
             </Row>
           ) : null}
-          <CoinCharts charts={charts} />
+          <CoinCharts charts={charts} loading={isLoading} />
         </>
       ),
     },
-
     {
       label: 'Tickers',
       key: '2',
@@ -114,13 +102,13 @@ export default function CoinPage() {
 
   const breadcrumbs = [
     { path: '/coins', title: 'Coins' },
-    { title: `${capitelizeFirstLetter(router.query.id)}` },
+    { title: `${capitelizeFirstLetter(id)}` },
   ];
 
   return (
     <>
       <Head>
-        <title>{capitelizeFirstLetter(router.query.id) ?? 'Coin Page'}</title>
+        <title>{capitelizeFirstLetter(id) ?? 'Coin Page'}</title>
         <meta name='description' content='Coin page' />
       </Head>
       <div className={`${classes.coinPage} page`}>
@@ -145,3 +133,30 @@ export default function CoinPage() {
     </>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const { id } = context.params;
+
+  const queryClient = new QueryClient();
+
+  try {
+    await queryClient.fetchQuery(['coin', id], () => getCoinById(id));
+    await queryClient.fetchQuery(['coinTickers', id], () => getCoinTickers(id));
+    await queryClient.fetchQuery(['coinChart', id], () =>
+      getCoinChart({ id, currency: 'USD' }),
+    );
+  } catch (error) {
+    console.log(error);
+
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      // dehydrate query cache
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};

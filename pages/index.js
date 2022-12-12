@@ -1,6 +1,8 @@
+import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Col, Row, Typography } from 'antd';
 import Head from 'next/head';
 
+import { getGlobalInfo, getTopCoins, getTopExchanges } from '../api';
 import {
   Container,
   MarketCapGlobal,
@@ -9,9 +11,9 @@ import {
   TopSearchList,
 } from '../components';
 import {
-  useGetExchangesQuery,
   useGetGlobalInfoQuery,
   useGetTopCoinsQuery,
+  useGetTopExchangesQuery,
 } from '../hooks';
 import LogoIcon from '../public/images/Logo.svg';
 import classes from '../styles/HomePage.module.css';
@@ -21,20 +23,22 @@ const { Title } = Typography;
 export default function HomePage() {
   const { data: tops } = useGetTopCoinsQuery();
   const { data: global } = useGetGlobalInfoQuery();
-  const { data: exchages } = useGetExchangesQuery({ variables: {} });
+  const { data: exchages } = useGetTopExchangesQuery();
 
   return (
     <>
       <Head>
-        <title>Coins Market</title>
+        <title>Coins Compare</title>
       </Head>
       <div className={`${classes.homePage} page`}>
         <Container>
           <div className={classes.mainBanner}>
             <LogoIcon />
-            <Title>COINS MARKET APP</Title>
+            <Title>
+              {`CRYPTO COINS `}
+              <span className={classes.subtitle}>COMPARE</span>
+            </Title>
           </div>
-
           <Row gutter={16}>
             <Col span={6}>
               <div className={classes.leftSidebar}>
@@ -73,4 +77,18 @@ export default function HomePage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(['topCoins'], () => getTopCoins());
+  await queryClient.prefetchQuery(['globalInfo'], () => getGlobalInfo());
+  await queryClient.prefetchQuery(['topExchanges'], () => getTopExchanges());
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }

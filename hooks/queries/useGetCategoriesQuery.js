@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getCategories } from '../../api/instance-crypto';
+import { getCategories } from '../../api';
 
-export const useGetCategoriesQuery = ({ variables }) => {
+export const useGetCategoriesQuery = (sort) => {
   return useQuery({
-    queryKey: ['categoriesMarket', ...Object.values(variables)],
-    queryFn: () => getCategories(variables),
+    queryKey: ['categories', sort],
+    queryFn: () => getCategories(sort),
   });
 };

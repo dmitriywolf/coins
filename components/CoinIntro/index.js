@@ -41,7 +41,7 @@ export function CoinIntro({ intro }) {
           {genesis ? <Tag color='#87d068'>Created: {genesis}</Tag> : ''}
           {algorith ? <Tag color='#108ee9'>Algorith: {algorith}</Tag> : ''}
         </div>
-        {(facebook || reddit_posts || twitter) && (
+        {facebook || reddit_posts || twitter ? (
           <Space>
             <Text type='secondary'>Social:</Text>
             <div className={classes.tags}>
@@ -62,7 +62,7 @@ export function CoinIntro({ intro }) {
               ) : null}
             </div>
           </Space>
-        )}
+        ) : null}
         {categories?.length > 0 ? (
           <Space align='start'>
             <Text type='secondary'>Categories:</Text>
