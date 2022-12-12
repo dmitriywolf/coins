@@ -15,29 +15,29 @@ export function CategoryItem({
   volume24h,
 }) {
   return (
-    <Card className={classes.categoryCard}>
+    <Card className={classes.card}>
       <Space direction='vertical'>
         <Title level={3}>{name}</Title>
-        <Space>
-          <div>
-            <Text strong>Market Cap: </Text>
+        <div className={classes.marketList}>
+          <div className={classes.marketItem}>
+            <Text strong>Market Cap:</Text>
             <Text type='secondary' strong>
               {formatNumber(marketCap)} $
             </Text>
           </div>
-          <Space>
-            <Text strong>Market Cap Chage in 24h: </Text>
+          <div className={classes.marketItem}>
+            <Text strong>Market Cap Chage in 24h:</Text>
             <Text type='secondary' strong>
               <Change value={marketCapChange24h} />
             </Text>
-          </Space>
-          <div>
-            <Text strong>Volume in 24 h: </Text>
+          </div>
+          <div className={classes.marketItem}>
+            <Text strong>Volume in 24 h:</Text>
             <Text type='secondary' strong>
               {formatNumber(volume24h)} $
             </Text>
           </div>
-        </Space>
+        </div>
         {content ? <p className={classes.content}>{content}</p> : null}
         <Space>
           <Text strong>Top 3 Coins:</Text>

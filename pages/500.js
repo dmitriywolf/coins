@@ -13,18 +13,13 @@ export default function ServerErrorPage() {
       <div className={`${classes.errorPage} page`}>
         <Empty
           image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
-          imageStyle={{
-            height: 300,
-          }}
           description={
             <p className={classes.text}>500 - Server-side error occurred</p>
           }
         >
-          <div className={classes.btn}>
-            <Button type='primary' size='large' shape='round' href='/'>
-              Go To Main Page
-            </Button>
-          </div>
+          <Button type='primary' size='large' shape='round' href='/'>
+            Go To Main Page
+          </Button>
         </Empty>
       </div>
     </>

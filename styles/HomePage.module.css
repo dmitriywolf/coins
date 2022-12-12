@@ -39,3 +39,44 @@
   top: 80px;
   margin-top: 44px;
 }
+
+@media (max-width: 1200px) {
+  .leftSidebar,
+  .rightSidebar {
+    position: static;
+    margin-top: 0
+  }
+
+}
+
+@media (max-width: 992px) {
+  .mainBanner h1 {
+    font-size: 32px;
+  }
+
+  .mainBanner svg {
+    width: 170px;
+    height: 170px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .mainBanner h1 {
+    font-size: 28px;
+  }
+
+  .mainBanner svg {
+    width: 140px;
+    height: 140px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .mainBanner h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+}

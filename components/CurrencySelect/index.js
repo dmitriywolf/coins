@@ -6,9 +6,9 @@ import { useCurrencyContext } from '../../context';
 export function CurrencySelect() {
   const { currency, setCurrency } = useCurrencyContext();
 
-  const options = CURRENCIES.map(({ title, value, symbol }) => ({
+  const options = CURRENCIES.map(({ value, symbol }) => ({
     value,
-    label: `${symbol} | ${title}`,
+    label: `${symbol} | ${value}`,
   }));
 
   const handleChange = (value) => {
@@ -23,7 +23,7 @@ export function CurrencySelect() {
       className='customSelect'
       popupClassName='customDropDowmMenu'
       style={{
-        width: 190,
+        width: 100,
       }}
     />
   );

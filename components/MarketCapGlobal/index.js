@@ -20,7 +20,7 @@ export function MarketCapGlobal({
       <div className={classes.inner}>
         <Space direction='vertical'>
           <Space>
-            <Link href={'/coins'}>Active cryptocurrencies: </Link>
+            <Link href={'/coins'}>Crypto coins: </Link>
             <div className={classes.value}>
               <CoinsIcon />
               <Text type='secondary' strong>
@@ -29,7 +29,7 @@ export function MarketCapGlobal({
             </div>
           </Space>
           <Space>
-            <Text strong>Change Market Cap in 24h: </Text>
+            <Text strong>Market Cap in 24h: </Text>
             <Change value={market_cap_change_percentage_24h_usd} />
           </Space>
           <Space>

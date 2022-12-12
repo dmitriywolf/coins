@@ -58,7 +58,7 @@ export function TopExchangeItem({
 
   return (
     <Card className={classes.card} onClick={navToExchange}>
-      <Space align='start'>
+      <div className={classes.cardInner}>
         <div className={classes.logoWrap}>
           <Image src={image} alt={name} preview={false} />
         </div>
@@ -69,22 +69,22 @@ export function TopExchangeItem({
             <h3 className={classes.title}>{name}</h3>
           </div>
           {country || year_established ? (
-            <Space>
+            <Space direction='vertical'>
               {country && (
-                <>
+                <Space>
                   <Text strong>Country: </Text>
                   <Text type='secondary' strong>
                     {country}
                   </Text>
-                </>
+                </Space>
               )}
               {year_established && (
-                <>
+                <Space>
                   <Text strong>Established: </Text>
                   <Text type='secondary' strong>
                     {year_established}
                   </Text>
-                </>
+                </Space>
               )}
             </Space>
           ) : null}
@@ -97,7 +97,7 @@ export function TopExchangeItem({
           </Space>
           {description && <p className={classes.description}>{description}</p>}
         </Space>
-      </Space>
+      </div>
     </Card>
   );
 }

@@ -17,7 +17,7 @@ export function TopSearchList({ list }) {
 
   return (
     <Card className={classes.card}>
-      <Title level={3}>Top coins by searched</Title>
+      <Title level={3}>Top by searched</Title>
       <List
         dataSource={dataTops}
         renderItem={({ id, name, priceBTC, symbol, image, rank }) => (

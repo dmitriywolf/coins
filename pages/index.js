@@ -43,8 +43,13 @@ export default function HomePage() {
               <span className={classes.subtitle}>COMPARE</span>
             </Title>
           </div>
-          <Row gutter={16}>
-            <Col span={6}>
+          <Row gutter={[16, 16]}>
+            <Col
+              xs={{ span: 24, order: 2 }}
+              md={{ span: 12 }}
+              xl={{ span: 6, order: 1 }}
+              xxl={{ span: 6 }}
+            >
               <div className={classes.leftSidebar}>
                 <Row gutter={[16, 16]}>
                   <Col span={24}>
@@ -67,11 +72,20 @@ export default function HomePage() {
               </div>
             </Col>
 
-            <Col span={12}>
+            <Col
+              xs={{ span: 24, order: 3 }}
+              xl={{ span: 10, order: 2 }}
+              xxl={{ span: 12 }}
+            >
               <TopExchanges exchages={exchages} />
             </Col>
 
-            <Col span={6}>
+            <Col
+              xs={{ span: 24, order: 1 }}
+              md={{ span: 12 }}
+              xl={{ span: 8, order: 3 }}
+              xxl={{ span: 6 }}
+            >
               <div className={classes.rightSidebar}>
                 <TopSearchList list={tops} />
               </div>

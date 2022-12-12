@@ -1,11 +1,53 @@
-.notFound {
+.errorPage {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
+  background-color: var(--milkWhite);
+}
+
+.errorPage :global(.ant-empty-image) {
+  height: 270px;
 }
 
 .text {
   margin: 0;
   font-size: 32px;
   color: var(--secondary);
+}
+
+@media (max-width: 992px) {
+  .text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .errorPage :global(.ant-empty-image) {
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .errorPage {
+    padding-top: 50px;
+  }
+
+  .text {
+    padding: 0 16px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .errorPage {
+    padding-top: 25px;
+  }
+
+  .errorPage :global(.ant-empty-image) {
+    height: 200px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
 }

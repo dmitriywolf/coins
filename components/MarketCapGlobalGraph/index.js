@@ -24,7 +24,7 @@ export function MarketCapGlobalGraph({ percentage }) {
 
   return (
     <Card className={classes.card}>
-      <Title level={3}>Total Market Cap %</Title>
+      <Title level={3}>Total Cap %</Title>
       <List
         dataSource={data}
         renderItem={({ coin, percentage }) => (

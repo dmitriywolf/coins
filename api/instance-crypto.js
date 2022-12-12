@@ -75,7 +75,7 @@ export const getCoinChart = async ({ id, currency }) => {
 
 export const getTopExchanges = async () => {
   const exchanges = await instanceCrypto.get(
-    `${BREAKPOINTS_CRYPTO.exchanges}?page=1&per_page=20`,
+    `${BREAKPOINTS_CRYPTO.exchanges}?page=0&per_page=10`,
   );
 
   return exchanges.data;
