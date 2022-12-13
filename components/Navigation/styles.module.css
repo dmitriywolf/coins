@@ -1,5 +1,5 @@
 .navigationWrap {
-  padding: 25px 0;
+  padding: 20px 0 15px;
 }
 
 .homeIcon svg{
@@ -12,12 +12,6 @@
 .item {
   font-size: 16px;
   font-weight: 500;
-}
-
-@media (max-width: 992px) {
-  .navigationWrap {
-    padding-bottom: 20px;
-  }
 }
 
 @media (max-width: 768px) {

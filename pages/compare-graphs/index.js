@@ -76,7 +76,6 @@ export default function CompareGraphsPage() {
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Compare in Graphs</Title>
-
           {countGraph ? (
             <>
               <div className={classes.actions}>

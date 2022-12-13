@@ -12,7 +12,7 @@ import { useCurrencyContext } from '../../context';
 import { formatNumber } from '../../utils';
 import classes from './styles.module.css';
 
-export function MultiGraph({ charts, title, type }) {
+export function MultiGraph({ charts, type }) {
   const { currency } = useCurrencyContext();
 
   const accessors = {
@@ -31,32 +31,30 @@ export function MultiGraph({ charts, title, type }) {
   const formatBigSum = (data) => data / 1000000;
 
   const isPriceGraph = type === 'price';
+
   return (
     <div className={classes.chart}>
       {charts?.length > 0 ? (
         <XYChart
-          height={600}
           xScale={{ type: 'band' }}
           yScale={{ type: 'linear' }}
+          height={360}
         >
           <AnimatedAxis
             orientation='bottom'
             label='Date'
             strokeWidth='1'
             tickFormat={formatDate}
-            labelClassName={classes.axisLabel}
+            labelClassName={classes.label}
+            numTicks={6}
           />
           <AnimatedAxis
             orientation='left'
-            label={`${title}, ${
-              isPriceGraph ? '' : 'M'
-            } ${currency.value.toUpperCase()}`}
-            labelClassName={classes.axisLabel}
-            labelOffset={20}
+            labelClassName={classes.axisLabelLeft}
             tickFormat={!isPriceGraph ? formatBigSum : undefined}
             hideZero={true}
           />
-          <AnimatedGrid columns={false} numTicks={10} />
+          <AnimatedGrid columns={false} numTicks={6} />
           {charts?.map(({ coin, data }) => (
             <AnimatedLineSeries
               key={coin.name}
@@ -65,7 +63,6 @@ export function MultiGraph({ charts, title, type }) {
               {...accessors}
             />
           ))}
-
           <Tooltip
             snapTooltipToDatumX
             snapTooltipToDatumY

@@ -1,18 +1,17 @@
 .card {
   height: 100%;
   padding: 12px;
-  justify-content: space-around;
-  background-color: transparent;
-  border-right: 1px solid var(--cadetBlue);
-  border-bottom: 1px solid var(--cadetBlue);
+  justify-content: space-between;
+  background-color: var(--white);
   display: flex;
   align-items: center;
+  border-radius: 8px;
 }
 
 .card img {
-  width: 50px;
-  min-width: 50px;
-  margin-right: 6px;
+  width: 40px;
+  min-width: 40px;
+  margin-right: 4px;
 }
 
 .titleWrap {
@@ -22,18 +21,29 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   white-space: nowrap;
   margin: 0;
 }
 
-.removeBtnWrap {
-  min-width: 42px;
-  display: flex;
-  padding-left: 10px;
+.removeBtnWrap button,
+.removeBtnWrap:hover button {
+  background-color: transparent;
+  border-color: transparent;
 }
 
-.removeBtnWrap button{
-  background-color: var(--sunshade);
-  border-color: var(--sunshade);
+@media (max-width: 480px) {
+  .card {
+    padding: 5px;
+  }
+
+  .card img {
+    width: 30px;
+    min-width: 30px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
 }

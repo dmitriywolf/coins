@@ -3,10 +3,16 @@
 }
 
 .tabs {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .description {
   width: 100%;
   border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+  .tabs {
+    margin-top: 20px;
+  }
 }

@@ -10,9 +10,15 @@ export function CompareTop() {
 
   return (
     <div className={classes.row}>
-      <Row align='stretch'>
+      <Row align='stretch' gutter={[10, 10]}>
         {coins.map(({ fullName, image, symbol, internal }) => (
-          <Col span={4} key={internal}>
+          <Col
+            xs={{ span: 12 }}
+            sm={{ span: 8 }}
+            lg={{ span: 6 }}
+            xl={{ span: 4 }}
+            key={internal}
+          >
             <CompareTopItem
               fullName={fullName}
               image={image}

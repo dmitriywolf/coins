@@ -23,6 +23,7 @@
   /* shadows */
   --headerShadow: 0 6px 30px rgba(0, 0, 0, 0.1);
   --cardShadow: 0 0 40px rgba(216, 216, 216, 0.8);
+  --mainShadow: 0 4px 20px 0 rgba(122, 113, 122, 0.6);
 }
 
 
@@ -59,6 +60,10 @@ body {
   padding-bottom: 20px;
 }
 
+.page h1 {
+  font-size: 34px;
+}
+
 .container {
   width: 100%;
   max-width: 1600px;
@@ -66,7 +71,6 @@ body {
   margin: 0 auto;
   padding: 0 16px;
 }
-
 
 /* Ant select */
 .customSelect:hover {
@@ -106,7 +110,6 @@ body {
   background-color: var(--clearBlue);
 }
 
-
 .customDropDowmMenuMulti .ant-select-item-option-selected {
   background-color: var(--pastelBlue);
 }
@@ -118,7 +121,11 @@ body {
 
 /* Ant pagination */
 .ant-list-pagination {
-  margin: 16px 0;
+  margin: 10px 0;
+}
+
+.ant-pagination {
+  margin-top: 0px !important;
 }
 
 .ant-pagination-item,
@@ -156,6 +163,11 @@ body {
 .ant-table-thead>tr>th {
   background-color: var(--sand);
   color: var(--white);
+}
+
+.ant-table th,
+.ant-table td {
+  padding: 10px !important;
 }
 
 /* Ant tabs */
@@ -227,7 +239,6 @@ body {
 }
 
 @media (max-width: 992px) {
-
   .page h1 {
     font-size: 34px;
   }
@@ -235,7 +246,6 @@ body {
 }
 
 @media (max-width: 576px) {
-
   .page h1 {
     font-size: 28px;
   }
@@ -243,9 +253,7 @@ body {
 }
 
 @media (max-width: 480px) {
-
   .page h1 {
     font-size: 24px;
   }
-
 }

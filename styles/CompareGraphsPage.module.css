@@ -16,3 +16,18 @@
 .graphWrap {
   padding: 20px 0;
 }
+
+@media (max-width: 992px) {
+  .actions {
+    padding-bottom: 10px;
+  }
+
+  .graphWrap {
+    padding: 10px 0;
+  }
+
+  .graphWrap h3 {
+    font-size: 22px;
+  }
+
+}

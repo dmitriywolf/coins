@@ -2,6 +2,10 @@
   background: var(--whiteSmoke);
 }
 
+.coinsPage h1 {
+  margin: 0;
+}
+
 .filterWrap {
   display: flex;
   align-items: center;
@@ -18,3 +22,4 @@
 .tableRow {
   cursor: pointer;
 }
+

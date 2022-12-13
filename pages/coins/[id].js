@@ -115,12 +115,12 @@ export default function CoinPage() {
         <Container>
           <Navigation crumbs={breadcrumbs} />
 
-          <Row gutter={16}>
-            <Col span={10}>
+          <Row gutter={[16, 16]}>
+            <Col xs={{ span: 24 }} xl={{ span: 8 }}>
               <CoinIntro intro={coinIntroData} />
             </Col>
 
-            <Col span={14}>
+            <Col xs={{ span: 24 }} xl={{ span: 16 }}>
               <CoinMarketData market={coinMarketData} />
             </Col>
           </Row>

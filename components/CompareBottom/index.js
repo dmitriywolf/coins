@@ -172,16 +172,22 @@ export function CompareBottom({ data, isLoading }) {
 
   return (
     <div className={classes.wrap}>
-      <div className={classes.wrapTop}>
+      <div className={classes.wrapAccord}>
         <Collapse defaultActiveKey={['1', '2']} bordered={false}>
           {accordionData?.map((item) => (
             <Panel header={item.title} key={item.key}>
               {item.data.map((dataItem) => (
                 <div key={dataItem.title} className={classes.row}>
                   <Text strong>{dataItem.title}</Text>
-                  <Row>
+                  <Row gutter={[10, 10]}>
                     {dataItem.coinsValue?.map((coinValue) => (
-                      <Col span={4} key={coinValue.title}>
+                      <Col
+                        xs={{ span: 12 }}
+                        sm={{ span: 8 }}
+                        lg={{ span: 6 }}
+                        xl={{ span: 4 }}
+                        key={coinValue.title}
+                      >
                         <p className={classes.value}>{coinValue.value}</p>
                       </Col>
                     ))}
@@ -193,7 +199,7 @@ export function CompareBottom({ data, isLoading }) {
         </Collapse>
       </div>
 
-      <div className={classes.wrapBottom}>
+      <div className={classes.wrapAccord}>
         <Loader active={isLoading} size='large' bg='#FFFFFF'>
           <Collapse
             defaultActiveKey={['1', '2', '3', '4', '5', '6']}
@@ -204,9 +210,15 @@ export function CompareBottom({ data, isLoading }) {
                 {data?.map(({ title, coinsValues }) => (
                   <div key={title}>
                     <Text strong>{title}</Text>
-                    <Row>
+                    <Row gutter={[10, 10]}>
                       {coinsValues?.map(({ title, values }) => (
-                        <Col span={4} key={title}>
+                        <Col
+                          xs={{ span: 12 }}
+                          sm={{ span: 8 }}
+                          lg={{ span: 6 }}
+                          xl={{ span: 4 }}
+                          key={title}
+                        >
                           {values?.map((value, idx) => (
                             <p
                               className={classes.value}

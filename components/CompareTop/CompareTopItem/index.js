@@ -1,4 +1,8 @@
-import { DeleteOutlined } from '@ant-design/icons';
+import {
+  DeleteTwoTone,
+  getTwoToneColor,
+  setTwoToneColor,
+} from '@ant-design/icons';
 import { Button, Image, Tooltip } from 'antd';
 import React from 'react';
 
@@ -12,6 +16,8 @@ export function CompareTopItem({ fullName, image, internal }) {
     removeCoin({ coin: { internal }, isGraph: false });
   };
 
+  setTwoToneColor('#fa9f9f');
+
   return (
     <div className={classes.card}>
       <div className={classes.titleWrap}>
@@ -24,7 +30,8 @@ export function CompareTopItem({ fullName, image, internal }) {
           <Button
             type='primary'
             shape='circle'
-            icon={<DeleteOutlined />}
+            icon={<DeleteTwoTone />}
+            twoToneColor={getTwoToneColor()}
             onClick={removeFromCompareHandler}
           />
         </Tooltip>

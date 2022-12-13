@@ -4,5 +4,11 @@
 
 .wrapCharts {
   margin-top: 20px;
-  min-height: 500px;
+  min-height: 360px;
+}
+
+@media (max-width: 576px) {
+  .graphs  {
+    margin-top: 20px;
+  }
 }
