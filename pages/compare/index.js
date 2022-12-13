@@ -57,34 +57,33 @@ export default function ComparePage() {
           <Title>Compare Coins</Title>
           {count ? (
             <>
-              <div className={classes.filterWrap}>
-                <p className={classes.filterTitle}>Choise Currency</p>
-                <Select
-                  defaultValue={options[0]}
-                  options={options}
-                  placeholder={<p>Select sort..</p>}
-                  className='customSelect'
-                  popupClassName='customDropDowmMenuMulti'
-                  maxTagCount='responsive'
-                  onChange={changeCurrencyHandler}
-                  style={{
-                    width: 360,
-                  }}
-                  mode='multiple'
-                  allowClear
-                />
-
-                <div className={classes.actions}>
-                  <Link href={'/top-list'}>
-                    <Button
-                      type='primary'
-                      shape='round'
-                      icon={<PlusCircleOutlined />}
-                    >
-                      Add more coins
-                    </Button>
-                  </Link>
+              <div className={classes.actionsWrap}>
+                <div className={classes.select}>
+                  <p className={classes.title}>Currency:</p>
+                  <Select
+                    defaultValue={options[0]}
+                    options={options}
+                    placeholder={<p>Select currency..</p>}
+                    className='customSelect'
+                    popupClassName='customDropDowmMenuMulti'
+                    maxTagCount='responsive'
+                    onChange={changeCurrencyHandler}
+                    style={{
+                      width: 220,
+                    }}
+                    mode='multiple'
+                    allowClear
+                  />
                 </div>
+                <Link href={'/top-list'}>
+                  <Button
+                    type='primary'
+                    shape='round'
+                    icon={<PlusCircleOutlined />}
+                  >
+                    Add more coins
+                  </Button>
+                </Link>
               </div>
               <CompareTop />
 

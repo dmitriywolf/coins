@@ -28,8 +28,8 @@ export function CoinCharts({ charts = [], loading }) {
 
   return (
     <div className={classes.graphs}>
-      <Title level={2} type='secondary'>
-        Graphs changes in 30 days
+      <Title level={1} type='secondary'>
+        Changes in 30 days
       </Title>
 
       <Segmented
@@ -43,12 +43,12 @@ export function CoinCharts({ charts = [], loading }) {
             icon: <BarChartOutlined />,
           },
           {
-            label: 'Total Volume',
+            label: 'Volume',
             value: 2,
             icon: <DotChartOutlined />,
           },
           {
-            label: 'Market Cap',
+            label: 'Cap',
             value: 3,
             icon: <SlidersOutlined />,
           },
@@ -59,13 +59,9 @@ export function CoinCharts({ charts = [], loading }) {
         <div className={classes.wrapCharts}>
           {
             {
-              1: <Chart data={dataPrices} title='Price' type='price' />,
-              2: (
-                <Chart data={dataVolumes} title='Total Volume' type='volume' />
-              ),
-              3: (
-                <Chart data={dataMarkets} title='Market Cap' type='marketCap' />
-              ),
+              1: <Chart data={dataPrices} type='price' />,
+              2: <Chart data={dataVolumes} type='volume' />,
+              3: <Chart data={dataMarkets} type='marketCap' />,
             }[selectedTab]
           }
         </div>

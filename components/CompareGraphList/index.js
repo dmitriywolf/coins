@@ -1,4 +1,8 @@
-import { DeleteOutlined } from '@ant-design/icons';
+import {
+  DeleteTwoTone,
+  getTwoToneColor,
+  setTwoToneColor,
+} from '@ant-design/icons';
 import { Button, Image, Space, Tooltip, Typography } from 'antd';
 import React from 'react';
 
@@ -14,6 +18,8 @@ export function CompareGraphList() {
     removeCoin({ coin: { id }, isGraph: true });
   };
 
+  setTwoToneColor('#fa9f9f');
+
   return (
     <div className={classes.compareCoins}>
       {coinsGraph.map(({ id, image, name, symbol }) => (
@@ -21,15 +27,16 @@ export function CompareGraphList() {
           <Space>
             <Image src={image} alt={name} preview={false} />
             <div className={classes.title}>
-              <Title level={4}>{name} /</Title>
-              <Text type='secondary'>{symbol}</Text>
+              <Title level={4}>{name}</Title>
+              <Text type='secondary'>/ {symbol}</Text>
             </div>
           </Space>
           <div className={classes.removeBtnWrap}>
             <Tooltip title='Remove Coin'>
               <Button
                 type='primary'
-                icon={<DeleteOutlined />}
+                icon={<DeleteTwoTone />}
+                twoToneColor={getTwoToneColor()}
                 shape='circle'
                 onClick={() => removeFromCompareHandler(id)}
               />

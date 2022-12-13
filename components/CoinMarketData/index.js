@@ -37,8 +37,8 @@ export function CoinMarketData({ market }) {
 
   return (
     <Card className={classes.card}>
-      <Row gutter={16} align='stretch'>
-        <Col span={12}>
+      <Row gutter={[16, 16]} align='stretch'>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 12 }}>
           <Space direction='vertical'>
             <Text>{`Price ${name} (${symbol?.toUpperCase()}):`}</Text>
             <Space>
@@ -60,8 +60,10 @@ export function CoinMarketData({ market }) {
           <div className={classes.changePrice}>
             <Text type='secondary'>Min: </Text>
             <Text type='danger'>
-              {currency.symbol}{' '}
-              {`${Math.round(low24h?.[currency.valueLow] * 10000) / 10000}`}
+              {currency.symbol}
+              {`${formatNumber(
+                Math.round(low24h?.[currency.valueLow] * 10000) / 10000,
+              )}`}
             </Text>
 
             <Progress
@@ -77,19 +79,21 @@ export function CoinMarketData({ market }) {
             <Text type='secondary'>Max: </Text>
             <Text type='success'>
               {currency.symbol}
-              {`${Math.round(high24h?.[currency.valueLow] * 10000) / 10000}`}
+              {`${formatNumber(
+                Math.round(high24h?.[currency.valueLow] * 10000) / 10000,
+              )}`}
             </Text>
             <Text strong>/ 24h</Text>
           </div>
         </Col>
 
-        <Col span={1}>
+        <Col xs={{ span: 0 }} xl={{ span: 1 }}>
           <Divider type='vertical' className={classes.divider} />
         </Col>
 
-        <Col span={11}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 11 }}>
           <Space>
-            <Text strong>Total Market Cap:</Text>
+            <Text strong>Market Cap:</Text>
             <Text type='secondary' strong>
               {formatNumber(marketCap?.[currency.valueLow])} {currency.symbol}
             </Text>

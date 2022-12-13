@@ -136,6 +136,7 @@ export default function TopListPage() {
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Top List</Title>
+          <div className={classes.tableWrap}></div>
           <Loader active={isLoading} size='large' bg='#F4F5F6'>
             <Table
               columns={columns}

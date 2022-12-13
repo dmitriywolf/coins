@@ -1,18 +1,12 @@
-.wrap{
-  margin-top: 40px;
+.wrap {
+  margin-top: 20px;
 }
 
-.wrapTop {
+.wrapAccord {
   background-color: var(--white);
   border-radius: 8px;
   padding: 0 10px;
   margin-bottom: 20px;
-}
-
-.wrapBottom {
-  background-color: var(--white);
-  border-radius: 8px;
-  padding: 0 10px;
 }
 
 .value {

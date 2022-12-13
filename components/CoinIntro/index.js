@@ -29,17 +29,17 @@ export function CoinIntro({ intro }) {
           <Space align='end' size='small'>
             <Image src={image} alt={name} preview={false} />
             <div className={classes.title}>
-              <Title level={1}>{name} /</Title>
+              <Title level={1}>{name}</Title>
               <Title level={3} type='secondary'>
-                {symbol ? symbol.toUpperCase() : ''}
+                {symbol ? `/ ${symbol.toUpperCase()}` : ''}
               </Title>
             </div>
           </Space>
         </div>
         <div className={classes.info}>
           <Tag color='#f50'>Rank #{rank}</Tag>
-          {genesis ? <Tag color='#87d068'>Created: {genesis}</Tag> : ''}
-          {algorith ? <Tag color='#108ee9'>Algorith: {algorith}</Tag> : ''}
+          {genesis ? <Tag color='#87d068'>{genesis}</Tag> : ''}
+          {algorith ? <Tag color='#108ee9'>{algorith}</Tag> : ''}
         </div>
         {facebook || reddit_posts || twitter ? (
           <Space>
@@ -64,16 +64,18 @@ export function CoinIntro({ intro }) {
           </Space>
         ) : null}
         {categories?.length > 0 ? (
-          <Space align='start'>
+          <>
             <Text type='secondary'>Categories:</Text>
-            <div className={classes.tags}>
-              {categories.map((item) => (
-                <Tag key={item} color='#B1B5C4'>
-                  {item}
-                </Tag>
-              ))}
-            </div>
-          </Space>
+            <Space align='start'>
+              <div className={classes.tags}>
+                {categories.map((item) => (
+                  <Tag key={item} color='#B1B5C4'>
+                    {item}
+                  </Tag>
+                ))}
+              </div>
+            </Space>
+          </>
         ) : null}
       </Space>
     </Card>

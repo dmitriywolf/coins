@@ -50,7 +50,7 @@ export function Chart({ data, title, type }) {
     <div className={classes.chart}>
       {data?.length > 0 ? (
         <XYChart
-          height={500}
+          height={360}
           xScale={{ type: 'band' }}
           yScale={{ type: 'linear' }}
         >
@@ -60,14 +60,10 @@ export function Chart({ data, title, type }) {
             strokeWidth='1'
             tickFormat={formatDate}
             labelClassName={classes.axisLabel}
+            numTicks={6}
           />
           <AnimatedAxis
             orientation='left'
-            label={`${title}, ${
-              isPriceGraph ? '' : 'M'
-            } ${currency.value.toUpperCase()}`}
-            labelClassName={classes.axisLabel}
-            labelOffset={20}
             tickFormat={!isPriceGraph ? formatBigSum : undefined}
             hideZero={true}
           />

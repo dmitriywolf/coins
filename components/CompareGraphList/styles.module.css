@@ -28,7 +28,44 @@
   margin: 0
 }
 
-.removeBtnWrap button{
-  background-color: var(--sunshade);
-  border-color: var(--sunshade);
+.removeBtnWrap button,
+.removeBtnWrap:hover button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .compareCoin {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+
+  .compareCoin img {
+    width: 34px;
+  }
+
+  .title h4,
+  .title span{
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .compareCoin img {
+    width: 30px;
+  }
+
+  .title {
+    padding-right: 10px;
+  }
+
+  .title h4 {
+    font-size: 16px;
+  }
+
+  .title span {
+    display: none;
+  }
+
 }

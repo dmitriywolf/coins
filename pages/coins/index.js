@@ -54,7 +54,7 @@ export default function Coins() {
 
   const columns = [
     {
-      title: 'Rank',
+      title: '#',
       dataIndex: 'rank',
       key: 'rank',
     },
