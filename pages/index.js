@@ -1,12 +1,13 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Col, Row, Typography } from 'antd';
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 
 import { getGlobalInfo, getTopCoins, getTopExchanges } from '../api';
 import {
   Container,
   MarketCapGlobal,
-  MarketCapGlobalGraph,
+  MarketCapGlobalList,
   TopExchanges,
   TopSearchList,
 } from '../components';
@@ -19,6 +20,15 @@ import LogoIcon from '../public/images/Logo.svg';
 import classes from '../styles/HomePage.module.css';
 
 const { Title } = Typography;
+
+const variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
 
 export default function HomePage() {
   const { data: tops } = useGetTopCoinsQuery();
@@ -36,13 +46,19 @@ export default function HomePage() {
       </Head>
       <div className={`${classes.homePage} page`}>
         <Container>
-          <div className={classes.mainBanner}>
+          <motion.div
+            initial={'hidden'}
+            animate={'visible'}
+            transition={{ duration: 2 }}
+            variants={variants}
+            className={classes.mainBanner}
+          >
             <LogoIcon />
             <Title>
               {`CRYPTO COINS `}
               <span className={classes.subtitle}>COMPARE</span>
             </Title>
-          </div>
+          </motion.div>
           <Row gutter={[16, 16]}>
             <Col
               xs={{ span: 24, order: 2 }}
@@ -64,7 +80,7 @@ export default function HomePage() {
                     />
                   </Col>
                   <Col span={24}>
-                    <MarketCapGlobalGraph
+                    <MarketCapGlobalList
                       percentage={global?.data?.market_cap_percentage}
                     />
                   </Col>

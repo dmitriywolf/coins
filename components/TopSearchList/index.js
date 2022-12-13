@@ -1,9 +1,21 @@
 import { Card, List, Typography } from 'antd';
 
-import { ListItem } from './ListItem';
+import { MotionListItem } from './ListItem';
 import classes from './styles.module.css';
 
 const { Title } = Typography;
+
+const variants = {
+  visible: (i) => ({
+    opacity: 1,
+    transition: { delay: i * 0.2 },
+    y: 0,
+  }),
+  hidden: {
+    opacity: 0,
+    y: -100,
+  },
+};
 
 export function TopSearchList({ list }) {
   const dataTops = list?.coins?.map(({ item }) => ({
@@ -20,8 +32,12 @@ export function TopSearchList({ list }) {
       <Title level={3}>Top by searched</Title>
       <List
         dataSource={dataTops}
-        renderItem={({ id, name, priceBTC, symbol, image, rank }) => (
-          <ListItem
+        renderItem={({ id, name, priceBTC, symbol, image, rank }, idx) => (
+          <MotionListItem
+            initial='hidden'
+            animate='visible'
+            variants={variants}
+            custom={idx}
             id={id}
             name={name}
             priceBTC={priceBTC}

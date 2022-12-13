@@ -4,11 +4,28 @@ import Head from 'next/head';
 import { useState } from 'react';
 
 import { getCategories } from '../../api';
-import { CategoryItem, Container, Loader, Navigation } from '../../components';
+import {
+  Container,
+  Loader,
+  MotionCategoryItem,
+  Navigation,
+} from '../../components';
 import { useGetCategoriesQuery } from '../../hooks';
 import classes from '../../styles/CategoriesPage.module.css';
 
 const { Title } = Typography;
+
+const variants = {
+  visible: (i) => ({
+    opacity: 1,
+    transition: { delay: i * 0.2 },
+    x: 0,
+  }),
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+};
 
 const options = [
   {
@@ -84,16 +101,23 @@ export default function CategoriesPage() {
                 position: 'top',
                 showSizeChanger: false,
               }}
-              renderItem={({
-                id,
-                name,
-                content,
-                market_cap,
-                top_3_coins,
-                market_cap_change_24h,
-                volume_24h,
-              }) => (
-                <CategoryItem
+              renderItem={(
+                {
+                  id,
+                  name,
+                  content,
+                  market_cap,
+                  top_3_coins,
+                  market_cap_change_24h,
+                  volume_24h,
+                },
+                idx,
+              ) => (
+                <MotionCategoryItem
+                  initial='hidden'
+                  animate='visible'
+                  variants={variants}
+                  custom={idx}
                   id={id}
                   name={name}
                   content={content}

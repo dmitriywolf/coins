@@ -1,8 +1,20 @@
 import { Col, Row, Typography } from 'antd';
 
-import { TopExchangeItem } from './TopExhangeItem';
+import { MotionTopExchangeItem } from './TopExhangeItem';
 
 const { Title } = Typography;
+
+const variants = {
+  visible: (i) => ({
+    opacity: 1,
+    transition: { delay: i * 0.2 },
+    x: 0,
+  }),
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+};
 
 export function TopExchanges({ exchages }) {
   return (
@@ -11,9 +23,15 @@ export function TopExchanges({ exchages }) {
         Top 10 Exchanges by Trust
       </Title>
       <Row gutter={[16, 16]}>
-        {exchages?.map((item) => (
+        {exchages?.map((item, idx) => (
           <Col span={24} key={item.id}>
-            <TopExchangeItem {...item} />
+            <MotionTopExchangeItem
+              initial='hidden'
+              animate='visible'
+              variants={variants}
+              custom={idx}
+              {...item}
+            />
           </Col>
         ))}
       </Row>
