@@ -61,9 +61,7 @@ export function CoinMarketData({ market }) {
             <Text type='secondary'>Min: </Text>
             <Text type='danger'>
               {currency.symbol}
-              {`${formatNumber(
-                Math.round(low24h?.[currency.valueLow] * 10000) / 10000,
-              )}`}
+              {`${formatNumber(low24h?.[currency.valueLow])}`}
             </Text>
 
             <Progress
@@ -79,9 +77,7 @@ export function CoinMarketData({ market }) {
             <Text type='secondary'>Max: </Text>
             <Text type='success'>
               {currency.symbol}
-              {`${formatNumber(
-                Math.round(high24h?.[currency.valueLow] * 10000) / 10000,
-              )}`}
+              {`${formatNumber(high24h?.[currency.valueLow])}`}
             </Text>
             <Text strong>/ 24h</Text>
           </div>
