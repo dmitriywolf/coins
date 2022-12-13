@@ -13,11 +13,6 @@ instanceCrypto.interceptors.request.use(
   },
 );
 
-export const getCoinsList = async () => {
-  const coinsList = await instanceCrypto.get(BREAKPOINTS_CRYPTO.coinsList);
-  return coinsList.data;
-};
-
 export const getCoinsMarkets = async ({
   vs_currency,
   order = 'market_cap_desc',

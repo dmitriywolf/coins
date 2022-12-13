@@ -3,3 +3,9 @@
   justify-content: space-between;
   width: 280px;
 }
+
+.suppluValue {
+  margin: 0;
+  color: var(--secondary);
+  white-space: nowrap;
+}
