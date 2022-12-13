@@ -8,7 +8,6 @@ export const COMPARE_LINK = process.env.COMPARE_LINK;
 
 export const BREAKPOINTS_CRYPTO = {
   coins: '/coins',
-  coinsList: '/coins/list',
   coinsMarkets: '/coins/markets',
   categories: 'coins/categories',
   categoriesList: '/coins/categories/list',

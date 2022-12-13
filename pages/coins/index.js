@@ -12,7 +12,7 @@ import {
   TableSupply,
 } from '../../components/TableComponents';
 import { useCurrencyContext } from '../../context';
-import { useGetCoinsListQuery, useGetCoinsMarketsQuery } from '../../hooks';
+import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from '../../hooks';
 import classes from '../../styles/CoinsPage.module.css';
 import { formatNumber } from '../../utils';
 
@@ -26,7 +26,7 @@ export default function Coins() {
 
   const router = useRouter();
 
-  const { data: coinsList } = useGetCoinsListQuery();
+  const { data: global } = useGetGlobalInfoQuery();
 
   const { data, isLoading } = useGetCoinsMarketsQuery({
     variables: {
@@ -170,7 +170,7 @@ export default function Coins() {
               dataSource={coinsData}
               rowClassName={classes.tableRow}
               pagination={{
-                total: coinsList?.length || 100,
+                total: global?.data?.active_cryptocurrencies || 100,
                 showSizeChanger: false,
                 pageSize: 10,
                 onChange: (page) => setPage(page),

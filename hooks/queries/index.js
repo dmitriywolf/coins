@@ -2,7 +2,6 @@ export * from './useGetCategoriesQuery';
 export * from './useGetCoinByIdQuery';
 export * from './useGetCoinChartQuery';
 export * from './useGetCoinsChartsQueries';
-export * from './useGetCoinsListQuery';
 export * from './useGetCoinsMarketsQuery';
 export * from './useGetCoinTickersQuery';
 export * from './useGetGlobalInfoQuery';

@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { getCoinById, getCoinChart, getCoinTickers } from '../../api';
+import { getCoinById, getCoinChart } from '../../api';
 import {
   CoinCharts,
   CoinIntro,
@@ -141,7 +141,6 @@ export const getServerSideProps = async (context) => {
 
   try {
     await queryClient.fetchQuery(['coin', id], () => getCoinById(id));
-    await queryClient.fetchQuery(['coinTickers', id], () => getCoinTickers(id));
     await queryClient.fetchQuery(['coinChart', id], () =>
       getCoinChart({ id, currency: 'USD' }),
     );
