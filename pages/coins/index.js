@@ -57,11 +57,14 @@ export default function Coins() {
       title: '#',
       dataIndex: 'rank',
       key: 'rank',
+      width: 60,
     },
     {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
+      fixed: 'left',
+      width: 170,
       render: (_, { image, name, symbol }) => (
         <CoinName name={name} image={image} symbol={symbol} />
       ),
@@ -70,6 +73,7 @@ export default function Coins() {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
+      width: 120,
       render: (_, { price }) => (
         <Text>{`${currencySymbol} ${formatNumber(price)}`}</Text>
       ),
@@ -78,6 +82,7 @@ export default function Coins() {
       title: '24h %',
       dataIndex: 'price_change_percentage_24h',
       key: 'price_change_percentage_24h',
+      width: 100,
       render: (_, { price_change_percentage_24h }) => (
         <Change value={price_change_percentage_24h} />
       ),
@@ -86,6 +91,7 @@ export default function Coins() {
       title: `24h ${currencySymbol}`,
       dataIndex: 'price_change_24h',
       key: 'price_change_24h',
+      width: 120,
       render: (_, { price_change_24h }) => (
         <Change value={price_change_24h} suffix={currencySymbol} />
       ),
@@ -94,6 +100,7 @@ export default function Coins() {
       title: '7d %',
       dataIndex: 'price_change_percentage_7d',
       key: 'price_change_percentage_7d',
+      width: 100,
       render: (_, { price_change_percentage_7d }) => (
         <Change value={price_change_percentage_7d} />
       ),
@@ -102,6 +109,7 @@ export default function Coins() {
       title: '30d %',
       dataIndex: 'price_change_percentage_30d',
       key: 'price_change_percentage_30d',
+      width: 100,
       render: (_, { price_change_percentage_30d }) => (
         <Change value={price_change_percentage_30d} />
       ),
@@ -110,14 +118,16 @@ export default function Coins() {
       title: 'Market Cap',
       dataIndex: 'market_cap',
       key: 'market_cap',
+      width: 160,
       render: (_, { market_cap }) => (
         <Text>{`${currencySymbol} ${formatNumber(market_cap)}`}</Text>
       ),
     },
     {
-      title: 'Circulating Supply',
+      title: 'Supply',
       dataIndex: 'circulating_supply',
       key: 'circulating_supply',
+      width: 180,
       render: (_, { symbol, circulating_supply, max_supply }) => (
         <TableSupply
           symbol={symbol}
@@ -130,6 +140,7 @@ export default function Coins() {
       title: 'Compare',
       dataIndex: 'compare',
       key: 'compare',
+      width: 150,
       render: (_, row) => <CompareAction row={row} isGraph={true} />,
     },
   ];
@@ -171,6 +182,9 @@ export default function Coins() {
                     navToCoin(id);
                   },
                 };
+              }}
+              scroll={{
+                x: 1300,
               }}
             />
           </Loader>

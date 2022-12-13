@@ -9,9 +9,9 @@ const { Text } = Typography;
 export function TableSupply({ symbol, current, max }) {
   if (!max) {
     return (
-      <Text strong type='secondary'>
+      <p className={classes.suppluValue}>
         {formatNumber(Math.round(current))} {symbol.toUpperCase()}
-      </Text>
+      </p>
     );
   }
 
@@ -45,9 +45,9 @@ export function TableSupply({ symbol, current, max }) {
 
   return (
     <Popover content={content}>
-      <Text strong type='secondary'>
+      <p className={classes.suppluValue}>
         {formatNumber(Math.round(current))} {symbol.toUpperCase()}
-      </Text>
+      </p>
       <Progress
         percent={Math.round(percentage)}
         showInfo={false}

@@ -9,8 +9,10 @@ export function CoinName({ image, name, symbol }) {
     <div className={classes.wrap}>
       <Space>
         <Image src={image} alt={name} preview={false} width={32} height={32} />
-        <Text strong>{name}</Text>
-        <Text type='secondary'>/{symbol.toUpperCase()}</Text>
+        <Text strong>
+          {name}
+          <Text type='secondary'>/{symbol.toUpperCase()}</Text>
+        </Text>
       </Space>
     </div>
   );
