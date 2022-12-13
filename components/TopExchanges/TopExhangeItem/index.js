@@ -1,4 +1,6 @@
 import { Card, Image, Space, Tag, Typography } from 'antd';
+import { motion } from 'framer-motion';
+import { forwardRef } from 'react';
 
 import { formatNumber } from '../../../utils';
 import classes from './styles.module.css';
@@ -41,63 +43,75 @@ const TrustTag = ({ score }) => {
   return <div>-</div>;
 };
 
-export function TopExchangeItem({
-  country,
-  description,
-  image,
-  name,
-  trade_volume_24h_btc_normalized,
-  trust_score,
-  trust_score_rank,
-  url,
-  year_established,
-}) {
-  function navToExchange() {
-    window.open(url, '_blank');
-  }
+const TopExchangeItem = forwardRef(
+  (
+    {
+      country,
+      description,
+      image,
+      name,
+      trade_volume_24h_btc_normalized,
+      trust_score,
+      trust_score_rank,
+      url,
+      year_established,
+    },
+    ref,
+  ) => {
+    function navToExchange() {
+      window.open(url, '_blank');
+    }
 
-  return (
-    <Card className={classes.card} onClick={navToExchange}>
-      <div className={classes.cardInner}>
-        <div className={classes.logoWrap}>
-          <Image src={image} alt={name} preview={false} />
-        </div>
-        <Space direction='vertical'>
-          <div className={classes.titleWrap}>
-            <ScoreTagRank text='#' rank={trust_score_rank} />
-            <TrustTag score={trust_score} />
-            <h3 className={classes.title}>{name}</h3>
-          </div>
-          {country || year_established ? (
+    return (
+      <div ref={ref}>
+        <Card className={classes.card} onClick={navToExchange}>
+          <div className={classes.cardInner} ref={ref}>
+            <div className={classes.logoWrap}>
+              <Image src={image} alt={name} preview={false} />
+            </div>
             <Space direction='vertical'>
-              {country && (
-                <Space>
-                  <Text strong>Country: </Text>
-                  <Text type='secondary' strong>
-                    {country}
-                  </Text>
+              <div className={classes.titleWrap}>
+                <ScoreTagRank text='#' rank={trust_score_rank} />
+                <TrustTag score={trust_score} />
+                <h3 className={classes.title}>{name}</h3>
+              </div>
+              {country || year_established ? (
+                <Space direction='vertical'>
+                  {country && (
+                    <Space>
+                      <Text strong>Country: </Text>
+                      <Text type='secondary' strong>
+                        {country}
+                      </Text>
+                    </Space>
+                  )}
+                  {year_established && (
+                    <Space>
+                      <Text strong>Established: </Text>
+                      <Text type='secondary' strong>
+                        {year_established}
+                      </Text>
+                    </Space>
+                  )}
                 </Space>
-              )}
-              {year_established && (
-                <Space>
-                  <Text strong>Established: </Text>
-                  <Text type='secondary' strong>
-                    {year_established}
-                  </Text>
-                </Space>
+              ) : null}
+              <Space>
+                <Text strong>Trade volume in 24h:</Text>
+                <Text type='secondary' strong>
+                  {formatNumber(trade_volume_24h_btc_normalized)} BTC
+                </Text>
+              </Space>
+              {description && (
+                <p className={classes.description}>{description}</p>
               )}
             </Space>
-          ) : null}
-
-          <Space>
-            <Text strong>Trade volume in 24h:</Text>
-            <Text type='secondary' strong>
-              {formatNumber(trade_volume_24h_btc_normalized)} BTC
-            </Text>
-          </Space>
-          {description && <p className={classes.description}>{description}</p>}
-        </Space>
+          </div>
+        </Card>
       </div>
-    </Card>
-  );
-}
+    );
+  },
+);
+
+TopExchangeItem.displayName = 'TopExchangeItem';
+
+export const MotionTopExchangeItem = motion(TopExchangeItem);

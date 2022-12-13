@@ -14,7 +14,7 @@ export * from './Layout';
 export * from './Loader';
 export * from './Logo';
 export * from './MarketCapGlobal';
-export * from './MarketCapGlobalGraph';
+export * from './MarketCapGlobalList';
 export * from './Menu';
 export * from './MultiChart';
 export * from './Navigation';
