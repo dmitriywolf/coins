@@ -19,6 +19,10 @@ module.exports = (phase) => {
       if (isDev) return 'https://api.coingecko.com/api/v3/';
       if (isProd) return 'https://api.coingecko.com/api/v3/';
     })(),
+    NEXT_PUBLIC_DOMAIN: (() => {
+      if (isDev) return 'http://localhost:3000';
+      if (isProd) return 'https://crypto-coins-compare.vercel.app';
+    })(),
   };
 
   // next.config.js object

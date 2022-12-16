@@ -43,6 +43,19 @@ export default function HomePage() {
           name='description'
           content='An app for viewing information about all cryptocurrencies with the ability to compare them.'
         />
+        <meta property='og:title' content='Crypto Coins Compare Application' />
+        <meta
+          property='og:description'
+          content='An app for viewing information about all cryptocurrencies with the ability to compare them.'
+        />
+        <meta property='og:image' content='/images/index.jpg' />
+        <meta property='og:image:type' content='image/jpeg' />
+        <meta property='og:image:width' content='300' />
+        <meta property='og:image:height' content='176' />
+        <meta
+          property='og:image:alt'
+          content='Main logo of the Crypto Coins Compare Application'
+        />
       </Head>
       <div className={`${classes.homePage} page`}>
         <Container>
