@@ -43,12 +43,20 @@ export default function HomePage() {
           name='description'
           content='An app for viewing information about all cryptocurrencies with the ability to compare them.'
         />
+        <meta property='og:type' content='website' />
         <meta property='og:title' content='Crypto Coins Compare Application' />
         <meta
           property='og:description'
           content='An app for viewing information about all cryptocurrencies with the ability to compare them.'
         />
-        <meta property='og:image' content='/images/index.jpg' />
+        <meta
+          property='og:image'
+          content={`${process.env.NEXT_PUBLIC_DOMAIN}/images/index.jpg`}
+        />
+        <meta
+          property='og:image:secure_url'
+          content={`${process.env.NEXT_PUBLIC_DOMAIN}/images/index.jpg`}
+        />
         <meta property='og:image:type' content='image/jpeg' />
         <meta property='og:image:width' content='300' />
         <meta property='og:image:height' content='176' />
