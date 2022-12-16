@@ -9,11 +9,9 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:import/recommended",
-    "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
     "prettier"
   ],
   "parserOptions": {
@@ -33,7 +31,7 @@
     "prettier/prettier": "error",
     "import/no-unresolved": "off",
     "import/named": "off",
-    "react/react-in-jsx-scope": "off", // в файлах jsx не  требовать импортировать react
+    "react/react-in-jsx-scope": "off",
     "sort-imports": "off",
     "import/order": "off",
     "react/prop-types": "off"

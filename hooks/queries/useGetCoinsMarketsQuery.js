@@ -6,5 +6,6 @@ export const useGetCoinsMarketsQuery = ({ variables }) => {
   return useQuery({
     queryKey: ['coinsMarkets', ...Object.values(variables)],
     queryFn: () => getCoinsMarkets(variables),
+    keepPreviousData: true,
   });
 };
