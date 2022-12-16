@@ -25,7 +25,7 @@
 
 .title h4 {
   font-size: 18px;
-  margin: 0
+  margin: 0;
 }
 
 .removeBtnWrap button,
@@ -45,10 +45,9 @@
   }
 
   .title h4,
-  .title span{
+  .title span {
     font-size: 16px;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -67,5 +66,4 @@
   .title span {
     display: none;
   }
-
 }

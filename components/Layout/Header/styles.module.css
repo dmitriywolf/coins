@@ -20,7 +20,7 @@
   height: 100%;
   width: 2px;
   margin: 0 20px;
-  background-color: var(--balticSea),
+  background-color: var(--balticSea);
 }
 
 .actions {
@@ -29,22 +29,20 @@
   margin-left: auto;
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   .header :global(.ant-divider-vertical) {
     margin: 0 10px;
   }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .actions {
     margin-right: 46px;
   }
 }
 
 @media (max-width: 576px) {
-
   .header :global(.ant-divider-vertical) {
     display: none;
   }
-
 }

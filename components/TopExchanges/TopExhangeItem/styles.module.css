@@ -17,7 +17,7 @@
 }
 
 .card:hover .title {
-  color: var(--clearBlue)
+  color: var(--clearBlue);
 }
 
 .titleWrap {
@@ -45,7 +45,6 @@
   text-align: justify;
 }
 
-
 @media (max-width: 480px) {
   .card > div {
     padding: 16px;
@@ -62,5 +61,4 @@
   .logoWrap img {
     width: 60px;
   }
-
 }

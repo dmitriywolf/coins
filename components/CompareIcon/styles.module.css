@@ -27,12 +27,11 @@
   fill: var(--pastelBlue);
 }
 
-
 .icon:hover svg {
   fill: var(--sunshade);
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   .wrap {
     margin-right: 14px;
   }
@@ -45,5 +44,4 @@
     width: 24px;
     height: 24px;
   }
-
 }

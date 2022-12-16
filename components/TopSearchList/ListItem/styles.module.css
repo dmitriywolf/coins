@@ -20,7 +20,7 @@
 }
 
 .symbol {
-  color: var(--secondary)
+  color: var(--secondary);
 }
 
 .item:hover .title,
@@ -36,5 +36,4 @@
   .priceWrap span {
     font-size: 13px;
   }
-
 }

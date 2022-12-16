@@ -44,9 +44,8 @@
   .leftSidebar,
   .rightSidebar {
     position: static;
-    margin-top: 0
+    margin-top: 0;
   }
-
 }
 
 @media (max-width: 992px) {
@@ -58,7 +57,6 @@
     width: 170px;
     height: 170px;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -70,7 +68,6 @@
     width: 140px;
     height: 140px;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -78,5 +75,4 @@
     font-size: 24px;
     text-align: center;
   }
-
 }

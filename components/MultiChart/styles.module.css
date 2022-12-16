@@ -14,7 +14,6 @@
   fill: var(--secondary);
 }
 
-
 @media (max-width: 576px) {
   .chart {
     padding: 0;
