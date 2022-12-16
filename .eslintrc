@@ -1,6 +1,6 @@
 {
   "env": {
-    "node": false,
+    "node": true,
     "browser": true,
     "es2021": true,
     "jest": false
@@ -10,8 +10,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:import/recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier"
