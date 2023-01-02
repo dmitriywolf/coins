@@ -14,6 +14,7 @@ const { Title } = Typography;
 
 export function CoinCharts({ charts = [], loading }) {
   const [selectedTab, setSelectedTab] = useState(1);
+  console.log(charts);
   // const prices = charts?.prices;
   // const marketCaps = charts?.market_caps;
   // const totalVolumes = charts?.total_volumes;
