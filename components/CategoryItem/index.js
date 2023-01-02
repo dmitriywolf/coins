@@ -1,10 +1,10 @@
 import { Card, Image, Space, Typography } from 'antd';
+import { Change } from 'components/TableComponents';
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
+import { formatNumber } from 'utils';
 
-import { formatNumber } from '../../utils';
-import { Change } from '../TableComponents';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Title, Text } = Typography;
 

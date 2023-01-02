@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const CompareContext = createContext();
 
@@ -52,7 +52,7 @@ export const CompareProvider = ({ children }) => {
 };
 
 export function useCompareContext() {
-  const compareContext = React.useContext(CompareContext);
+  const compareContext = useContext(CompareContext);
 
   if (!compareContext) {
     throw new Error('useCompareContext must be used within a CompareProvider');

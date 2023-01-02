@@ -1,6 +1,6 @@
 import { Image, Space, Typography } from 'antd';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Text } = Typography;
 

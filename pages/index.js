@@ -1,23 +1,27 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Col, Row, Typography } from 'antd';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
-
-import { getGlobalInfo, getTopCoins, getTopExchanges } from '../api';
+import { getGlobalInfo, getTopCoins, getTopExchanges } from 'api';
 import {
   Container,
   MarketCapGlobal,
   MarketCapGlobalList,
   TopExchanges,
   TopSearchList,
-} from '../components';
+} from 'components';
+import { motion } from 'framer-motion';
 import {
   useGetGlobalInfoQuery,
   useGetTopCoinsQuery,
   useGetTopExchangesQuery,
-} from '../hooks';
-import LogoIcon from '../public/images/Logo.svg';
-import classes from '../styles/HomePage.module.css';
+} from 'hooks';
+import Head from 'next/head';
+import LogoIcon from 'public/images/Logo.svg';
+import {
+  banner,
+  homePage,
+  sidebar,
+  subtitle,
+} from 'styles/HomePage.module.scss';
 
 const { Title } = Typography;
 
@@ -65,19 +69,19 @@ export default function HomePage() {
           content='Main logo of the Crypto Coins Compare Application'
         />
       </Head>
-      <div className={`${classes.homePage} page`}>
+      <div className={`${homePage} page`}>
         <Container>
           <motion.div
             initial={'hidden'}
             animate={'visible'}
             transition={{ duration: 2 }}
             variants={variants}
-            className={classes.mainBanner}
+            className={banner}
           >
             <LogoIcon />
-            <Title>
+            <Title type='secondary'>
               {`CRYPTO COINS `}
-              <span className={classes.subtitle}>COMPARE</span>
+              <span className={subtitle}>COMPARE</span>
             </Title>
           </motion.div>
           <Row gutter={[16, 16]}>
@@ -87,7 +91,7 @@ export default function HomePage() {
               xl={{ span: 6, order: 1 }}
               xxl={{ span: 6 }}
             >
-              <div className={classes.leftSidebar}>
+              <div className={sidebar}>
                 <Row gutter={[16, 16]}>
                   <Col span={24}>
                     <MarketCapGlobal
@@ -123,7 +127,7 @@ export default function HomePage() {
               xl={{ span: 8, order: 3 }}
               xxl={{ span: 6 }}
             >
-              <div className={classes.rightSidebar}>
+              <div className={sidebar}>
                 <TopSearchList list={tops} />
               </div>
             </Col>

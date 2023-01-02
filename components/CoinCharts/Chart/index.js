@@ -5,13 +5,12 @@ import {
   Tooltip,
   XYChart,
 } from '@visx/xychart';
-import { timeFormat } from 'd3-time-format';
 
 import { useCurrencyContext } from '../../../context';
 import { formatNumber } from '../../../utils';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
-export function Chart({ data, title, type }) {
+export default function Chart({ data, title, type }) {
   const { currency } = useCurrencyContext();
   const accessors = {
     xAccessor: (d) => {
@@ -20,9 +19,6 @@ export function Chart({ data, title, type }) {
     },
     yAccessor: (d) => d.y,
   };
-
-  const format = timeFormat('%b %d');
-  const formatDate = (date) => format(date);
 
   const getFullDate = (date) => {
     const newDate = new Date(date);
@@ -58,7 +54,6 @@ export function Chart({ data, title, type }) {
             orientation='bottom'
             label='Date'
             strokeWidth='1'
-            tickFormat={formatDate}
             labelClassName={classes.axisLabel}
             numTicks={6}
           />

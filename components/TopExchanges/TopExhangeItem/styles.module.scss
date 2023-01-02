@@ -1,0 +1,49 @@
+@import 'styles/variables';
+
+.card {
+  &:hover {
+    cursor: pointer;
+    box-shadow: $cardShadow;
+  }
+
+  .inner {
+    display: flex;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.logo {
+  min-width: 50px;
+  margin-right: 8px;
+}
+
+.content {
+  color: $secondary;
+  text-align: justify;
+}
+
+@media (max-width: 480px) {
+  .card > div {
+    padding: 16px;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 0 auto 20px;
+
+    & img {
+      width: 60px;
+    }
+  }
+}

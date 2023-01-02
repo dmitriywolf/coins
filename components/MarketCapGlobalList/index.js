@@ -2,7 +2,7 @@ import { Card, List, Typography } from 'antd';
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const variants = {
   visible: (i) => ({
@@ -41,7 +41,7 @@ export function MarketCapGlobalList({ percentage }) {
   }
 
   return (
-    <Card className={classes.card}>
+    <Card>
       <Title level={3}>Total Cap %</Title>
       <List
         dataSource={data}

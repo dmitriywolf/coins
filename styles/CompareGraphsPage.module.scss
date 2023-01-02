@@ -1,0 +1,23 @@
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.graphWrap {
+  padding: 20px 0;
+}
+
+@media (max-width: 992px) {
+  .actions {
+    padding-bottom: 10px;
+  }
+
+  .graphWrap {
+    padding: 10px 0;
+
+    h3 {
+      font-size: 22px;
+    }
+  }
+}

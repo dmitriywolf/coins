@@ -1,0 +1,14 @@
+@import 'styles/variables';
+
+.linkWrap {
+  max-width: 150px;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: $secondary;
+
+  span {
+    word-break: keep-all;
+    text-overflow: ellipsis;
+  }
+}

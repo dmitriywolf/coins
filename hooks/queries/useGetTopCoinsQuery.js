@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-
-import { getTopCoins } from '../../api';
+import { getTopCoins } from 'api';
 
 export const useGetTopCoinsQuery = () => {
   return useQuery({

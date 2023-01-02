@@ -1,8 +1,7 @@
 import { Table, Typography } from 'antd';
-
-import { formatNumber } from '../../utils';
-import { ConfidenceTag, MarketName, Pair } from '../TableComponents';
-import classes from './styles.module.css';
+import { ConfidenceTag } from 'components';
+import { MarketName, Pair } from 'components/TableComponents';
+import { formatNumber } from 'utils';
 
 const { Title, Text } = Typography;
 
@@ -98,12 +97,12 @@ export function Tickers({ list = [] }) {
   }
 
   return (
-    <div className={classes.tickers}>
+    <>
       <Title>Last Tickers by Volume</Title>
       <Table
         columns={columns}
         dataSource={tickersData}
-        rowClassName={classes.tableRow}
+        rowClassName='tableRow'
         pagination={{
           showSizeChanger: false,
           pageSize: 20,
@@ -120,6 +119,6 @@ export function Tickers({ list = [] }) {
           x: 1100,
         }}
       />
-    </div>
+    </>
   );
 }

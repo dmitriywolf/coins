@@ -1,8 +1,6 @@
 import { Button, Empty } from 'antd';
 import Head from 'next/head';
-import React from 'react';
-
-import classes from '../styles/ErrorPage.module.css';
+import classes from 'styles/ErrorPage.module.scss';
 
 export default function NotFoundPage() {
   return (

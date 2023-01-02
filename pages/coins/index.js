@@ -1,20 +1,15 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
+import { getCoinsMarkets } from 'api';
+import { CompareAction, Container, Loader, Navigation } from 'components';
+import { Change, CoinName, TableSupply } from 'components/TableComponents';
+import { useCurrencyContext } from 'context';
+import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from 'hooks';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-
-import { getCoinsMarkets } from '../../api';
-import { CompareAction, Container, Loader, Navigation } from '../../components';
-import {
-  Change,
-  CoinName,
-  TableSupply,
-} from '../../components/TableComponents';
-import { useCurrencyContext } from '../../context';
-import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from '../../hooks';
-import classes from '../../styles/CoinsPage.module.css';
-import { formatNumber } from '../../utils';
+import classes from 'styles/CoinsPage.module.scss';
+import { formatNumber } from 'utils';
 
 const { Text, Title } = Typography;
 
@@ -57,6 +52,7 @@ export default function Coins() {
       title: '#',
       dataIndex: 'rank',
       key: 'rank',
+      fixed: 'left',
       width: 60,
     },
     {
@@ -64,7 +60,7 @@ export default function Coins() {
       dataIndex: 'name',
       key: 'name',
       fixed: 'left',
-      width: 170,
+      width: 176,
       render: (_, { image, name, symbol }) => (
         <CoinName name={name} image={image} symbol={symbol} />
       ),
@@ -164,11 +160,11 @@ export default function Coins() {
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Coins</Title>
-          <Loader active={isLoading} size='large' bg='#F4F5F6'>
+          <Loader active={isLoading} size='large'>
             <Table
               columns={columns}
               dataSource={coinsData}
-              rowClassName={classes.tableRow}
+              rowClassName='tableRow'
               pagination={{
                 total: global?.data?.active_cryptocurrencies || 100,
                 showSizeChanger: false,

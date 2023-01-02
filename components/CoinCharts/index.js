@@ -7,20 +7,20 @@ import { Segmented, Typography } from 'antd';
 import { useState } from 'react';
 
 import { Loader } from '../Loader';
-import { Chart } from './Chart';
-import classes from './style.module.css';
+// import Chart from './Chart';
+import classes from './style.module.scss';
 
 const { Title } = Typography;
 
 export function CoinCharts({ charts = [], loading }) {
   const [selectedTab, setSelectedTab] = useState(1);
-  const prices = charts?.prices;
-  const marketCaps = charts?.market_caps;
-  const totalVolumes = charts?.total_volumes;
+  // const prices = charts?.prices;
+  // const marketCaps = charts?.market_caps;
+  // const totalVolumes = charts?.total_volumes;
 
-  const dataPrices = prices?.map((item) => ({ x: item[0], y: item[1] }));
-  const dataMarkets = marketCaps?.map((item) => ({ x: item[0], y: item[1] }));
-  const dataVolumes = totalVolumes?.map((item) => ({ x: item[0], y: item[1] }));
+  // const dataPrices = prices?.map((item) => ({ x: item[0], y: item[1] }));
+  // const dataMarkets = marketCaps?.map((item) => ({ x: item[0], y: item[1] }));
+  // const dataVolumes = totalVolumes?.map((item) => ({ x: item[0], y: item[1] }));
 
   const changeTabHandler = (value) => {
     setSelectedTab(value);
@@ -55,15 +55,15 @@ export function CoinCharts({ charts = [], loading }) {
         ]}
         onChange={changeTabHandler}
       />
-      <Loader active={loading} size='large' bg='#F4F5F6'>
+      <Loader active={loading} size='large'>
         <div className={classes.wrapCharts}>
-          {
+          {/* {
             {
               1: <Chart data={dataPrices} type='price' />,
               2: <Chart data={dataVolumes} type='volume' />,
               3: <Chart data={dataMarkets} type='marketCap' />,
             }[selectedTab]
-          }
+          } */}
         </div>
       </Loader>
     </div>

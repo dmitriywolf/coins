@@ -1,0 +1,32 @@
+.title {
+  display: flex;
+  align-items: flex-end;
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h1,
+  h3 {
+    margin: 0 !important;
+  }
+}
+
+.tags {
+  span {
+    margin-bottom: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    h1 {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    h3 {
+      display: none;
+    }
+  }
+}

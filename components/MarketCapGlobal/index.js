@@ -1,11 +1,11 @@
 import { Card, Space, Typography } from 'antd';
+import { Change } from 'components/TableComponents';
 import Link from 'next/link';
+import MarketsIcon from 'public/images/Categories.svg';
+import CoinsIcon from 'public/images/Coins.svg';
+import { formatNumber } from 'utils';
 
-import MarketsIcon from '../../public/images/Categories.svg';
-import CoinsIcon from '../../public/images/Coins.svg';
-import { formatNumber } from '../../utils';
-import { Change } from '../TableComponents';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Title, Text } = Typography;
 
@@ -15,7 +15,7 @@ export function MarketCapGlobal({
   markets,
 }) {
   return (
-    <Card className={classes.card}>
+    <Card>
       <Title level={3}>Market Cap</Title>
       <div className={classes.inner}>
         <Space direction='vertical'>

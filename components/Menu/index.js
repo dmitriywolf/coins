@@ -1,11 +1,11 @@
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import { PATHS } from 'common/constant';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { PATHS } from '../../common/constant';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export function Menu() {
   const router = useRouter();

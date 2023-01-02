@@ -1,7 +1,6 @@
 import { Select } from 'antd';
-
-import { CURRENCIES } from '../../common/constant';
-import { useCurrencyContext } from '../../context';
+import { CURRENCIES } from 'common/constant';
+import { useCurrencyContext } from 'context';
 
 export function CurrencySelect() {
   const { currency, setCurrency } = useCurrencyContext();
@@ -20,10 +19,9 @@ export function CurrencySelect() {
       defaultValue={currency.value}
       options={options}
       onChange={handleChange}
-      className='customSelect'
-      popupClassName='customDropDowmMenu'
+      showArrow={false}
       style={{
-        width: 100,
+        width: 84,
       }}
     />
   );

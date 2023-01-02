@@ -1,0 +1,13 @@
+@import 'styles/variables';
+
+.popoverLine {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+}
+
+.suppluValue {
+  margin: 0;
+  color: $secondary;
+  white-space: nowrap;
+}

@@ -1,17 +1,15 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
+import { getTopList } from 'api';
+import { COMPARE_LINK } from 'common/constant';
+import { CompareAction, Container, Loader, Navigation } from 'components';
+import { CoinName } from 'components/TableComponents';
+import { useCurrencyContext } from 'context';
+import { useGetTopListQuery } from 'hooks';
 import Head from 'next/head';
 import React, { useState } from 'react';
 
-import { getTopList } from '../../api';
-import { COMPARE_LINK } from '../../common/constant';
-import { CompareAction, Container, Loader, Navigation } from '../../components';
-import { CoinName } from '../../components/TableComponents';
-import { useCurrencyContext } from '../../context';
-import { useGetTopListQuery } from '../../hooks';
-import classes from '../../styles/TopListPage.module.css';
-
-export { COMPARE_LINK } from '../../common/constant';
+export { COMPARE_LINK } from 'common/constant';
 
 const { Title, Text } = Typography;
 
@@ -140,12 +138,11 @@ export default function TopListPage() {
           content='Top Coin List according to https://min-api.cryptocompare.com/'
         />
       </Head>
-      <div className={`${classes.topListPage} page`}>
+      <div className='page'>
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Top List</Title>
-          <div className={classes.tableWrap}></div>
-          <Loader active={isLoading} size='large' bg='#F4F5F6'>
+          <Loader active={isLoading} size='large'>
             <Table
               columns={columns}
               dataSource={coinsData}

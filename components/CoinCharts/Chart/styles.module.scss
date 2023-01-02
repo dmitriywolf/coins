@@ -1,0 +1,25 @@
+.chart {
+  padding: 10px;
+  /* background-color: var(--white); */
+  border-radius: 8px;
+}
+
+.tooltip p {
+  margin: 0;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+/* .tooltipData {
+  color: var(--secondary);
+} */
+
+/* .axisLabel {
+  fill: var(--secondary);
+} */
+
+@media (max-width: 576px) {
+  .chart {
+    padding: 0;
+  }
+}

@@ -1,0 +1,36 @@
+@import 'styles/variables';
+
+.actionsWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.title {
+  margin: 0 20px 0 0;
+  font-weight: 500;
+  color: $secondary;
+}
+
+@media (max-width: 576px) {
+  .actionsWrap {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .select {
+    order: 2;
+    padding: 10px 0 0 0;
+  }
+
+  .actionsWrap button {
+    order: 1;
+  }
+}

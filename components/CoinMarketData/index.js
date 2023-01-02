@@ -1,10 +1,9 @@
 import { Card, Col, Divider, Progress, Row, Space, Typography } from 'antd';
-import React from 'react';
+import { Change } from 'components/TableComponents';
+import { useCurrencyContext } from 'context';
+import { formatNumber } from 'utils/formatNumber';
 
-import { useCurrencyContext } from '../../context';
-import { formatNumber } from '../../utils/formatNumber';
-import { Change } from '../TableComponents';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Text } = Typography;
 
@@ -50,7 +49,6 @@ export function CoinMarketData({ market }) {
                 value={priceChangePercentage24hInCurrency?.[currency.valueLow]}
               />
             </Space>
-
             <Space>
               <Text type='secondary'>{currentPrice?.['btc']} BTC</Text>
               <Change value={priceChangePercentage24hInCurrency?.['btc']} />
@@ -84,7 +82,7 @@ export function CoinMarketData({ market }) {
         </Col>
 
         <Col xs={{ span: 0 }} xl={{ span: 1 }}>
-          <Divider type='vertical' className={classes.divider} />
+          <Divider type='vertical' style={{ height: '100%' }} />
         </Col>
 
         <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 11 }}>

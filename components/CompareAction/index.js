@@ -1,9 +1,6 @@
 import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import React from 'react';
-
-import { useCompareContext } from '../../context';
-import classes from './styles.module.css';
+import { useCompareContext } from 'context';
 
 export function CompareAction({ row: coin, isGraph }) {
   const { addCoin, removeCoin, coinExist } = useCompareContext();
@@ -21,27 +18,23 @@ export function CompareAction({ row: coin, isGraph }) {
   return (
     <>
       {coinExist({ coin, isGraph }) ? (
-        <div className={classes.remove}>
-          <Button
-            type='primary'
-            shape='round'
-            icon={<MinusCircleOutlined />}
-            onClick={removeFromCompareHandler}
-          >
-            Compare
-          </Button>
-        </div>
+        <Button
+          shape='round'
+          icon={<MinusCircleOutlined />}
+          onClick={removeFromCompareHandler}
+          danger
+        >
+          Compare
+        </Button>
       ) : (
-        <div className={classes.add}>
-          <Button
-            type='primary'
-            shape='round'
-            icon={<PlusCircleOutlined />}
-            onClick={addToCompareHandler}
-          >
-            Compare
-          </Button>
-        </div>
+        <Button
+          type='primary'
+          shape='round'
+          icon={<PlusCircleOutlined />}
+          onClick={addToCompareHandler}
+        >
+          Compare
+        </Button>
       )}
     </>
   );

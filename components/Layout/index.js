@@ -1,13 +1,16 @@
-import { Footer } from './Footer';
-import { Header } from './Header';
-import classes from './styles.module.css';
+import { Layout } from 'antd';
 
-export function Layout({ children }) {
+import { AppFooter } from './AppFooter';
+import { AppHeader } from './AppHeader';
+
+const { Content } = Layout;
+
+export function AppLayout({ children }) {
   return (
-    <>
-      <Header />
-      <main className={classes.main}>{children}</main>
-      <Footer />
-    </>
+    <Layout>
+      <AppHeader />
+      <Content style={{ paddingTop: 70, width: '100vw' }}>{children}</Content>
+      <AppFooter />
+    </Layout>
   );
 }

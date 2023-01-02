@@ -4,9 +4,9 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 import { Card, Image, Space, Tag, Typography } from 'antd';
+import { formatNumber } from 'utils';
 
-import { formatNumber } from '../../utils';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Title, Text } = Typography;
 
@@ -23,20 +23,18 @@ export function CoinIntro({ intro }) {
   } = intro;
 
   return (
-    <Card className={classes.card}>
+    <Card>
       <Space direction='vertical'>
-        <div className={classes.header}>
-          <Space align='end' size='small'>
-            <Image src={image} alt={name} preview={false} />
-            <div className={classes.title}>
-              <Title level={1}>{name}</Title>
-              <Title level={3} type='secondary'>
-                {symbol ? `/ ${symbol.toUpperCase()}` : ''}
-              </Title>
-            </div>
-          </Space>
-        </div>
-        <div className={classes.info}>
+        <Space align='end'>
+          <Image src={image} alt={name} preview={false} />
+          <div className={classes.title}>
+            <Title level={1}>{name}</Title>
+            <Title level={3} type='secondary'>
+              {symbol ? `/ ${symbol.toUpperCase()}` : ''}
+            </Title>
+          </div>
+        </Space>
+        <div>
           <Tag color='#f50'>Rank #{rank}</Tag>
           {genesis ? <Tag color='#87d068'>{genesis}</Tag> : ''}
           {algorith ? <Tag color='#108ee9'>{algorith}</Tag> : ''}
@@ -69,7 +67,7 @@ export function CoinIntro({ intro }) {
             <Space align='start'>
               <div className={classes.tags}>
                 {categories.map((item) => (
-                  <Tag key={item} color='#B1B5C4'>
+                  <Tag key={item} color='#23262f'>
                     {item}
                   </Tag>
                 ))}

@@ -1,7 +1,6 @@
 import { Card, List, Typography } from 'antd';
 
 import { MotionListItem } from './ListItem';
-import classes from './styles.module.css';
 
 const { Title } = Typography;
 
@@ -28,7 +27,7 @@ export function TopSearchList({ list }) {
   }));
 
   return (
-    <Card className={classes.card}>
+    <Card>
       <Title level={3}>Top by searched</Title>
       <List
         dataSource={dataTops}

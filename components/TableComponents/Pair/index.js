@@ -1,4 +1,4 @@
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export function Pair({ base, target }) {
   return (

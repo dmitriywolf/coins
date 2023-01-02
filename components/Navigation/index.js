@@ -1,7 +1,7 @@
 import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Item } = Breadcrumb;
 

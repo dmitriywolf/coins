@@ -1,0 +1,43 @@
+@import 'styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 5;
+  box-shadow: $headerShadow;
+}
+
+.headerInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 15px 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 6px;
+}
+
+@media (max-width: 992px) {
+  .header :global(.ant-divider-vertical) {
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    margin-right: 46px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header :global(.ant-divider-vertical) {
+    display: none;
+  }
+}

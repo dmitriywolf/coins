@@ -1,47 +1,13 @@
-import { Card, Image, Space, Tag, Typography } from 'antd';
+import { Card, Image, Space, Typography } from 'antd';
+import { ScoreTagRank, TrustTag } from 'components';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { forwardRef } from 'react';
+import { formatNumber } from 'utils';
 
-import { formatNumber } from '../../../utils';
-import classes from './styles.module.css';
+import { card, content, inner, logo, title } from './styles.module.scss';
 
 const { Text } = Typography;
-
-const ScoreTagRank = ({ rank, text }) => {
-  let color;
-
-  if (rank === 1) {
-    color = '#18B04D';
-  } else if (rank === 2) {
-    color = '#3772FF';
-  } else if (rank === 3) {
-    color = '#FEC27C';
-  } else {
-    color = '#B1B5C4';
-  }
-
-  return (
-    <Tag color={color}>
-      {text}
-      {rank}
-    </Tag>
-  );
-};
-
-const TrustTag = ({ score }) => {
-  if (score >= 9) {
-    return <Tag color='#87d068'>High</Tag>;
-  }
-
-  if (score >= 6 && score < 9) {
-    return <Tag color='#ffa500'>Middle</Tag>;
-  }
-
-  if (score < 6) {
-    return <Tag color='#f50'>Low</Tag>;
-  }
-  return <div>-</div>;
-};
 
 const TopExchangeItem = forwardRef(
   (
@@ -64,16 +30,18 @@ const TopExchangeItem = forwardRef(
 
     return (
       <div ref={ref}>
-        <Card className={classes.card} onClick={navToExchange}>
-          <div className={classes.cardInner} ref={ref}>
-            <div className={classes.logoWrap}>
+        <Card onClick={navToExchange} className={card}>
+          <div className={inner} ref={ref}>
+            <div className={logo}>
               <Image src={image} alt={name} preview={false} />
             </div>
             <Space direction='vertical'>
-              <div className={classes.titleWrap}>
+              <div className={title}>
                 <ScoreTagRank text='#' rank={trust_score_rank} />
                 <TrustTag score={trust_score} />
-                <h3 className={classes.title}>{name}</h3>
+                <h3>
+                  <Link href='#'>{name}</Link>
+                </h3>
               </div>
               {country || year_established ? (
                 <Space direction='vertical'>
@@ -101,9 +69,7 @@ const TopExchangeItem = forwardRef(
                   {formatNumber(trade_volume_24h_btc_normalized)} BTC
                 </Text>
               </Space>
-              {description && (
-                <p className={classes.description}>{description}</p>
-              )}
+              {description && <p className={content}>{description}</p>}
             </Space>
           </div>
         </Card>

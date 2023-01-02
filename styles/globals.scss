@@ -1,0 +1,43 @@
+@import 'styles/variables';
+
+body {
+  font-family: $fontFamily;
+  font-size: 16px;
+  font-weight: normal;
+  overflow-x: hidden;
+}
+
+/* 140px -> header and footer heights */
+.page {
+  min-height: calc(100vh - 140px);
+  padding-bottom: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+// Scroll for table
+.ant-table-content {
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: $sand, $whiteSmoke;
+}
+
+.ant-table-content::-webkit-scrollbar {
+  height: 8px;
+  background: $whiteSmoke;
+}
+
+.ant-table-content::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: $sand;
+}
+
+.tableRow {
+  cursor: pointer;
+}

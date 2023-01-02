@@ -2,7 +2,7 @@ import { Button, Empty } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export function EmptyCompare({ link, text }) {
   return (

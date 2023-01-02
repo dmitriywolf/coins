@@ -1,0 +1,19 @@
+.inner {
+  & span,
+  & a {
+    font-size: 16px;
+  }
+
+  & a {
+    font-weight: 500;
+  }
+}
+
+.value {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+}

@@ -1,20 +1,18 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
-import Head from 'next/head';
-import Link from 'next/link';
-import React from 'react';
-
 import {
+  CompareGraphList,
   Container,
   EmptyCompare,
-  Loader,
-  MultiGraph,
+  // Loader,
+  // MultiGraph,
   Navigation,
-} from '../../components';
-import { CompareGraphList } from '../../components/CompareGraphList';
-import { useCompareContext, useCurrencyContext } from '../../context';
-import { useGetCoinsChartsQueries } from '../../hooks';
-import classes from '../../styles/CompareGraphsPage.module.css';
+} from 'components';
+import { useCompareContext, useCurrencyContext } from 'context';
+import { useGetCoinsChartsQueries } from 'hooks';
+import Head from 'next/head';
+import Link from 'next/link';
+import classes from 'styles/CompareGraphsPage.module.scss';
 
 const { Title } = Typography;
 
@@ -34,33 +32,34 @@ export default function CompareGraphsPage() {
   }));
 
   const timesTicks = data?.[0]?.prices?.map((item) => item[0]);
+  console.log(timesTicks);
 
-  const dataPrices = data?.map((coin, idx) => {
-    const obj = {};
-    obj.coin = coinsGraph[idx];
-    obj.data = coin?.prices?.map((item, idx) => ({
-      x: timesTicks?.[idx],
-      y: item[1],
-    }));
-    return obj;
-  });
+  // const dataPrices = data?.map((coin, idx) => {
+  //   const obj = {};
+  //   obj.coin = coinsGraph[idx];
+  //   obj.data = coin?.prices?.map((item, idx) => ({
+  //     x: timesTicks?.[idx],
+  //     y: item[1],
+  //   }));
+  //   return obj;
+  // });
 
-  const isSuccess =
-    dataCharts?.filter((item) => item?.isSuccess === true).length ===
-    coinsGraph.length;
-  const isLoading = dataCharts?.filter(
-    (item) => item?.isLoading === true,
-  ).length;
+  // const isSuccess =
+  //   dataCharts?.filter((item) => item?.isSuccess === true).length ===
+  //   coinsGraph.length;
+  // const isLoading = dataCharts?.filter(
+  //   (item) => item?.isLoading === true,
+  // ).length;
 
-  const dataVolumes = data?.map((coin, idx) => {
-    const obj = {};
-    obj.coin = coinsGraph[idx];
-    obj.data = coin?.volumes?.map((item, idx) => ({
-      x: timesTicks?.[idx],
-      y: item[1],
-    }));
-    return obj;
-  });
+  // const dataVolumes = data?.map((coin, idx) => {
+  //   const obj = {};
+  //   obj.coin = coinsGraph[idx];
+  //   obj.data = coin?.volumes?.map((item, idx) => ({
+  //     x: timesTicks?.[idx],
+  //     y: item[1],
+  //   }));
+  //   return obj;
+  // });
 
   const breadcrumbs = [{ title: 'Compare in Graphs' }];
   return (
@@ -72,7 +71,7 @@ export default function CompareGraphsPage() {
           content='Page for comparing cryptocurrencies by market in graph, price and total values'
         />
       </Head>
-      <div className={`${classes.compareGraphsPage} page`}>
+      <div className='page'>
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Compare in Graphs</Title>
@@ -94,7 +93,7 @@ export default function CompareGraphsPage() {
                 <Title type='secondary' level={3}>
                   Price in 30 days
                 </Title>
-                <Loader active={isLoading} size='large'>
+                {/* <Loader active={isLoading} size='large'>
                   {isSuccess && (
                     <MultiGraph
                       charts={dataPrices}
@@ -102,14 +101,14 @@ export default function CompareGraphsPage() {
                       type='price'
                     />
                   )}
-                </Loader>
+                </Loader> */}
               </div>
 
               <div className={classes.graphWrap}>
                 <Title type='secondary' level={3}>
                   Total Volume in 30 days
                 </Title>
-                <Loader active={isLoading} size='large'>
+                {/* <Loader active={isLoading} size='large'>
                   {isSuccess && (
                     <MultiGraph
                       charts={dataVolumes}
@@ -117,7 +116,7 @@ export default function CompareGraphsPage() {
                       type='volume'
                     />
                   )}
-                </Loader>
+                </Loader> */}
               </div>
             </>
           ) : (

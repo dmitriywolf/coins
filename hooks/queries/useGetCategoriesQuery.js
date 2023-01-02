@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-
-import { getCategories } from '../../api';
+import { getCategories } from 'api';
 
 export const useGetCategoriesQuery = (sort) => {
   return useQuery({

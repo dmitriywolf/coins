@@ -1,8 +1,7 @@
 import { Popover, Progress, Typography } from 'antd';
-import React from 'react';
+import { formatNumber } from 'utils';
 
-import { formatNumber } from '../../../utils';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Text } = Typography;
 

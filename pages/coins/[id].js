@@ -1,10 +1,6 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Card, Col, Row, Space, Tabs, Typography } from 'antd';
-import parse from 'html-react-parser';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-
-import { getCoinById, getCoinChart } from '../../api';
+import { getCoinById, getCoinChart } from 'api';
 import {
   CoinCharts,
   CoinIntro,
@@ -12,15 +8,18 @@ import {
   Container,
   Navigation,
   Tickers,
-} from '../../components';
-import { useCurrencyContext } from '../../context';
+} from 'components';
+import { useCurrencyContext } from 'context';
 import {
   useGetCoinByIdQuery,
   useGetCoinChartQuery,
   useGetCoinTickersQuery,
-} from '../../hooks';
-import classes from '../../styles/CoinPage.module.css';
-import { capitelizeFirstLetter } from '../../utils';
+} from 'hooks';
+import parse from 'html-react-parser';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import classes from 'styles/CoinPage.module.scss';
+import { capitelizeFirstLetter } from 'utils';
 
 const { Title, Text } = Typography;
 
@@ -79,10 +78,9 @@ export default function CoinPage() {
                 <div>
                   <Space>
                     <Title>What is</Title>
-                    <Title type='secondary'>{data?.name} ?</Title>
+                    <Title type='secondary'>{data?.name}?</Title>
                   </Space>
                 </div>
-
                 <Text type='secondary'>
                   {data?.description.en ? parse(data?.description.en) : ''}
                 </Text>
@@ -111,7 +109,7 @@ export default function CoinPage() {
         <title>Coin: {data?.name}</title>
         <meta name='description' content={`Coin page: ${data?.name}`} />
       </Head>
-      <div className={`${classes.coinPage} page`}>
+      <div className='page'>
         <Container>
           <Navigation crumbs={breadcrumbs} />
 

@@ -1,20 +1,19 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Select, Typography } from 'antd';
-import Head from 'next/head';
-import Link from 'next/link';
-import React, { useState } from 'react';
-
-import { CURRENCIES } from '../../common/constant';
+import { CURRENCIES } from 'common/constant';
 import {
   CompareBottom,
-  CompareTop,
+  CompareList,
   Container,
   EmptyCompare,
   Navigation,
-} from '../../components';
-import { useCompareContext } from '../../context';
-import { useGetMultiPriceQuery } from '../../hooks/queries';
-import classes from '../../styles/ComparePage.module.css';
+} from 'components';
+import { useCompareContext } from 'context';
+import { useGetMultiPriceQuery } from 'hooks/queries';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useState } from 'react';
+import classes from 'styles/ComparePage.module.scss';
 
 const { Title } = Typography;
 
@@ -64,8 +63,6 @@ export default function ComparePage() {
                     defaultValue={options[0]}
                     options={options}
                     placeholder={<p>Select currency..</p>}
-                    className='customSelect'
-                    popupClassName='customDropDowmMenuMulti'
                     maxTagCount='responsive'
                     onChange={changeCurrencyHandler}
                     style={{
@@ -85,8 +82,7 @@ export default function ComparePage() {
                   </Button>
                 </Link>
               </div>
-              <CompareTop />
-
+              <CompareList />
               <CompareBottom data={data} isLoading={isLoading} />
             </>
           ) : (

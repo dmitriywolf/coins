@@ -1,0 +1,13 @@
+.coinsPage {
+  h1 {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .coinsPage {
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+}

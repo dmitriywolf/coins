@@ -1,19 +1,14 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { List, Select, Typography } from 'antd';
+import { getCategories } from 'api';
+import { CATEGORIES_SORT_OPTIONS } from 'common/constant';
+import { Container, Loader, MotionCategoryItem, Navigation } from 'components';
+import { useGetCategoriesQuery } from 'hooks';
 import Head from 'next/head';
 import { useState } from 'react';
+import classes from 'styles/CategoriesPage.module.scss';
 
-import { getCategories } from '../../api';
-import {
-  Container,
-  Loader,
-  MotionCategoryItem,
-  Navigation,
-} from '../../components';
-import { useGetCategoriesQuery } from '../../hooks';
-import classes from '../../styles/CategoriesPage.module.css';
-
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const variants = {
   visible: (i) => ({
@@ -27,35 +22,8 @@ const variants = {
   },
 };
 
-const options = [
-  {
-    value: 'market_cap_desc',
-    label: 'Market Cap ↓',
-  },
-  {
-    value: 'market_cap_asc',
-    label: 'Market Cap ↑',
-  },
-  {
-    value: 'name_desc',
-    label: 'Name ↓',
-  },
-  {
-    value: 'name_asc',
-    label: 'Name ↑',
-  },
-  {
-    value: 'market_cap_change_24h_desc',
-    label: 'Change in 24h ↓',
-  },
-  {
-    value: 'market_cap_change_24h_asc',
-    label: 'Change in 24h ↑',
-  },
-];
-
 export default function CategoriesPage() {
-  const [sort, setSort] = useState(options[0].value);
+  const [sort, setSort] = useState(CATEGORIES_SORT_OPTIONS[0].value);
   const { data, isLoading } = useGetCategoriesQuery(sort);
 
   const sortHandler = (value) => {
@@ -79,13 +47,13 @@ export default function CategoriesPage() {
           <Title>Categories {data?.length ? `/ ${data?.length}` : ''}</Title>
           <div className={classes.sortWrap}>
             <div className={classes.sortInner}>
-              <p className={classes.sortTitle}>Sort by</p>
+              <Text type='secondary' strong>
+                Sort by
+              </Text>
               <Select
-                defaultValue={options[0]}
-                options={options}
+                defaultValue={CATEGORIES_SORT_OPTIONS[0]}
+                options={CATEGORIES_SORT_OPTIONS}
                 placeholder={<p>Select sort..</p>}
-                className='customSelect'
-                popupClassName='customDropDowmMenu'
                 onChange={sortHandler}
                 style={{
                   width: 180,
@@ -93,7 +61,7 @@ export default function CategoriesPage() {
               />
             </div>
           </div>
-          <Loader active={isLoading} size='large' bg='#F4F5F6'>
+          <Loader active={isLoading} size='large'>
             <List
               dataSource={data}
               pagination={{

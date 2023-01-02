@@ -3,7 +3,7 @@ import React from 'react';
 
 import { useCompareContext } from '../../context';
 import { Loader } from '../Loader';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 const { Panel } = Collapse;
 const { Text } = Typography;
@@ -200,7 +200,7 @@ export function CompareBottom({ data, isLoading }) {
       </div>
 
       <div className={classes.wrapAccord}>
-        <Loader active={isLoading} size='large' bg='#FFFFFF'>
+        <Loader active={isLoading} size='large'>
           <Collapse
             defaultActiveKey={['1', '2', '3', '4', '5', '6']}
             bordered={false}

@@ -1,6 +1,5 @@
-import React, { createContext, useState } from 'react';
-
-import { CURRENCIES } from '../common/constant';
+import { CURRENCIES } from 'common/constant';
+import { createContext, useContext, useState } from 'react';
 
 export const CurrencyContext = createContext({
   currency: CURRENCIES[0],
@@ -27,7 +26,7 @@ export const CurrencyProvider = ({ children }) => {
 };
 
 export function useCurrencyContext() {
-  const currencyContext = React.useContext(CurrencyContext);
+  const currencyContext = useContext(CurrencyContext);
 
   if (!currencyContext) {
     throw new Error(

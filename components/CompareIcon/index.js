@@ -1,23 +1,28 @@
 import { LineChartOutlined, SlidersOutlined } from '@ant-design/icons';
-import { Badge } from 'antd';
+import { Badge, theme } from 'antd';
+import { useCompareContext } from 'context';
 import Link from 'next/link';
-import React from 'react';
 
-import { useCompareContext } from '../../context';
-import classes from './styles.module.css';
+import { button, iconWrap } from './styles.module.scss';
+
+const { useToken } = theme;
 
 export function CompareIcon({ isGraph }) {
   const { count, countGraph } = useCompareContext();
 
+  const {
+    token: { colorInfo },
+  } = useToken();
+
   return (
-    <div className={classes.wrap}>
+    <div className={button}>
       <Badge
         count={isGraph ? countGraph : count}
         offset={[2, 4]}
-        color={isGraph ? '#18B04D' : '#F43F3F'}
+        color={colorInfo}
       >
         <Link href={isGraph ? '/compare-graphs' : '/compare'}>
-          <div className={classes.icon}>
+          <div className={iconWrap}>
             {isGraph ? <LineChartOutlined /> : <SlidersOutlined />}
           </div>
         </Link>

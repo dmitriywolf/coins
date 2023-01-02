@@ -1,7 +1,6 @@
 import { Spin } from 'antd';
-import React from 'react';
 
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export function Loader({
   children,

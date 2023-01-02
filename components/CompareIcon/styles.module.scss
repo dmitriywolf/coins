@@ -1,0 +1,40 @@
+@import 'styles/variables';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  border-radius: 6px;
+  background-color: $white;
+  box-shadow: $cardShadow;
+  cursor: pointer;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .wrap {
+    margin-right: 14px;
+  }
+
+  .icon {
+    padding: 4px;
+  }
+
+  .icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,55 @@
+@import 'styles/variables';
+
+.card {
+  height: 100%;
+}
+
+.price {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.changePrice {
+  display: flex;
+  margin-top: 8px;
+  margin-left: -6px;
+
+  span {
+    padding-right: 6px;
+    padding-left: 6px;
+    white-space: nowrap;
+  }
+}
+
+.supply {
+  margin-top: 8px;
+}
+
+.supplySection {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 576px) {
+  .changePrice {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $whiteSmoke;
+  }
+
+  .price {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .changePrice {
+    margin-left: -3px;
+
+    span {
+      padding-right: 3px;
+      padding-left: 3px;
+      font-size: 14px;
+    }
+  }
+}

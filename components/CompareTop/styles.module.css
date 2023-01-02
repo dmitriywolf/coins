@@ -1,8 +1,0 @@
-.row {
-  position: sticky;
-  top: 70px;
-  z-index: 5;
-
-  padding: 10px 0;
-  background-color: var(--whiteSmoke);
-}
