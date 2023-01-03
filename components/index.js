@@ -1,4 +1,5 @@
 export * from './AuthMenu';
+export * from './Burger';
 export * from './CategoryItem';
 export * from './CoinCharts';
 export * from './CoinIntro';

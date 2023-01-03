@@ -1,6 +1,7 @@
 import { Divider, Layout, theme } from 'antd';
 import {
   AuthMenu,
+  Burger,
   CompareIcon,
   Container,
   CurrencySelect,
@@ -47,6 +48,7 @@ export function AppHeader() {
             style={{ height: '100%', borderWidth: '2px', margin: '0 5px' }}
           />
           <SwitchTheme />
+          <Burger />
         </div>
       </Container>
     </Header>
