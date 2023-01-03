@@ -53,7 +53,7 @@ export default function TopListPage() {
       dataIndex: 'name',
       key: 'name',
       fixed: 'left',
-      width: 180,
+      width: 160,
       render: (_, { fullName, symbol, image }) => (
         <CoinName name={fullName} image={image} symbol={symbol} />
       ),
@@ -122,7 +122,7 @@ export default function TopListPage() {
       title: 'Compare',
       dataIndex: 'compare',
       key: 'compare',
-      width: 150,
+      width: 130,
       render: (_, row) => <CompareAction row={row} />,
     },
   ];

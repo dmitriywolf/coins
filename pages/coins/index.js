@@ -49,27 +49,20 @@ export default function Coins() {
 
   const columns = [
     {
-      title: '#',
-      dataIndex: 'rank',
-      key: 'rank',
-      fixed: 'left',
-      width: 60,
-    },
-    {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
       fixed: 'left',
-      width: 176,
-      render: (_, { image, name, symbol }) => (
-        <CoinName name={name} image={image} symbol={symbol} />
+      width: 160,
+      render: (_, { rank, image, name, symbol }) => (
+        <CoinName rank={rank} name={name} image={image} symbol={symbol} />
       ),
     },
     {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
-      width: 120,
+      width: 135,
       render: (_, { price }) => (
         <Text>{`${currencySymbol} ${formatNumber(price)}`}</Text>
       ),
@@ -78,7 +71,7 @@ export default function Coins() {
       title: '24h %',
       dataIndex: 'price_change_percentage_24h',
       key: 'price_change_percentage_24h',
-      width: 100,
+      width: 90,
       render: (_, { price_change_percentage_24h }) => (
         <Change value={price_change_percentage_24h} />
       ),
@@ -87,7 +80,7 @@ export default function Coins() {
       title: `24h ${currencySymbol}`,
       dataIndex: 'price_change_24h',
       key: 'price_change_24h',
-      width: 120,
+      width: 90,
       render: (_, { price_change_24h }) => (
         <Change value={price_change_24h} suffix={currencySymbol} />
       ),
@@ -96,7 +89,7 @@ export default function Coins() {
       title: '7d %',
       dataIndex: 'price_change_percentage_7d',
       key: 'price_change_percentage_7d',
-      width: 100,
+      width: 90,
       render: (_, { price_change_percentage_7d }) => (
         <Change value={price_change_percentage_7d} />
       ),
@@ -105,7 +98,7 @@ export default function Coins() {
       title: '30d %',
       dataIndex: 'price_change_percentage_30d',
       key: 'price_change_percentage_30d',
-      width: 100,
+      width: 90,
       render: (_, { price_change_percentage_30d }) => (
         <Change value={price_change_percentage_30d} />
       ),
@@ -136,7 +129,7 @@ export default function Coins() {
       title: 'Compare',
       dataIndex: 'compare',
       key: 'compare',
-      width: 150,
+      width: 130,
       render: (_, row) => <CompareAction row={row} isGraph={true} />,
     },
   ];

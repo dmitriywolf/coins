@@ -22,14 +22,14 @@ export function AppHeader() {
   return (
     <Header
       className={classes.header}
-      style={{ backgroundColor: colorBgContainer, height: '70px' }}
+      style={{ padding: 0, backgroundColor: colorBgContainer, height: '70px' }}
     >
       <Container>
         <div className={classes.headerInner}>
           <Logo />
           <Divider
             type='vertical'
-            style={{ height: '100%', borderWidth: '2px', margin: '0 20px' }}
+            style={{ height: '100%', borderWidth: '2px', margin: '0 5px' }}
           />
           <Menu />
           <div className={classes.actions}>

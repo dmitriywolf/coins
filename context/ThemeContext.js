@@ -8,7 +8,7 @@ export const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   const { defaultAlgorithm, darkAlgorithm } = theme;
 
-  const [currentTheme, setCurrentTheme] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState('dark');
 
   const value = {
     currentTheme,
