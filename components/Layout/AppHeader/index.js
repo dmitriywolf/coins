@@ -1,6 +1,5 @@
 import { Divider, Layout, theme } from 'antd';
 import {
-  AuthMenu,
   Burger,
   CompareIcon,
   Container,
@@ -30,7 +29,8 @@ export function AppHeader() {
           <Logo />
           <Divider
             type='vertical'
-            style={{ height: '100%', borderWidth: '2px', margin: '0 5px' }}
+            style={{ height: '100%', borderWidth: '2px', margin: '0 10px' }}
+            className={classes.divider}
           />
           <Menu />
           <div className={classes.actions}>
@@ -40,12 +40,8 @@ export function AppHeader() {
           </div>
           <Divider
             type='vertical'
-            style={{ height: '100%', borderWidth: '2px', margin: '0 5px' }}
-          />
-          <AuthMenu />
-          <Divider
-            type='vertical'
-            style={{ height: '100%', borderWidth: '2px', margin: '0 5px' }}
+            style={{ height: '100%', borderWidth: '2px', margin: '0 10px' }}
+            className={classes.dividerActions}
           />
           <SwitchTheme />
           <Burger />

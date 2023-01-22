@@ -1,6 +1,7 @@
 @import 'styles/variables';
 
-.logo {
+.logo,
+.sidebarLogo {
   display: flex;
   align-items: center;
   align-self: stretch;
@@ -11,15 +12,20 @@
     height: 40px;
     min-width: 40px;
   }
+}
 
-  & span {
+.logoTitle {
+  margin: 0;
+
+  span {
     padding-left: 5px;
     font-size: 18px;
     font-weight: bold;
     line-height: 1.25;
+    color: $secondary;
   }
 
-  & .subtitle {
+  .subtitle {
     display: inline-block;
     margin-left: 6px;
     padding: 0 6px;
@@ -40,21 +46,37 @@
 }
 
 @media (max-width: 992px) {
-  .logo {
-    span {
-      font-size: 16px;
-    }
-  }
-
   .subtitle {
     font-weight: normal;
   }
 }
 
+@media (max-width: 767px) {
+  .logo {
+    .logoTitle {
+      span {
+        font-size: 16px;
+      }
+    }
+
+    .title {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .logo {
-    span {
+    .logoTitle {
       display: none;
+    }
+  }
+
+  .sidebarLogo {
+    .logoTitle {
+      span {
+        font-size: 16px;
+      }
     }
   }
 }

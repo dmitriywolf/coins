@@ -24,20 +24,17 @@
   gap: 6px;
 }
 
-@media (max-width: 992px) {
-  .header :global(.ant-divider-vertical) {
-    margin: 0 10px;
+@media (max-width: 1200px) {
+  .divider {
+    display: none !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .actions {
-    margin-right: 46px;
+    margin-right: 10px;
   }
-}
-
-@media (max-width: 576px) {
-  .header :global(.ant-divider-vertical) {
-    display: none;
+  .dividerActions {
+    display: none !important;
   }
 }

@@ -4,22 +4,23 @@ import { useRouter } from 'next/router';
 
 import classes from './styles.module.scss';
 
-export function Menu() {
+export function Menu({ sidebar }) {
   const router = useRouter();
 
   return (
-    <div className={classes.headerMenu}>
+    <div className={sidebar ? classes.sidebarMenu : classes.headerMenu}>
       <nav className={classes.menu}>
         {PATHS.map(({ path, title, icon }) => (
-          <div
+          <Link
             key={title}
+            href={path}
             className={`${classes.link} ${
               router.asPath === path ? 'active' : ''
             }`}
           >
             {icon}
-            <Link href={path}>{title}</Link>
-          </div>
+            <span>{title}</span>
+          </Link>
         ))}
       </nav>
     </div>

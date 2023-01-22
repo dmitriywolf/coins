@@ -1,20 +1,17 @@
-import { Typography } from 'antd';
 import Link from 'next/link';
 import LogoImg from 'public/images/Logo.svg';
 
 import classes from './styles.module.scss';
 
-const { Text } = Typography;
-
-export function Logo() {
+export function Logo({ sidebar }) {
   return (
     <Link href='/'>
-      <div className={classes.logo}>
+      <div className={sidebar ? classes.sidebarLogo : classes.logo}>
         <LogoImg />
-        <Text type='secondary'>
-          CRYPTO
+        <p className={classes.logoTitle}>
+          <span className={classes.title}>CRYPTO</span>
           <span className={classes.subtitle}>COMPARE</span>
-        </Text>
+        </p>
       </div>
     </Link>
   );

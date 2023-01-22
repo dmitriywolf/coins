@@ -122,7 +122,7 @@ export default function TopListPage() {
       title: 'Compare',
       dataIndex: 'compare',
       key: 'compare',
-      width: 130,
+      width: 150,
       render: (_, row) => <CompareAction row={row} />,
     },
   ];

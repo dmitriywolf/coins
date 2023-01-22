@@ -1,4 +1,3 @@
-export * from './AuthMenu';
 export * from './Burger';
 export * from './CategoryItem';
 export * from './CoinCharts';
@@ -21,6 +20,7 @@ export * from './MarketCapGlobalList';
 export * from './Menu';
 export * from './MultiChart';
 export * from './Navigation';
+export * from './Sidebar';
 export * from './SwitchTheme';
 export * from './Tags/ConfidenceTag';
 export * from './Tags/ScoreTagRank';

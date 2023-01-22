@@ -1,0 +1,16 @@
+.sidebar {
+  & :global(.ant-drawer-extra) {
+    display: flex;
+    margin-right: auto;
+    order: 1;
+  }
+
+  & :global(.ant-drawer-header-title) {
+    order: 2;
+    flex: none !important;
+
+    & button {
+      margin: 0;
+    }
+  }
+}
