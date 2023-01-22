@@ -13,7 +13,7 @@ export { COMPARE_LINK } from 'common/constant';
 
 const { Title, Text } = Typography;
 
-export default function TopListPage() {
+export default function CryptoCoinsPage() {
   const [page, setPage] = useState(0);
 
   const { currency } = useCurrencyContext();
@@ -53,7 +53,7 @@ export default function TopListPage() {
       dataIndex: 'name',
       key: 'name',
       fixed: 'left',
-      width: 160,
+      width: 130,
       render: (_, { fullName, symbol, image }) => (
         <CoinName name={fullName} image={image} symbol={symbol} />
       ),
@@ -127,12 +127,12 @@ export default function TopListPage() {
     },
   ];
 
-  const breadcrumbs = [{ title: 'Top-List' }];
+  const breadcrumbs = [{ title: 'Crypto Coins' }];
 
   return (
     <>
       <Head>
-        <title>Top List</title>
+        <title>Crypto Coins</title>
         <meta
           name='description'
           content='Top Coin List according to https://min-api.cryptocompare.com/'
@@ -141,7 +141,7 @@ export default function TopListPage() {
       <div className='page'>
         <Container>
           <Navigation crumbs={breadcrumbs} />
-          <Title>Top List</Title>
+          <Title>Crypto Coins</Title>
           <Loader active={isLoading} size='large'>
             <Table
               columns={columns}

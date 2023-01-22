@@ -1,8 +1,7 @@
-import { Image, Tag, theme, Typography } from 'antd';
+import { Image, Tag, theme } from 'antd';
 
 import classes from './styles.module.scss';
 
-const { Text } = Typography;
 const { useToken } = theme;
 
 export function CoinName({ rank, image, name, symbol }) {
@@ -22,10 +21,10 @@ export function CoinName({ rank, image, name, symbol }) {
             #{rank}
           </Tag>
         ) : null}
-        <Text strong>
-          {name}
-          <Text type='secondary'>/{symbol.toUpperCase()}</Text>
-        </Text>
+        <div className={classes.titleWrap}>
+          <span className={classes.title}>{name}</span>
+          <span className={classes.symbol}>{symbol.toUpperCase()}</span>
+        </div>
       </div>
     </div>
   );

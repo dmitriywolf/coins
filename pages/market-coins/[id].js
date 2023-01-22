@@ -18,12 +18,12 @@ import {
 import parse from 'html-react-parser';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import classes from 'styles/CoinPage.module.scss';
+import classes from 'styles/MarketCoinPage.module.scss';
 import { capitelizeFirstLetter } from 'utils';
 
 const { Title, Text } = Typography;
 
-export default function CoinPage() {
+export default function MarketCoinPage() {
   const {
     query: { id },
   } = useRouter();
@@ -77,8 +77,7 @@ export default function CoinPage() {
               <Card className={classes.description}>
                 <div>
                   <Space>
-                    <Title>What is</Title>
-                    <Title type='secondary'>{data?.name}?</Title>
+                    <Title type='secondary'>{data?.name}</Title>
                   </Space>
                 </div>
                 <Text type='secondary'>
@@ -99,7 +98,7 @@ export default function CoinPage() {
   ];
 
   const breadcrumbs = [
-    { path: '/coins', title: 'Coins' },
+    { path: '/market-coins', title: 'Market Coins' },
     { title: `${capitelizeFirstLetter(id)}` },
   ];
 

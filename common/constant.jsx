@@ -59,13 +59,13 @@ export const CURRENCIES = [
 
 export const PATHS = [
   {
-    path: '/coins',
-    title: 'Coins',
+    path: '/market-coins',
+    title: 'Market Coins',
     icon: <CoinIcon />,
   },
   {
-    path: '/top-list',
-    title: 'Top',
+    path: '/crypto-coins',
+    title: 'Crypto Coins',
     icon: <TopListIcon />,
   },
   {

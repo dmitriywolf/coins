@@ -10,7 +10,7 @@ const { Text } = Typography;
 const ListItem = forwardRef(
   ({ id, name, priceBTC, symbol, image, rank }, ref) => {
     return (
-      <Link href={`/coins/${id}`}>
+      <Link href={`/market-coins/${id}`}>
         <div className={classes.item} ref={ref}>
           <Space>
             <Avatar src={image} />

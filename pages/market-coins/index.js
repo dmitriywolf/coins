@@ -8,12 +8,12 @@ import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from 'hooks';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import classes from 'styles/CoinsPage.module.scss';
+import classes from 'styles/MarketCoinsPage.module.scss';
 import { formatNumber } from 'utils';
 
 const { Text, Title } = Typography;
 
-export default function Coins() {
+export default function MarketCoinsPage() {
   const [page, setPage] = useState(1);
 
   const { currency } = useCurrencyContext();
@@ -53,7 +53,7 @@ export default function Coins() {
       dataIndex: 'name',
       key: 'name',
       fixed: 'left',
-      width: 160,
+      width: 130,
       render: (_, { rank, image, name, symbol }) => (
         <CoinName rank={rank} name={name} image={image} symbol={symbol} />
       ),
@@ -135,15 +135,15 @@ export default function Coins() {
   ];
 
   function navToCoin(id) {
-    router.push(`/coins/${id}`, undefined, { shallow: true });
+    router.push(`/market-coins/${id}`, undefined, { shallow: true });
   }
 
-  const breadcrumbs = [{ title: 'Coins' }];
+  const breadcrumbs = [{ title: 'Market Coins' }];
 
   return (
     <>
       <Head>
-        <title>Coins</title>
+        <title>Market Coins</title>
         <meta
           name='description'
           content='List of all cryptocurrencies that are available on the market'
@@ -152,7 +152,7 @@ export default function Coins() {
       <div className={`${classes.coinsPage} page`}>
         <Container>
           <Navigation crumbs={breadcrumbs} />
-          <Title>Coins</Title>
+          <Title>Market Coins</Title>
           <Loader active={isLoading} size='large'>
             <Table
               columns={columns}

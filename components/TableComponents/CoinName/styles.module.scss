@@ -1,7 +1,9 @@
+@import 'styles/variables';
+
 .wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .content {
@@ -10,10 +12,28 @@
   align-items: flex-start;
 }
 
+.titleWrap {
+  span {
+    font-weight: 500;
+  }
+}
+
+.symbol {
+  display: none;
+  color: $secondary;
+}
+
 @media (max-width: 480px) {
   .content {
-    strong span {
-      display: none;
-    }
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .symbol {
+    display: inline;
   }
 }
