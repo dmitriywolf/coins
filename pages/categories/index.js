@@ -41,7 +41,7 @@ export default function CategoriesPage() {
           content='List of all available crypto coin categories'
         />
       </Head>
-      <div className={`${classes.categoriesPage} page`}>
+      <div className='page'>
         <Container>
           <Navigation crumbs={breadcrumbs} />
           <Title>Categories {data?.length ? `/ ${data?.length}` : ''}</Title>
