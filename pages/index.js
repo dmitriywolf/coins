@@ -1,6 +1,6 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import { Col, Row, Typography } from 'antd';
-import { getGlobalInfo, getTopCoins, getTopExchanges } from 'api';
+import { Button, Col, Row, Typography } from 'antd';
+import { getExchanges, getGlobalInfo, getTopCoins } from 'api';
 import {
   Container,
   MarketCapGlobal,
@@ -10,9 +10,9 @@ import {
 } from 'components';
 import { motion } from 'framer-motion';
 import {
+  useGetExchangesQuery,
   useGetGlobalInfoQuery,
   useGetTopCoinsQuery,
-  useGetTopExchangesQuery,
 } from 'hooks';
 import Head from 'next/head';
 import LogoIcon from 'public/images/Logo.svg';
@@ -37,7 +37,9 @@ const variants = {
 export default function HomePage() {
   const { data: tops } = useGetTopCoinsQuery();
   const { data: global } = useGetGlobalInfoQuery();
-  const { data: exchages } = useGetTopExchangesQuery();
+  const { data: exchages } = useGetExchangesQuery({
+    variables: { page: 0, per_page: 7 },
+  });
 
   return (
     <>
@@ -118,7 +120,11 @@ export default function HomePage() {
               xl={{ span: 10, order: 2 }}
               xxl={{ span: 12 }}
             >
+              <Title level={3} align='center'>
+                Top 7 Exchanges by Trust
+              </Title>
               <TopExchanges exchages={exchages} />
+              <Button>See All</Button>
             </Col>
 
             <Col
@@ -143,7 +149,9 @@ export async function getStaticProps() {
 
   await queryClient.prefetchQuery(['topCoins'], () => getTopCoins());
   await queryClient.prefetchQuery(['globalInfo'], () => getGlobalInfo());
-  await queryClient.prefetchQuery(['topExchanges'], () => getTopExchanges());
+  await queryClient.prefetchQuery(['exchanges', 0, 7], () =>
+    getExchanges({ page: 0, per_page: 7 }),
+  );
 
   return {
     props: {

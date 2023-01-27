@@ -1,8 +1,8 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Typography } from 'antd';
-import { getTopExchanges } from 'api';
+import { getExchanges } from 'api';
 import { Container, Navigation, TopExchanges } from 'components';
-import { useGetTopExchangesQuery } from 'hooks';
+import { useGetExchangesQuery } from 'hooks';
 import Head from 'next/head';
 
 // import classes from '../../styles/ExchangesPage.module.scss';
@@ -10,14 +10,16 @@ import Head from 'next/head';
 const { Title } = Typography;
 
 export default function ExchangesPage() {
-  const { data: exchages } = useGetTopExchangesQuery();
+  const { data: exchages } = useGetExchangesQuery({
+    variables: { page: 0, per_page: 10 },
+  });
 
   const breadcrumbs = [{ title: 'Exchanges' }];
 
   return (
     <>
       <Head>
-        <title>Categories</title>
+        <title>Exchanges</title>
         <meta
           name='description'
           content='List of all available crypto coin categories'
@@ -39,7 +41,9 @@ export default function ExchangesPage() {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['topExchanges'], () => getTopExchanges());
+  await queryClient.prefetchQuery(['exchanges', 0, 10], () =>
+    getExchanges({ page: 0, per_page: 10 }),
+  );
 
   return {
     props: {
