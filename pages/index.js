@@ -1,5 +1,5 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import { Button, Col, Row, Typography } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import { getExchanges, getGlobalInfo, getTopCoins } from 'api';
 import {
   Container,
@@ -124,7 +124,6 @@ export default function HomePage() {
                 Top 7 Exchanges by Trust
               </Title>
               <TopExchanges exchages={exchages} />
-              <Button>See All</Button>
             </Col>
 
             <Col
