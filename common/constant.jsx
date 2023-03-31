@@ -2,9 +2,9 @@ import CategoriesIcon from '@/public/images/Categories.svg';
 import CoinIcon from '@/public/images/Coins.svg';
 import TopListIcon from '@/public/images/TopList.svg';
 
-export const API_URL_CRYPTO = process.env.API_URL_CRYPTO;
-export const API_URL_COMPARE = process.env.API_URL_COMPARE;
-export const COMPARE_LINK = process.env.COMPARE_LINK;
+export const API_URL_CRYPTO = process.env.NEXT_PUBLIC_API_URL_CRYPTO;
+export const API_URL_COMPARE = process.env.NEXT_PUBLIC_API_URL_COMPARE;
+export const COMPARE_LINK = process.env.NEXT_PUBLIC_COMPARE_LINK;
 
 export const BREAKPOINTS_CRYPTO = {
   coins: '/coins',
