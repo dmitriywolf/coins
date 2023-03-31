@@ -120,7 +120,7 @@ export default function HomePage() {
               xxl={{ span: 12 }}
             >
               <Title level={3} align='center'>
-                Top 7 Exchanges by Trust
+                Top 10 Exchanges by Trust
               </Title>
               <TopExchanges exchages={exchages} />
             </Col>
@@ -147,8 +147,8 @@ export async function getStaticProps() {
 
   await queryClient.prefetchQuery(['topCoins'], () => getTopCoins());
   await queryClient.prefetchQuery(['globalInfo'], () => getGlobalInfo());
-  await queryClient.prefetchQuery(['exchanges', 0, 7], () =>
-    getExchanges({ page: 0, per_page: 7 }),
+  await queryClient.prefetchQuery(['exchanges', 0, 10], () =>
+    getExchanges({ page: 0, per_page: 10 }),
   );
 
   return {

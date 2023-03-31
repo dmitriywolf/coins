@@ -14,6 +14,7 @@ export default function SwitchTheme() {
   return (
     <Button
       type='primary'
+      aria-label='Switch Theme'
       onClick={switchThemeHandler}
       icon={currentTheme === 'light' ? <SunIcon /> : <MoonIcon />}
     />

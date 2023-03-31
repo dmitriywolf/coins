@@ -35,7 +35,13 @@ const TopExchangeItem = forwardRef(
         <Card onClick={navToExchange} className={card}>
           <div className={inner} ref={ref}>
             <div className={logo}>
-              <Image src={image} alt={name} preview={false} />
+              <Image
+                src={image}
+                alt={name}
+                preview={false}
+                width={50}
+                height={50}
+              />
             </div>
             <Space direction='vertical'>
               <div className={title}>

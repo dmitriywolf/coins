@@ -18,12 +18,12 @@ const variants = {
 
 const { Title, Text } = Typography;
 const ListItem = forwardRef(({ coin, percentage }, ref) => (
-  <div className={classes.item} ref={ref}>
+  <li className={classes.item} ref={ref}>
     <Text strong>{coin.toUpperCase()}</Text>
     <Text strong type='secondary'>
       {percentage} %
     </Text>
-  </div>
+  </li>
 ));
 
 ListItem.displayName = 'ListName';
