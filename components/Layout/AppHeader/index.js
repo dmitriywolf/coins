@@ -1,20 +1,19 @@
 import { Divider, Layout, theme } from 'antd';
-import {
-  Burger,
-  CompareIcon,
-  Container,
-  CurrencySelect,
-  Logo,
-  Menu,
-  SwitchTheme,
-} from 'components';
+
+import Burger from '@/components/Burger';
+import CompareIcon from '@/components/CompareIcon';
+import Container from '@/components/Container';
+import CurrencySelect from '@/components/CurrencySelect';
+import Logo from '@/components/Logo';
+import Menu from '@/components/Menu';
+import SwitchTheme from '@/components/SwitchTheme';
 
 import classes from './styles.module.scss';
 
 const { Header } = Layout;
 const { useToken } = theme;
 
-export function AppHeader() {
+export default function AppHeader() {
   const {
     token: { colorBgContainer },
   } = useToken();

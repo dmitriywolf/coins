@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import LogoImg from 'public/images/Logo.svg';
+
+import LogoImg from '@/public/images/Logo.svg';
 
 import classes from './styles.module.scss';
 
-export function Logo({ sidebar }) {
+export default function Logo({ sidebar }) {
   return (
     <Link href='/'>
       <div className={sidebar ? classes.sidebarLogo : classes.logo}>

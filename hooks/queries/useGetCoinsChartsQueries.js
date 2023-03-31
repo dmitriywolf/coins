@@ -1,5 +1,6 @@
 import { useQueries } from '@tanstack/react-query';
-import { getCoinChart } from 'api';
+
+import { getCoinChart } from '@/api';
 
 export const useGetCoinsChartsQueries = ({ ids, currency }) => {
   return useQueries({

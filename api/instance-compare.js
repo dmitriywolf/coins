@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { API_URL_COMPARE, BREAKPOINTS_COMPARE } from 'common/constant';
+
+import { API_URL_COMPARE, BREAKPOINTS_COMPARE } from '@/common/constant';
 
 const instanceCompare = axios.create({
   baseURL: API_URL_COMPARE,

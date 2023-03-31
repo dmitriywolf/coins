@@ -1,11 +1,12 @@
 import { Popover, Progress, Typography } from 'antd';
-import { formatNumber } from 'utils';
+
+import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 
 const { Text } = Typography;
 
-export function TableSupply({ symbol, current, max }) {
+export default function TableSupply({ symbol, current, max }) {
   if (!max) {
     return (
       <p className={classes.suppluValue}>

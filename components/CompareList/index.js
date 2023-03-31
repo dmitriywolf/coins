@@ -1,12 +1,13 @@
 import { Col, Row, theme } from 'antd';
-import { CompareItem } from 'components';
 import { useCompareContext } from 'context';
+
+import CompareItem from '@/components/CompareItem';
 
 import classes from './styles.module.scss';
 
 const { useToken } = theme;
 
-export function CompareList() {
+export default function CompareList() {
   const { coins } = useCompareContext();
   const {
     token: { colorBgLayout },

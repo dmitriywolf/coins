@@ -1,14 +1,15 @@
 import { Col, Collapse, Row, Typography } from 'antd';
 import React from 'react';
 
-import { useCompareContext } from '../../context';
-import { Loader } from '../Loader';
+import Loader from '@/components/Loader';
+import { useCompareContext } from '@/context';
+
 import classes from './styles.module.scss';
 
 const { Panel } = Collapse;
 const { Text } = Typography;
 
-export function CompareBottom({ data, isLoading }) {
+export default function CompareBottom({ data, isLoading }) {
   const { coins } = useCompareContext();
 
   const marketDataArr = [];

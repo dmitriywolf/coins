@@ -6,7 +6,7 @@ const { Footer } = Layout;
 const { Text } = Typography;
 const { useToken } = theme;
 
-export function AppFooter() {
+export default function AppFooter() {
   const {
     token: { colorBorder, colorBgContainer },
   } = useToken();

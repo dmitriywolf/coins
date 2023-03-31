@@ -1,25 +1,24 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Card, Col, Row, Space, Tabs, Typography } from 'antd';
-import { getCoinById, getCoinChart } from 'api';
-import {
-  CoinCharts,
-  CoinIntro,
-  CoinMarketData,
-  Container,
-  Navigation,
-  Tickers,
-} from 'components';
-import { useCurrencyContext } from 'context';
+import parse from 'html-react-parser';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import { getCoinById, getCoinChart } from '@/api';
+import CoinCharts from '@/components/CoinCharts';
+import CoinIntro from '@/components/CoinIntro';
+import CoinMarketData from '@/components/CoinMarketData';
+import Container from '@/components/Container';
+import Navigation from '@/components/Navigation';
+import Tickers from '@/components/Tickers';
+import { useCurrencyContext } from '@/context';
 import {
   useGetCoinByIdQuery,
   useGetCoinChartQuery,
   useGetCoinTickersQuery,
-} from 'hooks';
-import parse from 'html-react-parser';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import classes from 'styles/MarketCoinPage.module.scss';
-import { capitelizeFirstLetter } from 'utils';
+} from '@/hooks';
+import classes from '@/styles/MarketCoinPage.module.scss';
+import { capitelizeFirstLetter } from '@/utils';
 
 const { Title, Text } = Typography;
 

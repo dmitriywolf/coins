@@ -1,15 +1,21 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
-import { getCoinsMarkets } from 'api';
-import { CompareAction, Container, Loader, Navigation } from 'components';
-import { Change, CoinName, TableSupply } from 'components/TableComponents';
-import { useCurrencyContext } from 'context';
-import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from 'hooks';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import classes from 'styles/MarketCoinsPage.module.scss';
-import { formatNumber } from 'utils';
+
+import { getCoinsMarkets } from '@/api';
+import CompareAction from '@/components/CompareAction';
+import Container from '@/components/Container';
+import Loader from '@/components/Loader';
+import Navigation from '@/components/Navigation';
+import Change from '@/components/TableComponents/Change';
+import CoinName from '@/components/TableComponents/CoinName';
+import TableSupply from '@/components/TableComponents/TableSupply';
+import { useCurrencyContext } from '@/context';
+import { useGetCoinsMarketsQuery, useGetGlobalInfoQuery } from '@/hooks';
+import classes from '@/styles/MarketCoinsPage.module.scss';
+import { formatNumber } from '@/utils';
 
 const { Text, Title } = Typography;
 

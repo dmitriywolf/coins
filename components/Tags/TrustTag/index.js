@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-export const TrustTag = ({ score }) => {
+export default function TrustTag({ score }) {
   if (score >= 9) {
     return <Tag color='#87d068'>High</Tag>;
   }
@@ -13,4 +13,4 @@ export const TrustTag = ({ score }) => {
     return <Tag color='#f50'>Low</Tag>;
   }
   return <div>-</div>;
-};
+}

@@ -4,7 +4,7 @@ import classes from './styles.module.scss';
 
 const { useToken } = theme;
 
-export function CoinName({ rank, image, name, symbol }) {
+export default function CoinName({ rank, image, name, symbol }) {
   const {
     token: { colorPrimary },
   } = useToken();

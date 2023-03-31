@@ -6,8 +6,9 @@ import {
   XYChart,
 } from '@visx/xychart';
 
-import { useCurrencyContext } from '../../../context';
-import { formatNumber } from '../../../utils';
+import { useCurrencyContext } from '@/context';
+import { formatNumber } from '@/utils';
+
 import classes from './styles.module.scss';
 
 export default function Chart({ data, title, type }) {

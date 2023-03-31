@@ -1,5 +1,6 @@
-import { CURRENCIES } from 'common/constant';
 import { createContext, useContext, useState } from 'react';
+
+import { CURRENCIES } from '@/common/constant';
 
 export const CurrencyContext = createContext({
   currency: CURRENCIES[0],

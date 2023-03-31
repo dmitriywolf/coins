@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { getTopList } from 'api';
+
+import { getTopList } from '@/api';
 
 export const useGetTopListQuery = ({ variables, ...options }) => {
   return useQuery({

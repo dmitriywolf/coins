@@ -1,12 +1,14 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Button, Drawer, theme } from 'antd';
-import { Logo, Menu } from 'components';
+
+import Logo from '@/components//Logo';
+import Menu from '@/components/Menu';
 
 import classes from './styles.module.scss';
 
 const { useToken } = theme;
 
-export function Sidebar({ isOpen, closeHandler }) {
+export default function Sidebar({ isOpen, closeHandler }) {
   const {
     token: { colorBgLayout },
   } = useToken();

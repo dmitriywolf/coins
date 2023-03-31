@@ -1,11 +1,12 @@
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { Sidebar } from 'components';
 import { useState } from 'react';
+
+import Sidebar from '@/components/Sidebar';
 
 import classes from './styles.module.scss';
 
-export function Burger() {
+export default function Burger() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenuHandler = () => {

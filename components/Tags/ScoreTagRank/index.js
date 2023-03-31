@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-export const ScoreTagRank = ({ rank, text }) => {
+export default function ScoreTagRank({ rank, text }) {
   let color;
 
   if (rank === 1) {
@@ -19,4 +19,4 @@ export const ScoreTagRank = ({ rank, text }) => {
       {rank}
     </Tag>
   );
-};
+}

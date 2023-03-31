@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-export function ConfidenceTag({ score }) {
+export default function ConfidenceTag({ score }) {
   if (!score) {
     return <div>-</div>;
   }

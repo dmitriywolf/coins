@@ -1,6 +1,6 @@
-import CategoriesIcon from 'public/images/Categories.svg';
-import CoinIcon from 'public/images/Coins.svg';
-import TopListIcon from 'public/images/TopList.svg';
+import CategoriesIcon from '@/public/images/Categories.svg';
+import CoinIcon from '@/public/images/Coins.svg';
+import TopListIcon from '@/public/images/TopList.svg';
 
 export const API_URL_CRYPTO = process.env.API_URL_CRYPTO;
 export const API_URL_COMPARE = process.env.API_URL_COMPARE;

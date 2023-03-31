@@ -1,8 +1,9 @@
 import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { useCompareContext } from 'context';
 
-export function CompareAction({ row: coin, isGraph }) {
+import { useCompareContext } from '@/context';
+
+export default function CompareAction({ row: coin, isGraph }) {
   const { addCoin, removeCoin, coinExist } = useCompareContext();
 
   const addToCompareHandler = (event) => {

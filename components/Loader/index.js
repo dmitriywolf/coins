@@ -2,7 +2,7 @@ import { Spin } from 'antd';
 
 import classes from './styles.module.scss';
 
-export function Loader({
+export default function Loader({
   children,
   active,
   size = 'default',

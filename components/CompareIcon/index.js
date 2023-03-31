@@ -1,13 +1,14 @@
 import { LineChartOutlined, SlidersOutlined } from '@ant-design/icons';
 import { Badge, theme } from 'antd';
-import { useCompareContext } from 'context';
 import Link from 'next/link';
+
+import { useCompareContext } from '@/context';
 
 import { button, iconWrap } from './styles.module.scss';
 
 const { useToken } = theme;
 
-export function CompareIcon({ isGraph }) {
+export default function CompareIcon({ isGraph }) {
   const { count, countGraph } = useCompareContext();
 
   const {

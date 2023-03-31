@@ -1,6 +1,7 @@
 import { Button, Empty } from 'antd';
 import Head from 'next/head';
-import classes from 'styles/ErrorPage.module.scss';
+
+import classes from '@/styles/ErrorPage.module.scss';
 
 export default function ServerErrorPage() {
   return (

@@ -5,7 +5,7 @@ import classes from './styles.module.scss';
 
 const { Item } = Breadcrumb;
 
-export function Navigation({ crumbs, separator = '>' }) {
+export default function Navigation({ crumbs, separator = '>' }) {
   return (
     <div className={classes.navigationWrap}>
       <Breadcrumb separator={separator}>

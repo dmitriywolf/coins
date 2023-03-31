@@ -4,13 +4,14 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 import { Card, Image, Space, Tag, Typography } from 'antd';
-import { formatNumber } from 'utils';
+
+import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 
 const { Title, Text } = Typography;
 
-export function CoinIntro({ intro }) {
+export default function CoinIntro({ intro }) {
   const {
     name,
     categories,

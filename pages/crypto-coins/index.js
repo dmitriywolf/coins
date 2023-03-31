@@ -1,15 +1,19 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Table, Typography } from 'antd';
-import { getTopList } from 'api';
-import { COMPARE_LINK } from 'common/constant';
-import { CompareAction, Container, Loader, Navigation } from 'components';
-import { CoinName } from 'components/TableComponents';
-import { useCurrencyContext } from 'context';
-import { useGetTopListQuery } from 'hooks';
 import Head from 'next/head';
 import React, { useState } from 'react';
 
-export { COMPARE_LINK } from 'common/constant';
+import { getTopList } from '@/api';
+import { COMPARE_LINK } from '@/common/constant';
+import CompareAction from '@/components/CompareAction';
+import Container from '@/components/Container';
+import Loader from '@/components/Loader';
+import Navigation from '@/components/Navigation';
+import CoinName from '@/components/TableComponents/CoinName';
+import { useCurrencyContext } from '@/context';
+import { useGetTopListQuery } from '@/hooks';
+
+export { COMPARE_LINK } from '@/common/constant';
 
 const { Title, Text } = Typography;
 

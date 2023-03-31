@@ -6,13 +6,14 @@ import {
 import { Segmented, Typography } from 'antd';
 import { useState } from 'react';
 
-import { Loader } from '../Loader';
+import Loader from '@/components/Loader';
+
 // import Chart from './Chart';
 import classes from './style.module.scss';
 
 const { Title } = Typography;
 
-export function CoinCharts({ charts = [], loading }) {
+export default function CoinCharts({ charts = [], loading }) {
   const [selectedTab, setSelectedTab] = useState(1);
   console.log(charts);
   // const prices = charts?.prices;

@@ -14,7 +14,7 @@ const variants = {
   },
 };
 
-export function TopExchanges({ exchages }) {
+export default function TopExchanges({ exchages }) {
   return (
     <Row gutter={[16, 16]}>
       {exchages?.map((item, idx) => (

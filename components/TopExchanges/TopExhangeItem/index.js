@@ -1,9 +1,11 @@
 import { Card, Image, Space, Typography } from 'antd';
-import { ScoreTagRank, TrustTag } from 'components';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { forwardRef } from 'react';
-import { formatNumber } from 'utils';
+
+import ScoreTagRank from '@/components/Tags/ScoreTagRank';
+import TrustTag from '@/components/Tags/TrustTag';
+import { formatNumber } from '@/utils';
 
 import { card, content, inner, logo, title } from './styles.module.scss';
 

@@ -1,8 +1,9 @@
 import { Col, Row } from 'antd';
-import { CompareItem } from 'components';
-import { useCompareContext } from 'context';
 
-export function CompareGraphList() {
+import CompareItem from '@/components/CompareItem';
+import { useCompareContext } from '@/context';
+
+export default function CompareGraphList() {
   const { coinsGraph } = useCompareContext();
 
   return (

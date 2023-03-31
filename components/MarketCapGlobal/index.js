@@ -1,15 +1,16 @@
 import { Card, Space, Typography } from 'antd';
-import { Change } from 'components/TableComponents';
 import Link from 'next/link';
-import MarketsIcon from 'public/images/Categories.svg';
-import CoinsIcon from 'public/images/Coins.svg';
-import { formatNumber } from 'utils';
+
+import Change from '@/components/TableComponents/Change';
+import MarketsIcon from '@/public/images/Categories.svg';
+import CoinsIcon from '@/public/images/Coins.svg';
+import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 
 const { Title, Text } = Typography;
 
-export function MarketCapGlobal({
+export default function MarketCapGlobal({
   active_cryptocurrencies,
   market_cap_change_percentage_24h_usd,
   markets,

@@ -4,7 +4,7 @@ import React from 'react';
 
 import classes from './styles.module.scss';
 
-export function EmptyCompare({ link, text }) {
+export default function EmptyCompare({ link, text }) {
   return (
     <Empty
       image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'

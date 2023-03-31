@@ -30,7 +30,7 @@ ListItem.displayName = 'ListName';
 
 const MotionListItem = motion(ListItem);
 
-export function MarketCapGlobalList({ percentage }) {
+export default function MarketCapGlobalList({ percentage }) {
   const data = [];
 
   for (const prop in percentage) {

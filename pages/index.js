@@ -1,27 +1,26 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Col, Row, Typography } from 'antd';
 import { getExchanges, getGlobalInfo, getTopCoins } from 'api';
-import {
-  Container,
-  MarketCapGlobal,
-  MarketCapGlobalList,
-  TopExchanges,
-  TopSearchList,
-} from 'components';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
+
+import Container from '@/components/Container';
+import MarketCapGlobal from '@/components/MarketCapGlobal';
+import MarketCapGlobalList from '@/components/MarketCapGlobalList';
+import TopExchanges from '@/components/TopExchanges';
+import TopSearchList from '@/components/TopSearchList';
 import {
   useGetExchangesQuery,
   useGetGlobalInfoQuery,
   useGetTopCoinsQuery,
-} from 'hooks';
-import Head from 'next/head';
-import LogoIcon from 'public/images/Logo.svg';
+} from '@/hooks';
+import LogoIcon from '@/public/images/Logo.svg';
 import {
   banner,
   homePage,
   sidebar,
   subtitle,
-} from 'styles/HomePage.module.scss';
+} from '@/styles/HomePage.module.scss';
 
 const { Title } = Typography;
 

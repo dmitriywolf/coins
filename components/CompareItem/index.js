@@ -4,13 +4,14 @@ import {
   setTwoToneColor,
 } from '@ant-design/icons';
 import { Button, Image, theme, Tooltip } from 'antd';
-import { useCompareContext } from 'context';
+
+import { useCompareContext } from '@/context';
 
 import classes from './styles.module.scss';
 
 const { useToken } = theme;
 
-export function CompareItem({ id, name, image, internal, isGraph }) {
+export default function CompareItem({ id, name, image, internal, isGraph }) {
   const { removeCoin } = useCompareContext();
 
   const removeFromCompareHandler = () => {

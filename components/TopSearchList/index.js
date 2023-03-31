@@ -16,7 +16,7 @@ const variants = {
   },
 };
 
-export function TopSearchList({ list }) {
+export default function TopSearchList({ list }) {
   const dataTops = list?.coins?.map(({ item }) => ({
     id: item.id,
     name: item.name,

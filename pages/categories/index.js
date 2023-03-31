@@ -1,12 +1,16 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { List, Select, Typography } from 'antd';
-import { getCategories } from 'api';
-import { CATEGORIES_SORT_OPTIONS } from 'common/constant';
-import { Container, Loader, MotionCategoryItem, Navigation } from 'components';
-import { useGetCategoriesQuery } from 'hooks';
 import Head from 'next/head';
 import { useState } from 'react';
-import classes from 'styles/CategoriesPage.module.scss';
+
+import { getCategories } from '@/api';
+import { CATEGORIES_SORT_OPTIONS } from '@/common/constant';
+import { MotionCategoryItem } from '@/components/CategoryItem';
+import Container from '@/components/Container';
+import Loader from '@/components/Loader';
+import Navigation from '@/components/Navigation';
+import { useGetCategoriesQuery } from '@/hooks';
+import classes from '@/styles/CategoriesPage.module.scss';
 
 const { Title, Text } = Typography;
 

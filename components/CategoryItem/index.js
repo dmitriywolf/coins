@@ -1,8 +1,9 @@
 import { Card, Image, Space, Typography } from 'antd';
-import { Change } from 'components/TableComponents';
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
-import { formatNumber } from 'utils';
+
+import Change from '@/components/TableComponents/Change';
+import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 

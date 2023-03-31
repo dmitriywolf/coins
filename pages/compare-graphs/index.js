@@ -1,18 +1,15 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
-import {
-  CompareGraphList,
-  Container,
-  EmptyCompare,
-  // Loader,
-  // MultiGraph,
-  Navigation,
-} from 'components';
-import { useCompareContext, useCurrencyContext } from 'context';
-import { useGetCoinsChartsQueries } from 'hooks';
 import Head from 'next/head';
 import Link from 'next/link';
-import classes from 'styles/CompareGraphsPage.module.scss';
+
+import CompareGraphList from '@/components/CompareGraphList';
+import Container from '@/components/Container';
+import EmptyCompare from '@/components/EmptyCompare';
+import Navigation from '@/components/Navigation';
+import { useCompareContext, useCurrencyContext } from '@/context';
+import { useGetCoinsChartsQueries } from '@/hooks';
+import classes from '@/styles/CompareGraphsPage.module.scss';
 
 const { Title } = Typography;
 
@@ -78,7 +75,7 @@ export default function CompareGraphsPage() {
           {countGraph ? (
             <>
               <div className={classes.actions}>
-                <Link href={'/coins'}>
+                <Link href={'/market-coins'}>
                   <Button
                     type='primary'
                     shape='round'
@@ -121,7 +118,7 @@ export default function CompareGraphsPage() {
             </>
           ) : (
             <EmptyCompare
-              link='/coins'
+              link='/market-coins'
               text='There are no coins to compare. Please choose any one from the Coins table'
             />
           )}

@@ -1,7 +1,7 @@
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import { Statistic, theme } from 'antd';
 
-export function Change({ value, suffix = '%' }) {
+export default function Change({ value, suffix = '%' }) {
   const { useToken } = theme;
   const displayValue = Math.abs(Math.round(value * 100) / 100);
 

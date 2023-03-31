@@ -1,19 +1,18 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Select, Typography } from 'antd';
-import { CURRENCIES } from 'common/constant';
-import {
-  CompareBottom,
-  CompareList,
-  Container,
-  EmptyCompare,
-  Navigation,
-} from 'components';
-import { useCompareContext } from 'context';
-import { useGetMultiPriceQuery } from 'hooks/queries';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import classes from 'styles/ComparePage.module.scss';
+
+import { CURRENCIES } from '@/common/constant';
+import CompareBottom from '@/components/CompareBottom';
+import CompareList from '@/components/CompareList';
+import Container from '@/components/Container';
+import EmptyCompare from '@/components/EmptyCompare';
+import Navigation from '@/components/Navigation';
+import { useCompareContext } from '@/context';
+import { useGetMultiPriceQuery } from '@/hooks';
+import classes from '@/styles/ComparePage.module.scss';
 
 const { Title } = Typography;
 
@@ -72,7 +71,7 @@ export default function ComparePage() {
                     allowClear
                   />
                 </div>
-                <Link href={'/top-list'}>
+                <Link href={'/crypto-coins'}>
                   <Button
                     type='primary'
                     shape='round'
@@ -87,7 +86,7 @@ export default function ComparePage() {
             </>
           ) : (
             <EmptyCompare
-              link='/top-list'
+              link='/crypto-coins'
               text='There are no coins to compare. Please choose any one from the Top List'
             />
           )}

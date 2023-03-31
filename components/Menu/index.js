@@ -1,10 +1,11 @@
-import { PATHS } from 'common/constant';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { PATHS } from '@/common/constant';
+
 import classes from './styles.module.scss';
 
-export function Menu({ sidebar }) {
+export default function Menu({ sidebar }) {
   const router = useRouter();
 
   return (

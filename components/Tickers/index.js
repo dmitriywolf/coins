@@ -1,11 +1,13 @@
 import { Table, Typography } from 'antd';
-import { ConfidenceTag } from 'components';
-import { MarketName, Pair } from 'components/TableComponents';
-import { formatNumber } from 'utils';
+
+import MarketName from '@/components/TableComponents/MarketName';
+import Pair from '@/components/TableComponents/Pair';
+import ConfidenceTag from '@/components/Tags/ConfidenceTag';
+import { formatNumber } from '@/utils';
 
 const { Title, Text } = Typography;
 
-export function Tickers({ list = [] }) {
+export default function Tickers({ list = [] }) {
   const tickersData = list?.map((item) => ({
     key: item.trade_url,
     base: item.base,

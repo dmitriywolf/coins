@@ -1,17 +1,18 @@
 import 'antd/dist/reset.css';
-import 'styles/globals.scss';
-import 'styles/variables.scss';
+import '@/styles/globals.scss';
+import '@/styles/variables.scss';
 
 import {
   Hydrate,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { AppLayout } from 'components';
-import { CompareProvider, CurrencyProvider, ThemeProvider } from 'context';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Head from 'next/head';
 import { useState } from 'react';
+
+import { AppLayout } from '@/components/Layout';
+import { CompareProvider, CurrencyProvider, ThemeProvider } from '@/context';
 
 export default function MyApp({ Component, pageProps, router }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -37,7 +38,7 @@ export default function MyApp({ Component, pageProps, router }) {
           </CompareProvider>
         </CurrencyProvider>
       </Hydrate>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

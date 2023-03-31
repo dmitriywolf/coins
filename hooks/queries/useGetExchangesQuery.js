@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { getExchanges } from 'api';
+
+import { getExchanges } from '@/api';
 
 export const useGetExchangesQuery = ({ variables }) => {
   return useQuery({

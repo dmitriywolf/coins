@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { API_URL_CRYPTO, BREAKPOINTS_CRYPTO } from 'common/constant';
+
+import { API_URL_CRYPTO, BREAKPOINTS_CRYPTO } from '@/common/constant';
 
 const instanceCrypto = axios.create({
   baseURL: API_URL_CRYPTO,

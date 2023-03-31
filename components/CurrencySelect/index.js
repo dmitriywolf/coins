@@ -1,8 +1,9 @@
 import { Select } from 'antd';
-import { CURRENCIES } from 'common/constant';
-import { useCurrencyContext } from 'context';
 
-export function CurrencySelect() {
+import { CURRENCIES } from '@/common/constant';
+import { useCurrencyContext } from '@/context';
+
+export default function CurrencySelect() {
   const { currency, setCurrency } = useCurrencyContext();
 
   const options = CURRENCIES.map(({ value, symbol }) => ({

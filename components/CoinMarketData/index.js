@@ -1,13 +1,14 @@
 import { Card, Col, Divider, Progress, Row, Space, Typography } from 'antd';
-import { Change } from 'components/TableComponents';
-import { useCurrencyContext } from 'context';
-import { formatNumber } from 'utils/formatNumber';
+
+import Change from '@/components/TableComponents/Change';
+import { useCurrencyContext } from '@/context';
+import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 
 const { Text } = Typography;
 
-export function CoinMarketData({ market }) {
+export default function CoinMarketData({ market }) {
   const {
     name,
     symbol,
