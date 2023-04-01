@@ -6,6 +6,8 @@ import Link from 'next/link';
 import CompareGraphList from '@/components/CompareGraphList';
 import Container from '@/components/Container';
 import EmptyCompare from '@/components/EmptyCompare';
+import Loader from '@/components/Loader';
+import MultiGraph from '@/components/MultiChart';
 import Navigation from '@/components/Navigation';
 import { useCompareContext, useCurrencyContext } from '@/context';
 import { useGetCoinsChartsQueries } from '@/hooks';
@@ -31,32 +33,32 @@ export default function CompareGraphsPage() {
   const timesTicks = data?.[0]?.prices?.map((item) => item[0]);
   console.log(timesTicks);
 
-  // const dataPrices = data?.map((coin, idx) => {
-  //   const obj = {};
-  //   obj.coin = coinsGraph[idx];
-  //   obj.data = coin?.prices?.map((item, idx) => ({
-  //     x: timesTicks?.[idx],
-  //     y: item[1],
-  //   }));
-  //   return obj;
-  // });
+  const dataPrices = data?.map((coin, idx) => {
+    const obj = {};
+    obj.coin = coinsGraph[idx];
+    obj.data = coin?.prices?.map((item, idx) => ({
+      x: timesTicks?.[idx],
+      y: item[1],
+    }));
+    return obj;
+  });
 
-  // const isSuccess =
-  //   dataCharts?.filter((item) => item?.isSuccess === true).length ===
-  //   coinsGraph.length;
-  // const isLoading = dataCharts?.filter(
-  //   (item) => item?.isLoading === true,
-  // ).length;
+  const isSuccess =
+    dataCharts?.filter((item) => item?.isSuccess === true).length ===
+    coinsGraph.length;
+  const isLoading = dataCharts?.filter(
+    (item) => item?.isLoading === true,
+  ).length;
 
-  // const dataVolumes = data?.map((coin, idx) => {
-  //   const obj = {};
-  //   obj.coin = coinsGraph[idx];
-  //   obj.data = coin?.volumes?.map((item, idx) => ({
-  //     x: timesTicks?.[idx],
-  //     y: item[1],
-  //   }));
-  //   return obj;
-  // });
+  const dataVolumes = data?.map((coin, idx) => {
+    const obj = {};
+    obj.coin = coinsGraph[idx];
+    obj.data = coin?.volumes?.map((item, idx) => ({
+      x: timesTicks?.[idx],
+      y: item[1],
+    }));
+    return obj;
+  });
 
   const breadcrumbs = [{ title: 'Compare in Graphs' }];
   return (
@@ -90,7 +92,7 @@ export default function CompareGraphsPage() {
                 <Title type='secondary' level={3}>
                   Price in 30 days
                 </Title>
-                {/* <Loader active={isLoading} size='large'>
+                <Loader active={isLoading} size='large'>
                   {isSuccess && (
                     <MultiGraph
                       charts={dataPrices}
@@ -98,14 +100,14 @@ export default function CompareGraphsPage() {
                       type='price'
                     />
                   )}
-                </Loader> */}
+                </Loader>
               </div>
 
               <div className={classes.graphWrap}>
                 <Title type='secondary' level={3}>
                   Total Volume in 30 days
                 </Title>
-                {/* <Loader active={isLoading} size='large'>
+                <Loader active={isLoading} size='large'>
                   {isSuccess && (
                     <MultiGraph
                       charts={dataVolumes}
@@ -113,7 +115,7 @@ export default function CompareGraphsPage() {
                       type='volume'
                     />
                   )}
-                </Loader> */}
+                </Loader>
               </div>
             </>
           ) : (
