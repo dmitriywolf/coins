@@ -5,6 +5,7 @@ import {
   Tooltip,
   XYChart,
 } from '@visx/xychart';
+import ResizeObserver from 'resize-observer-polyfill';
 
 import { useCurrencyContext } from '@/context';
 import { formatNumber } from '@/utils';
@@ -13,17 +14,18 @@ import classes from './styles.module.scss';
 
 export default function Chart({ data, title, type }) {
   const { currency } = useCurrencyContext();
+
+  const dataOptions = {
+    month: 'numeric',
+    day: 'numeric',
+  };
+
   const accessors = {
     xAccessor: (d) => {
       const date = new Date(d.x);
-      return date;
+      return date.toLocaleDateString('en-GB', dataOptions);
     },
     yAccessor: (d) => d.y,
-  };
-
-  const getFullDate = (date) => {
-    const newDate = new Date(date);
-    return newDate.toLocaleString();
   };
 
   function getColorLine(type) {
@@ -45,66 +47,49 @@ export default function Chart({ data, title, type }) {
 
   return (
     <div className={classes.chart}>
-      {data?.length > 0 ? (
-        <XYChart
-          height={360}
-          xScale={{ type: 'band' }}
-          yScale={{ type: 'linear' }}
-        >
-          <AnimatedAxis
-            orientation='bottom'
-            label='Date'
-            strokeWidth='1'
-            labelClassName={classes.axisLabel}
-            numTicks={6}
-          />
-          <AnimatedAxis
-            orientation='left'
-            tickFormat={!isPriceGraph ? formatBigSum : undefined}
-            hideZero={true}
-          />
-          <AnimatedGrid columns={false} numTicks={10} />
-          <AnimatedLineSeries
-            dataKey={title}
-            data={data}
-            {...accessors}
-            colorAccessor={() => getColorLine(type)}
-          />
-          <Tooltip
-            snapTooltipToDatumX
-            snapTooltipToDatumY
-            showVerticalCrosshair
-            showSeriesGlyphs
-            renderTooltip={({ tooltipData }) => (
-              <div className={classes.tooltip}>
-                <p className={classes.tooltipDate}>
-                  {getFullDate(
-                    accessors.xAccessor(tooltipData.nearestDatum.datum),
-                  )}
-                </p>
-                <p className={classes.tooltipData}>
-                  {isPriceGraph ? (
-                    <>
-                      {formatNumber(
-                        accessors.yAccessor(tooltipData.nearestDatum.datum),
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      {formatNumber(
-                        Math.round(
-                          accessors.yAccessor(tooltipData.nearestDatum.datum),
-                        ),
-                      )}
-                    </>
-                  )}
-                  {` ${currency.symbol}`}
-                </p>
-              </div>
-            )}
-          />
-        </XYChart>
-      ) : null}
+      <XYChart
+        height={360}
+        xScale={{ type: 'band' }}
+        yScale={{ type: 'linear' }}
+        resizeObserverPolyfill={ResizeObserver}
+      >
+        <AnimatedAxis
+          orientation='bottom'
+          label='Date'
+          strokeWidth='1'
+          labelClassName={classes.axisLabel}
+          numTicks={6}
+        />
+        <AnimatedAxis
+          orientation='left'
+          tickFormat={!isPriceGraph ? formatBigSum : undefined}
+          hideZero={true}
+        />
+        <AnimatedGrid columns={false} numTicks={10} />
+        <AnimatedLineSeries
+          dataKey={title}
+          data={data}
+          {...accessors}
+          colorAccessor={() => getColorLine(type)}
+        />
+        <Tooltip
+          snapTooltipToDatumX
+          snapTooltipToDatumY
+          showVerticalCrosshair
+          showSeriesGlyphs
+          renderTooltip={({ tooltipData }) => (
+            <div className={classes.tooltip}>
+              <p>{accessors.xAccessor(tooltipData.nearestDatum.datum)}</p>
+              <p className={classes.tooltipData}>
+                {formatNumber(
+                  accessors.yAccessor(tooltipData.nearestDatum.datum),
+                )}
+                {` ${currency.symbol}`}
+              </p>
+            </div>
+          )}
+        />
+      </XYChart>
     </div>
   );
 }

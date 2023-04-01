@@ -1,6 +1,7 @@
+@import 'styles/variables';
 .chart {
-  padding: 10px;
-  /* background-color: var(--white); */
+  padding: 0 10px;
+  background-color: $white;
   border-radius: 8px;
 }
 
@@ -10,13 +11,9 @@
   font-size: 14px;
 }
 
-/* .tooltipData {
-  color: var(--secondary);
-} */
-
-/* .axisLabel {
-  fill: var(--secondary);
-} */
+.tooltipData {
+  color: $secondary;
+}
 
 @media (max-width: 576px) {
   .chart {

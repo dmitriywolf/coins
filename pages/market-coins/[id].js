@@ -79,7 +79,7 @@ export default function MarketCoinPage() {
   return (
     <>
       <Head>
-        <title>Coin: {data?.name}</title>
+        <title> Coin </title>
         <meta name='description' content={`Coin page: ${data?.name}`} />
       </Head>
       <div className='page'>

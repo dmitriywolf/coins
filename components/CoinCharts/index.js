@@ -4,25 +4,26 @@ import {
   SlidersOutlined,
 } from '@ant-design/icons';
 import { Segmented, Typography } from 'antd';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 
 import Loader from '@/components/Loader';
 
-// import Chart from './Chart';
 import classes from './style.module.scss';
+
+const Chart = dynamic(() => import('./Chart'), { ssr: false });
 
 const { Title } = Typography;
 
 export default function CoinCharts({ charts = [], loading }) {
   const [selectedTab, setSelectedTab] = useState(1);
-  console.log(charts);
-  // const prices = charts?.prices;
-  // const marketCaps = charts?.market_caps;
-  // const totalVolumes = charts?.total_volumes;
+  const prices = charts?.prices;
+  const marketCaps = charts?.market_caps;
+  const totalVolumes = charts?.total_volumes;
 
-  // const dataPrices = prices?.map((item) => ({ x: item[0], y: item[1] }));
-  // const dataMarkets = marketCaps?.map((item) => ({ x: item[0], y: item[1] }));
-  // const dataVolumes = totalVolumes?.map((item) => ({ x: item[0], y: item[1] }));
+  const dataPrices = prices?.map((item) => ({ x: item[0], y: item[1] }));
+  const dataMarkets = marketCaps?.map((item) => ({ x: item[0], y: item[1] }));
+  const dataVolumes = totalVolumes?.map((item) => ({ x: item[0], y: item[1] }));
 
   const changeTabHandler = (value) => {
     setSelectedTab(value);
@@ -59,13 +60,19 @@ export default function CoinCharts({ charts = [], loading }) {
       />
       <Loader active={loading} size='large'>
         <div className={classes.wrapCharts}>
-          {/* {
+          {
             {
-              1: <Chart data={dataPrices} type='price' />,
-              2: <Chart data={dataVolumes} type='volume' />,
-              3: <Chart data={dataMarkets} type='marketCap' />,
+              1: <>{dataPrices && <Chart data={dataPrices} type='price' />}</>,
+              2: (
+                <>{dataVolumes && <Chart data={dataVolumes} type='volume' />}</>
+              ),
+              3: (
+                <>
+                  {dataMarkets && <Chart data={dataMarkets} type='marketCap' />}
+                </>
+              ),
             }[selectedTab]
-          } */}
+          }
         </div>
       </Loader>
     </div>

@@ -62,7 +62,7 @@ export const getCoinTickers = async (id) => {
 
 export const getCoinChart = async ({ id, currency }) => {
   const chart = await instanceCrypto.get(
-    `${BREAKPOINTS_CRYPTO.coins}/${id}/market_chart?vs_currency=${currency}&days=30days`,
+    `${BREAKPOINTS_CRYPTO.coins}/${id}/market_chart?vs_currency=${currency}&days=30days&interval=daily`,
   );
 
   return chart.data;
