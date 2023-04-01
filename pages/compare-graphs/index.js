@@ -94,7 +94,7 @@ export default function CompareGraphsPage() {
               <CompareGraphList />
               <div className={classes.graphWrap}>
                 <Title type='secondary' level={3}>
-                  Price in 30 days
+                  Price in 30 days, {currency.symbol}
                 </Title>
                 <Loader active={isLoading} size='large'>
                   {isSuccess && (
@@ -109,7 +109,7 @@ export default function CompareGraphsPage() {
 
               <div className={classes.graphWrap}>
                 <Title type='secondary' level={3}>
-                  Total Volume in 30 days
+                  Total Volume in 30 days, MM {currency.symbol}
                 </Title>
                 <Loader active={isLoading} size='large'>
                   {isSuccess && (

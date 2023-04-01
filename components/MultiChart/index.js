@@ -44,7 +44,7 @@ export default function MultiGraph({ charts, type }) {
           label='Date'
           strokeWidth='1'
           labelClassName={classes.label}
-          numTicks={6}
+          numTicks={7}
         />
         <AnimatedAxis
           orientation='left'
@@ -52,7 +52,7 @@ export default function MultiGraph({ charts, type }) {
           tickFormat={!isPriceGraph ? formatBigSum : undefined}
           hideZero={true}
         />
-        <AnimatedGrid columns={false} numTicks={6} />
+        <AnimatedGrid columns={false} numTicks={7} />
         {charts?.map(({ coin, data }) => (
           <AnimatedLineSeries
             key={coin.name}

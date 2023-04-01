@@ -2,13 +2,11 @@ import {
   AnimatedAxis,
   AnimatedGrid,
   AnimatedLineSeries,
-  Tooltip,
   XYChart,
 } from '@visx/xychart';
 import ResizeObserver from 'resize-observer-polyfill';
 
 import { useCurrencyContext } from '@/context';
-import { formatNumber } from '@/utils';
 
 import classes from './styles.module.scss';
 
@@ -47,47 +45,30 @@ export default function Chart({ data, title, type }) {
 
   return (
     <div className={classes.chart}>
+      <p className={classes.title}>{`${title} ${currency.symbol}`}</p>
       <XYChart
-        height={360}
+        height={350}
         xScale={{ type: 'band' }}
         yScale={{ type: 'linear' }}
         resizeObserverPolyfill={ResizeObserver}
       >
         <AnimatedAxis
           orientation='bottom'
-          label='Date'
           strokeWidth='1'
           labelClassName={classes.axisLabel}
-          numTicks={6}
+          numTicks={7}
         />
         <AnimatedAxis
           orientation='left'
           tickFormat={!isPriceGraph ? formatBigSum : undefined}
           hideZero={true}
         />
-        <AnimatedGrid columns={false} numTicks={10} />
+        <AnimatedGrid columns={false} numTicks={7} />
         <AnimatedLineSeries
           dataKey={title}
           data={data}
           {...accessors}
           colorAccessor={() => getColorLine(type)}
-        />
-        <Tooltip
-          snapTooltipToDatumX
-          snapTooltipToDatumY
-          showVerticalCrosshair
-          showSeriesGlyphs
-          renderTooltip={({ tooltipData }) => (
-            <div className={classes.tooltip}>
-              <p>{accessors.xAccessor(tooltipData.nearestDatum.datum)}</p>
-              <p className={classes.tooltipData}>
-                {formatNumber(
-                  accessors.yAccessor(tooltipData.nearestDatum.datum),
-                )}
-                {` ${currency.symbol}`}
-              </p>
-            </div>
-          )}
         />
       </XYChart>
     </div>

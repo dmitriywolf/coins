@@ -62,13 +62,33 @@ export default function CoinCharts({ charts = [], loading }) {
         <div className={classes.wrapCharts}>
           {
             {
-              1: <>{dataPrices && <Chart data={dataPrices} type='price' />}</>,
+              1: (
+                <>
+                  {dataPrices && (
+                    <Chart data={dataPrices} title='Price, ' type='price' />
+                  )}
+                </>
+              ),
               2: (
-                <>{dataVolumes && <Chart data={dataVolumes} type='volume' />}</>
+                <>
+                  {dataVolumes && (
+                    <Chart
+                      data={dataVolumes}
+                      title='Total volume, MM'
+                      type='volume'
+                    />
+                  )}
+                </>
               ),
               3: (
                 <>
-                  {dataMarkets && <Chart data={dataMarkets} type='marketCap' />}
+                  {dataMarkets && (
+                    <Chart
+                      data={dataMarkets}
+                      title='Market Cap MM'
+                      type='marketCap'
+                    />
+                  )}
                 </>
               ),
             }[selectedTab]
