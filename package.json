@@ -27,7 +27,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/webpack": "^7.0.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "eslint-config-prettier": "^8.8.0",

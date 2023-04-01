@@ -17,6 +17,7 @@ const variants = {
 };
 
 const { Title, Text } = Typography;
+
 const ListItem = forwardRef(({ coin, percentage }, ref) => (
   <li className={classes.item} ref={ref}>
     <Text strong>{coin.toUpperCase()}</Text>
@@ -27,7 +28,6 @@ const ListItem = forwardRef(({ coin, percentage }, ref) => (
 ));
 
 ListItem.displayName = 'ListName';
-
 const MotionListItem = motion(ListItem);
 
 export default function MarketCapGlobalList({ percentage }) {

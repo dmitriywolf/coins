@@ -87,5 +87,4 @@ const TopExchangeItem = forwardRef(
 );
 
 TopExchangeItem.displayName = 'TopExchangeItem';
-
 export const MotionTopExchangeItem = motion(TopExchangeItem);

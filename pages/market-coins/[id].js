@@ -11,6 +11,8 @@ import CoinMarketData from '@/components/CoinMarketData';
 import Container from '@/components/Container';
 import Navigation from '@/components/Navigation';
 import Tickers from '@/components/Tickers';
+import { coinIntroConnector } from '@/connectors/coin-intro';
+import { coinMarketConnector } from '@/connectors/coin-market';
 import { useCurrencyContext } from '@/context';
 import {
   useGetCoinByIdQuery,
@@ -35,35 +37,8 @@ export default function MarketCoinPage() {
     currency: currency.value,
   });
 
-  const coinIntroData = {
-    name: data?.name,
-    categories: data?.categories,
-    algorith: data?.hashing_algorithm,
-    genesis: data?.genesis_date,
-    image: data?.image.small,
-    rank: data?.market_cap_rank,
-    symbol: data?.symbol,
-    community: {
-      facebook: data?.community_data?.facebook_likes,
-      reddit_posts: data?.community_data?.reddit_average_posts_48h,
-      twitter: data?.community_data?.twitter_followers,
-    },
-  };
-
-  const coinMarketData = {
-    name: data?.name,
-    symbol: data?.symbol,
-    high24h: data?.market_data.high_24h,
-    low24h: data?.market_data.low_24h,
-    marketCap: data?.market_data.market_cap,
-    marketCapChangePercentage24hInCurrency:
-      data?.market_data.market_cap_change_percentage_24h_in_currency,
-    currentPrice: data?.market_data.current_price,
-    priceChangePercentage24hInCurrency:
-      data?.market_data.price_change_percentage_24h_in_currency,
-    circulatingSupply: data?.market_data.circulating_supply,
-    maxSupply: data?.market_data.max_supply,
-  };
+  const coinIntroData = coinIntroConnector(data);
+  const coinMarketData = coinMarketConnector(data);
 
   const items = [
     {
