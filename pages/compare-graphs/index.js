@@ -1,5 +1,6 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -7,13 +8,16 @@ import CompareGraphList from '@/components/CompareGraphList';
 import Container from '@/components/Container';
 import EmptyCompare from '@/components/EmptyCompare';
 import Loader from '@/components/Loader';
-import MultiGraph from '@/components/MultiChart';
 import Navigation from '@/components/Navigation';
 import { useCompareContext, useCurrencyContext } from '@/context';
 import { useGetCoinsChartsQueries } from '@/hooks';
 import classes from '@/styles/CompareGraphsPage.module.scss';
 
 const { Title } = Typography;
+
+const MultiGraph = dynamic(() => import('@/components/MultiChart'), {
+  ssr: false,
+});
 
 export default function CompareGraphsPage() {
   const { currency } = useCurrencyContext();
