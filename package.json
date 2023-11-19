@@ -2,10 +2,6 @@
   "name": "coins",
   "version": "0.1.0",
   "private": "false",
-  "engines": {
-    "node": ">=18.12",
-    "npm": ">=8.19"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
